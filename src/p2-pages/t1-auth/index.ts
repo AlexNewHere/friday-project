@@ -1,0 +1,6 @@
+export {LoginPages} from './a1-login/loginPages'
+export {AuthPages} from './a2-auth/authPages'
+export {ProfilePages} from './a3-profile/profilePages'
+export {RecoveryPages} from './a4-recovery/recoveryPages'
+export {NewPassPages} from './a5-newPassword/newPassPages'
+export {NotFoundPages} from './a6-notFound/notFoundPages'

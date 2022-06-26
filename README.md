@@ -1,1 +1,1 @@
-# friday-project
+Friday project
