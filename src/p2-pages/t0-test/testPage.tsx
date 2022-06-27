@@ -1,11 +1,13 @@
 import React from 'react';
 import {SuperButton, SuperCheckbox, SuperInputText} from 'p1-Main/c1-ui';
 
-export const TestPages = () => {
+export const TestPage = () => {
 
     return (
         <div>
-            <SuperButton/>
+            <SuperButton>
+                CLICK
+            </SuperButton>
             <SuperCheckbox/>
             <SuperInputText/>
         </div>

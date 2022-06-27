@@ -1,5 +1,5 @@
 export {
-    LoginPages, ProfilePages, RecoveryPages, NewPassPages, AuthPages, NotFoundPages
+    LoginPage, ProfilePage, RecoveryPage, NewPasswordPage, AuthPage, NotFoundPage
 } from './t1-auth'
 
-export {TestPages} from './t0-test/testPages'
+export {TestPage} from 'p2-pages/t0-test/testPage'

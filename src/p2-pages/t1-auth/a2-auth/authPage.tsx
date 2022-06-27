@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const LoginPages = () => {
+export const AuthPage = () => {
 
     return (
         <div>
-            Login
+            Authentication
         </div>
     );
 };

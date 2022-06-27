@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const ProfilePages = () => {
+export const NewPasswordPage = () => {
 
     return (
         <div>
-Hello. You need create your profile page!!
+            Plug
         </div>
     );
 };

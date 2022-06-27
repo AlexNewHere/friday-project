@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './notFound.module.scss'
 
-export const NotFoundPages = () => {
+export const NotFoundPage = () => {
 
     return (
 

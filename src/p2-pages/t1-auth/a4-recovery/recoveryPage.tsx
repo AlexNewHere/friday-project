@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const NewPassPages = () => {
+export const RecoveryPage = () => {
 
     return (
         <div>
-            Plug
+            Recovery password
         </div>
     );
 };
