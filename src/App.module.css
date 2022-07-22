@@ -1,0 +1,13 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    gap: 50px;
+}
+
+
+
+

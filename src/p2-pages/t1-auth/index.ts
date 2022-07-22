@@ -1,6 +1,0 @@
-export {LoginPage} from 'p2-pages/t1-auth/a1-login/loginPage'
-export {AuthPage} from 'p2-pages/t1-auth/a2-auth/authPage'
-export {ProfilePage} from 'p2-pages/t1-auth/a3-profile/profilePage'
-export {RecoveryPage} from 'p2-pages/t1-auth/a4-recovery/recoveryPage'
-export {NewPasswordPage} from 'p2-pages/t1-auth/a5-newPassword/newPasswordPage'
-export {NotFoundPage} from 'p2-pages/t1-auth/a6-notFound/notFoundPage'
