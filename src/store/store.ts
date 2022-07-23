@@ -1,21 +1,12 @@
-import { devToolsEnhancer } from '@redux-devtools/extension';
-import {
-  combineReducers,
-  legacy_createStore as createStore,
-  applyMiddleware,
-  compose,
-} from 'redux';
-import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
 
-import { loginReducer } from 'store';
+import { loginSlice } from 'store/features';
 
-const rootReducer = combineReducers({
-  login: loginReducer,
+export const store = configureStore({
+  reducer: {
+    login: loginSlice.reducer,
+  },
 });
 
-const composedEnhancers = compose(applyMiddleware(thunk), devToolsEnhancer());
-
-export const store = createStore(rootReducer, undefined, composedEnhancers);
-
-export type AppRootStateType = ReturnType<typeof rootReducer>;
+export type AppRootStateType = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
