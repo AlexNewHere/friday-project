@@ -12,9 +12,7 @@ const linkActive = ({ isActive }: { isActive: boolean }): string =>
 export const NavBar = (): ReactElement => (
   <div className={s.sidebar}>
     <div className={s.item}>
-      <NavLink to={LINK.TEST} className={linkActive}>
-        TEST
-      </NavLink>
+      <NavLink to={LINK.TEST} className={linkActive}>TEST</NavLink>
     </div>
     <div className={s.item}>
       <NavLink to={LINK.LOGIN} className={linkActive}>
