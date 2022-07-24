@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://alexnewhere.github.io/friday-project/",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.1",
     "@redux-devtools/extension": "^3.2.2",
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.14.1",
