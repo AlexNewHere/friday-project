@@ -51,3 +51,5 @@ export const loginSlice = createSlice({
     // .addCase(logOutUserThunk.rejected, (_, action) => {});
   },
 });
+
+export const { changeFetching, setAuthUserData } = loginSlice.actions;
