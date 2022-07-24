@@ -1,3 +1,3 @@
 import React, { ReactElement } from 'react';
 
-export const LoginPage = (): ReactElement => <div>Login</div>;
+export const LoginPage = (): ReactElement => <div>Login page</div>;
