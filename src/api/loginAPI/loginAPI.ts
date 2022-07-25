@@ -23,7 +23,7 @@ export const loginAPI = {
     return instance.post(ENDPOINT.PASSWORD, {});
   },
   authMe() {
-    return instance.post<AuthType>(ENDPOINT.AUTH);
+    return instance.post<AuthType>(ENDPOINT.AUTH, {});
   },
   changeMe() {
     return instance.put(ENDPOINT.AUTH, {});
