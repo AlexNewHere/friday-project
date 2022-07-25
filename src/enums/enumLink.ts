@@ -5,5 +5,6 @@ export enum LINK {
   RECOVER = '/recovery',
   PASSWORD = '/password',
   FOUND404 = '/notfound',
+  REGISTER = '/register',
   TEST = '/test',
 }

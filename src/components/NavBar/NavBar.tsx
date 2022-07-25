@@ -17,6 +17,11 @@ export const NavBar = (): ReactElement => (
       </NavLink>
     </div>
     <div className={s.item}>
+      <NavLink to={LINK.REGISTER} className={linkActive}>
+        Register
+      </NavLink>
+    </div>
+    <div className={s.item}>
       <NavLink to={LINK.AUTH} className={linkActive}>
         Authentication
       </NavLink>

@@ -5,3 +5,5 @@ export { ProfilePage } from './t1-auth/a3-profile/profilePage';
 export { RecoveryPage } from './t1-auth/a4-recovery/recoveryPage';
 export { NewPasswordPage } from './t1-auth/a5-newPassword/newPasswordPage';
 export { NotFoundPage } from './t1-auth/a6-notFound/notFoundPage';
+export { RegisterPage } from './t1-auth/a0-register/registerPage';
+export type { FormikRegisterType } from './t1-auth/a0-register/registerPageType';
