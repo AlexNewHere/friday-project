@@ -1,25 +1,21 @@
 import React, { ReactElement } from 'react';
 
-import { useFormik, FormikErrors } from 'formik';
-import { Navigate } from 'react-router-dom';
+import { FormikErrors, useFormik } from 'formik';
 
-import { LINK } from 'enums';
-import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { FormikInitialType } from 'pages';
-import { loginUserThunk } from 'store';
+import { useAppDispatch } from 'hooks/useTypeHooks';
+import { FormikRegisterType } from 'pages';
+import { registerUserThunk } from 'store';
 
-export const LoginPage = (): ReactElement => {
-  const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
+export const RegisterPage = (): ReactElement => {
   const dispatch = useAppDispatch();
 
-  const formik = useFormik<FormikInitialType>({
+  const formik = useFormik<FormikRegisterType>({
     initialValues: {
       email: '',
       password: '',
-      rememberMe: false,
     },
-    validate: (values: FormikInitialType) => {
-      const errors: FormikErrors<FormikInitialType> = {};
+    validate: (values: FormikRegisterType) => {
+      const errors: FormikErrors<FormikRegisterType> = {};
       if (!values.email) {
         errors.email = 'Required';
       } else if (!/^[A-Z\d._%+-]+@[A-Z\d.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -33,19 +29,16 @@ export const LoginPage = (): ReactElement => {
     },
     onSubmit: values => {
       // console.log(values);
-      dispatch(loginUserThunk(values));
+      dispatch(registerUserThunk(values));
       formik.resetForm();
     },
   });
-  if (isLoggedIn) {
-    return <Navigate replace to={LINK.PROFILE} />;
-  }
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <input type="email" {...formik.getFieldProps('email')} />
       <input type="password" {...formik.getFieldProps('password')} />
-      <input type="checkbox" {...formik.getFieldProps('rememberMe')} />
-      <button type="submit">Log In</button>
+      <button type="submit">Register</button>
       {formik.touched.email && formik.errors.email ? (
         <div style={{ color: 'red' }}>{formik.errors.email}</div>
       ) : null}
