@@ -1,2 +1,9 @@
 export type { AppDispatch, AppRootStateType } from './store';
-export { loginSlice } from './features';
+
+export {
+  loginSlice,
+  isInitializedAppThunk,
+  loginUserThunk,
+} from './features/login/loginSlice';
+
+export type { LoginType, AuthType } from './features/login/loginTypes';

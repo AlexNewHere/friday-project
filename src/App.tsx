@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import s from './App.module.css';
 
 import { NavBar } from 'components';
 import { LINK } from 'enums';
+import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import {
-  TestPage,
   LoginPage,
   NewPasswordPage,
   NotFoundPage,
@@ -15,22 +15,36 @@ import {
   RecoveryPage,
   AuthPage,
 } from 'pages';
+import { isInitializedAppThunk } from 'store';
 
-const App = (): ReactElement => (
-  <div className={s.App}>
-    <NavBar />
-    <div>
-      <Routes>
-        <Route path={LINK.TEST} element={<TestPage />} />
-        <Route path={LINK.LOGIN} element={<LoginPage />} />
-        <Route path={LINK.AUTH} element={<AuthPage />} />
-        <Route path={LINK.PROFILE} element={<ProfilePage />} />
-        <Route path={LINK.RECOVER} element={<RecoveryPage />} />
-        <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
-        <Route path={LINK.FOUND404} element={<NotFoundPage />} />
-      </Routes>
+const App = (): ReactElement => {
+  const isInitialized = useAppSelector(state => state.login.isInitialized);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(isInitializedAppThunk());
+  }, []);
+
+  if (!isInitialized) {
+    return <div>ЗАгрузка</div>;
+  }
+
+  return (
+    <div className={s.App}>
+      <NavBar />
+      <div>
+        <Routes>
+          <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
+          <Route path={LINK.LOGIN} element={<LoginPage />} />
+          <Route path={LINK.AUTH} element={<AuthPage />} />
+          <Route path={LINK.PROFILE} element={<ProfilePage />} />
+          <Route path={LINK.RECOVER} element={<RecoveryPage />} />
+          <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
+          <Route path={LINK.FOUND404} element={<NotFoundPage />} />
+        </Routes>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;

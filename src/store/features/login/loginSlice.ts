@@ -1,8 +1,7 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
-import { LoginType } from 'store/features';
-import { AppDispatch } from 'store/store';
+import { LoginType, AppDispatch } from 'store';
 
 const initialState: LoginType = {
   _id: null,
@@ -10,20 +9,25 @@ const initialState: LoginType = {
   name: null,
   avatar: null,
   publicCardPacksCount: 0,
-  isAuth: false,
-  isFetchLogin: true,
+  isInitialized: false,
+  isLoggedIn: true,
 };
 
-export const loginUserThunk = createAsyncThunk<void, any, { dispatch: AppDispatch }>(
+export const loginUserThunk = createAsyncThunk<void, void, { dispatch: AppDispatch }>(
   'login/loginUserThunk',
-  async ({ data }, thunkAPI) => {
+  async () => {
+    const response = await loginAPI.login();
+    console.log(response);
+  },
+);
+
+export const isInitializedAppThunk = createAsyncThunk<void, void>(
+  'login/isInitializedAppThunk',
+  async (_, thunkAPI) => {
     try {
-      const response = await loginAPI.login();
-      console.log(response);
-      console.log(data);
-      console.log(thunkAPI);
-    } catch (e: any) {
-      console.log(e.message);
+      await loginAPI.authMe();
+    } catch (e) {
+      thunkAPI.fulfillWithValue(e);
     }
   },
 );
@@ -32,8 +36,8 @@ export const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    setAuthUserData: (_, action: PayloadAction<any>): any => action,
-    changeFetching: (state, action: PayloadAction<any>): any => action,
+    // setAuthUserData: (_, action: PayloadAction<any>): any => action,
+    // changeFetching: (state, action: PayloadAction<any>): any => action,
   },
   extraReducers: builder => {
     builder
@@ -45,11 +49,18 @@ export const loginSlice = createSlice({
       })
       .addCase(loginUserThunk.rejected, (state, action) => {
         console.log(action);
+      })
+      .addCase(isInitializedAppThunk.pending, (state, action) => {
+        console.log(action);
+      })
+      .addCase(isInitializedAppThunk.fulfilled, (state, action) => {
+        console.log(action);
+        state.isInitialized = true;
+      })
+      .addCase(isInitializedAppThunk.rejected, (state, action) => {
+        console.log(action.error);
       });
-    // .addCase(logOutUserThunk.pending, () => {})
-    // .addCase(logOutUserThunk.fulfilled, () => ({}))
-    // .addCase(logOutUserThunk.rejected, (_, action) => {});
   },
 });
 
-export const { changeFetching, setAuthUserData } = loginSlice.actions;
+// export const {} = loginSlice.actions;

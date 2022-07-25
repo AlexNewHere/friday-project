@@ -1,10 +1,16 @@
 import React, { ReactElement } from 'react';
 
 import { useFormik, FormikErrors } from 'formik';
+import { Navigate } from 'react-router-dom';
 
+import { LINK } from 'enums';
+import { useAppSelector } from 'hooks/useTypeHooks';
 import { FormikInitialType } from 'pages';
 
 export const LoginPage = (): ReactElement => {
+  const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
+  // const dispatch = useAppDispatch();
+
   const formik = useFormik<FormikInitialType>({
     initialValues: {
       email: '',
@@ -30,16 +36,14 @@ export const LoginPage = (): ReactElement => {
       formik.resetForm();
     },
   });
+  if (!isLoggedIn) {
+    return <Navigate replace to={LINK.PROFILE} />;
+  }
   return (
     <form onSubmit={formik.handleSubmit}>
       <input type="email" {...formik.getFieldProps('email')} />
       <input type="password" {...formik.getFieldProps('password')} />
-      <input
-        type="checkbox"
-        name="rememberMe"
-        onChange={formik.handleChange}
-        checked={formik.values.rememberMe}
-      />
+      <input type="checkbox" {...formik.getFieldProps('rememberMe')} />
       <button type="submit">Log In</button>
       {formik.touched.email && formik.errors.email ? (
         <div style={{ color: 'red' }}>{formik.errors.email}</div>

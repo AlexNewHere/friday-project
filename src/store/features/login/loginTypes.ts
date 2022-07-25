@@ -7,6 +7,6 @@ export type AuthType = {
 };
 
 export type LoginType = AuthType & {
-  isAuth: boolean;
-  isFetchLogin: boolean;
+  isInitialized: boolean;
+  isLoggedIn: boolean;
 };
