@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
+import { FormikInitialType } from 'pages';
 import { LoginType, AppDispatch } from 'store';
 
 const initialState: LoginType = {
@@ -10,16 +11,17 @@ const initialState: LoginType = {
   avatar: null,
   publicCardPacksCount: 0,
   isInitialized: false,
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 
-export const loginUserThunk = createAsyncThunk<void, void, { dispatch: AppDispatch }>(
-  'login/loginUserThunk',
-  async () => {
-    const response = await loginAPI.login();
-    console.log(response);
-  },
-);
+export const loginUserThunk = createAsyncThunk<
+  void,
+  FormikInitialType,
+  { dispatch: AppDispatch }
+>('login/loginUserThunk', async data => {
+  const response = await loginAPI.login(data);
+  console.log(response);
+});
 
 export const isInitializedAppThunk = createAsyncThunk<void, void>(
   'login/isInitializedAppThunk',
@@ -46,6 +48,7 @@ export const loginSlice = createSlice({
       })
       .addCase(loginUserThunk.fulfilled, (state, action) => {
         console.log(action);
+        state.isLoggedIn = true;
       })
       .addCase(loginUserThunk.rejected, (state, action) => {
         console.log(action);

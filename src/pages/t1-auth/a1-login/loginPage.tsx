@@ -4,12 +4,13 @@ import { useFormik, FormikErrors } from 'formik';
 import { Navigate } from 'react-router-dom';
 
 import { LINK } from 'enums';
-import { useAppSelector } from 'hooks/useTypeHooks';
+import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { FormikInitialType } from 'pages';
+import { loginUserThunk } from 'store';
 
 export const LoginPage = (): ReactElement => {
   const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const formik = useFormik<FormikInitialType>({
     initialValues: {
@@ -32,7 +33,7 @@ export const LoginPage = (): ReactElement => {
     },
     onSubmit: values => {
       console.log(values);
-      // dispatch(loginTC(values));
+      dispatch(loginUserThunk(values));
       formik.resetForm();
     },
   });

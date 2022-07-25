@@ -1,18 +1,20 @@
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
+import { FormikInitialType } from 'pages';
+import { AuthType } from 'store';
 
 export const loginAPI = {
   ping() {
     return instance.get(ENDPOINT.PING);
   },
-  login() {
-    return instance.post(ENDPOINT.LOGIN, {});
+  login(data: FormikInitialType) {
+    return instance.post<AuthType>(ENDPOINT.LOGIN, { ...data });
   },
   logOut() {
     return instance.delete(ENDPOINT.AUTH);
   },
-  register() {
-    return instance.post(ENDPOINT.REGISTER, {});
+  register(data: any) {
+    return instance.post(ENDPOINT.REGISTER, { ...data });
   },
   forgot() {
     return instance.post(ENDPOINT.FORGOT, {});
@@ -21,7 +23,7 @@ export const loginAPI = {
     return instance.post(ENDPOINT.PASSWORD, {});
   },
   authMe() {
-    return instance.post(ENDPOINT.AUTH);
+    return instance.post<AuthType>(ENDPOINT.AUTH);
   },
   changeMe() {
     return instance.put(ENDPOINT.AUTH, {});
