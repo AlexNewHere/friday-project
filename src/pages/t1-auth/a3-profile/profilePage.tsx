@@ -3,7 +3,8 @@ import React, { ChangeEvent, ReactElement, useState } from 'react';
 import s from './profilePage.module.css';
 
 import { SuperButton } from 'components';
-import { useAppSelector } from 'hooks/useTypeHooks';
+import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
+import { logOutUserThunk } from 'store/features/login/loginSlice';
 
 type EditableSpanPropsType = {
   value: string;
@@ -37,6 +38,7 @@ export const ProfilePage = (): ReactElement => {
   const userName = useAppSelector(state => state.login.name);
   const userEmail = useAppSelector(state => state.login.email);
   const publicCardPacksCount = useAppSelector(state => state.login.publicCardPacksCount);
+  const dispatch = useAppDispatch();
   console.log(userName);
   console.log(userEmail);
   console.log(publicCardPacksCount);
@@ -50,7 +52,9 @@ export const ProfilePage = (): ReactElement => {
   console.log(value);
 
   const UpdateUserName = (title: string): void => setValue(title);
-  const logOutHandler = (): void => console.log('logOut success');
+  const logOutHandler = (): void => {
+    dispatch(logOutUserThunk());
+  };
 
   return (
     <div>

@@ -23,6 +23,13 @@ export const loginUserThunk = createAsyncThunk<
   thunkAPI.dispatch(setUserData(response.data));
 });
 
+export const logOutUserThunk = createAsyncThunk<void, void>(
+  'login/logOutUserThunk',
+  async () => {
+    await loginAPI.logOut();
+  },
+);
+
 export const isInitializedAppThunk = createAsyncThunk<
   void,
   void,
@@ -61,10 +68,20 @@ export const loginSlice = createSlice({
       .addCase(isInitializedAppThunk.pending, (state, action) => {
         console.log(action);
       })
-      .addCase(isInitializedAppThunk.fulfilled, (state, action) => {
-        console.log(action);
+      .addCase(isInitializedAppThunk.fulfilled, state => {
+        state.isInitialized = true;
       })
       .addCase(isInitializedAppThunk.rejected, (state, action) => {
+        console.log(action.error);
+      })
+      .addCase(logOutUserThunk.pending, (state, action) => {
+        console.log(action);
+      })
+      .addCase(logOutUserThunk.fulfilled, (state, action) => {
+        console.log(action);
+        return { ...initialState, isInitialized: true };
+      })
+      .addCase(logOutUserThunk.rejected, (state, action) => {
         console.log(action.error);
       });
   },
