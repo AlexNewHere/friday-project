@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
-import { FormikInitialType } from 'pages';
-import { ProfileType, AppDispatch } from 'store';
+import { updateProfileType } from 'pages';
+import { ProfileType, setUserData } from 'store';
 
 const initialState: ProfileType = {
   _id: null,
@@ -12,14 +12,20 @@ const initialState: ProfileType = {
   publicCardPacksCount: 0,
 };
 
-export const profileUserThunk = createAsyncThunk<
-  void,
-  FormikInitialType,
-  { dispatch: AppDispatch }
->('profile/profileUserThunk', async () => {
-  const response = await loginAPI.authMe();
-  console.log(response);
-});
+export const updateProfileThunk = createAsyncThunk<void, updateProfileType>(
+  'profile/updateUserNameThunk',
+  async (data, thunkAPI) => {
+    try {
+      const response = await loginAPI.changeMe(data);
+      thunkAPI.dispatch(setUserData(response.data));
+
+      const res = await loginAPI.authMe();
+      thunkAPI.dispatch(setUserData(res.data));
+    } catch (e) {
+      console.log(e);
+    }
+  },
+);
 
 export const profileSlice = createSlice({
   name: 'profile',
@@ -30,18 +36,16 @@ export const profileSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(profileUserThunk.pending, (state, action) => {
+      .addCase(updateProfileThunk.pending, (state, action) => {
         console.log(action);
       })
-      .addCase(profileUserThunk.fulfilled, (state, action) => {
+      .addCase(updateProfileThunk.fulfilled, (state, action) => {
         console.log(action);
-        state.email = '';
-        state.name = '';
       })
-      .addCase(profileUserThunk.rejected, (state, action) => {
+      .addCase(updateProfileThunk.rejected, (state, action) => {
         console.log(action);
       });
   },
 });
 
-// export const {} = profileSlice.actions;
+// export const {  } = profileSlice.actions;

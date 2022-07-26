@@ -1,6 +1,6 @@
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
-import { FormikInitialType, FormikRegisterType } from 'pages';
+import { FormikInitialType, FormikRegisterType, updateProfileType } from 'pages';
 import { AuthType } from 'store';
 
 export const loginAPI = {
@@ -25,7 +25,7 @@ export const loginAPI = {
   authMe() {
     return instance.post<AuthType>(ENDPOINT.AUTH, {});
   },
-  changeMe() {
-    return instance.put(ENDPOINT.AUTH, {});
+  changeMe({ name, avatar }: updateProfileType) {
+    return instance.put(ENDPOINT.AUTH, { name, avatar });
   },
 };
