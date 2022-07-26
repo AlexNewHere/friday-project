@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
 
-import { CircularProgress } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import s from './App.module.css';
@@ -48,7 +47,6 @@ const App = (): ReactElement => {
       <div>
         <Routes>
           <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
-          <Route path="*" element={<Navigate to={LINK.FOUND404} />} />
           <Route path={LINK.LOGIN} element={<LoginPage />} />
           <Route path={LINK.REGISTER} element={<RegisterPage />} />
           <Route path={LINK.AUTH} element={<AuthPage />} />

@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .textField {
+    margin: 12px 0;
+  }
+
+  .button {
+    margin: 48px 0 24px;
+    background: #366EFF;
+    box-shadow: 0 4px 18px rgba(54, 110, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+  }
+}
