@@ -1,6 +1,8 @@
+import { UserRegisterData } from './loginApiTypes';
+
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
-import { FormikInitialType, FormikRegisterType, updateProfileType } from 'pages';
+import { FormikInitialType, updateProfileType } from 'pages';
 import { AuthType } from 'store';
 
 export const loginAPI = {
@@ -13,8 +15,11 @@ export const loginAPI = {
   logOut() {
     return instance.delete(ENDPOINT.AUTH);
   },
-  register(data: FormikRegisterType) {
-    return instance.post(ENDPOINT.REGISTER, { ...data });
+  register(data: UserRegisterData) {
+    return instance.post(ENDPOINT.REGISTER, {
+      email: data.email,
+      password: data.password,
+    });
   },
   forgot() {
     return instance.post(ENDPOINT.FORGOT, {});

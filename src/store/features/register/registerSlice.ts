@@ -12,7 +12,10 @@ const initialState: RegisterType = {
 export const registerUserThunk = createAsyncThunk<void, FormikRegisterType>(
   'register/registerUserThunk',
   async data => {
-    await loginAPI.register(data);
+    await loginAPI.register({
+      email: data.email,
+      password: data.password,
+    });
   },
 );
 

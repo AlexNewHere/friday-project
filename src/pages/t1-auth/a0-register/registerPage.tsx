@@ -7,7 +7,7 @@ import { Link, Navigate } from 'react-router-dom';
 
 import style from './registerPage.module.scss';
 
-import { AuthPageWrapper, AuthPageTitle } from 'components';
+import { AuthPageWrapper } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { FormikRegisterType } from 'pages';
@@ -21,7 +21,6 @@ export const RegisterPage = (): ReactElement => {
     initialValues: {
       email: '',
       password: '',
-      // WARNING: need to remove (as from types)
       confirmPassword: '',
     },
     validate: (values: FormikRegisterType) => {
@@ -32,7 +31,7 @@ export const RegisterPage = (): ReactElement => {
         errors.email = 'Invalid email address';
       } else if (!values.password) {
         errors.password = 'Password required';
-      } else if (!/^[A-Z\d.+-]{3,20}$/i.test(values.password)) {
+      } else if (!/^[A-Z\d.+-]{8,20}$/i.test(values.password)) {
         errors.password = 'Bad password';
       } else if (values.password !== formik.values.confirmPassword) {
         errors.password = "Passwords don't match";
@@ -49,39 +48,38 @@ export const RegisterPage = (): ReactElement => {
   }
   return (
     <AuthPageWrapper>
-      <AuthPageTitle title="Sign Up" />
+      <h1>Sign up</h1>
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <TextField
           {...formik.getFieldProps('email')}
           error={!!formik.errors.email}
           helperText={formik.errors.email}
-          className={style.textField}
           label="Email"
           variant="standard"
+          className={style.textField}
         />
         <TextField
           {...formik.getFieldProps('password')}
           error={!!formik.errors.password}
-          helperText={formik.errors.password}
-          className={style.textField}
           label="Password"
           type="password"
           variant="standard"
+          className={style.textField}
         />
         <TextField
           {...formik.getFieldProps('confirmPassword')}
           error={!!formik.errors.password}
           helperText={formik.errors.password}
-          className={style.textField}
           label="Confirm password"
           type="password"
           variant="standard"
+          className={style.textField}
         />
         <Button className={style.button} type="submit" variant="contained">
           Sign Up
         </Button>
       </form>
-      <p>Already have an account?</p>
+      <span className={style.span}>Already have an account?</span>
       <Link to="/login">Sign in</Link>
     </AuthPageWrapper>
   );

@@ -1,24 +1,24 @@
 .sidebar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    background: #e2f1ee;
-
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #e2f1ee;
+}
+.sidebar .item {
+  text-align: center;
+  margin: 10px;
+}
+.sidebar .item a {
+  text-decoration: none;
+}
+.sidebar .link {
+  color: black;
+}
+.sidebar .active {
+  color: chocolate;
 }
 
-.item {
-    margin: 10px;
-}
-
-.item a {
-    text-decoration: none;
-}
-
-.link {
-    color: black;
-}
-
-.active {
-    color: chocolate;
-}
+/*# sourceMappingURL=Navbar.module.css.map */
