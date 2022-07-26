@@ -10,26 +10,26 @@ type EditableSpanPropsType = {
   onChange: (newValue: string) => void;
 };
 
-export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
+export const EditableSpan = React.memo(({ value, onChange }: EditableSpanPropsType) => {
   const [editMode, setEditMode] = useState(false);
-  const [title, setTitle] = useState(props.value);
+  const [title, setTitle] = useState<string>(value);
 
-  const activateEditMode = () => {
+  const activateEditMode = (): void => {
     setEditMode(true);
-    setTitle(props.value);
+    setTitle(value);
   };
-  const activateViewMode = () => {
+  const activateViewMode = (): void => {
     setEditMode(false);
-    props.onChange(title);
+    onChange(title);
   };
-  const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeTitle = (e: ChangeEvent<HTMLInputElement>): void => {
     setTitle(e.currentTarget.value);
   };
 
   return editMode ? (
-    <input value={title} onChange={changeTitle} autoFocus onBlur={activateViewMode} />
+    <input value={title} onChange={changeTitle} onBlur={activateViewMode} />
   ) : (
-    <span onDoubleClick={activateEditMode}>{props.value}</span>
+    <span onDoubleClick={activateEditMode}>{value}</span>
   );
 });
 
@@ -43,23 +43,27 @@ export const ProfilePage = (): ReactElement => {
   const [imgURL, setImgURL] = useState(
     'https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png',
   );
-  const [value, setValue] = useState(userName);
+  console.log(userName);
+  console.log(setImgURL);
 
-  const UpdateUserName = (title: string) => setValue(title);
-  const logOutHandler = () => alert('logOut success');
+  const [value, setValue] = useState<string>(userName);
+  console.log(value);
+
+  const UpdateUserName = (title: string): void => setValue(title);
+  const logOutHandler = (): void => console.log('logOut success');
 
   return (
     <div>
       <div>Personal Information</div>
       <div>
-        <img className={s.img} src={imgURL} />
+        <img className={s.img} src={imgURL} alt="avatar" />
       </div>
       <div>
         Name:{' '}
         <EditableSpan
           value={userName}
-          onChange={t => {
-            UpdateUserName(t);
+          onChange={title => {
+            UpdateUserName(title);
           }}
         />
         ✎

@@ -7,7 +7,7 @@ import { LoginType, AppDispatch } from 'store';
 const initialState: LoginType = {
   _id: null,
   email: null,
-  name: null,
+  name: '',
   avatar: null,
   publicCardPacksCount: 0,
   isInitialized: false,
