@@ -32,7 +32,12 @@
     "no-magic-numbers": "off",
     "default-param-last": "off",
     "no-use-before-define": "off",
-    "no-param-reassign": ["error", { "props": false }],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
     "no-multiple-empty-lines": [
       "error",
       {
@@ -53,7 +58,7 @@
       }
     ],
     "@typescript-eslint/no-use-before-define": [
-      "error"
+      "off"
     ],
     "@typescript-eslint/explicit-function-return-type": [
       "error",
