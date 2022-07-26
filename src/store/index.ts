@@ -4,6 +4,7 @@ export {
   loginSlice,
   isInitializedAppThunk,
   loginUserThunk,
+  setUserData,
 } from './features/login/loginSlice';
 export type { LoginType, AuthType } from './features/login/loginTypes';
 

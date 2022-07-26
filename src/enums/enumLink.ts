@@ -4,7 +4,7 @@ export enum LINK {
   PROFILE = '/profile',
   RECOVER = '/recovery',
   PASSWORD = '/password',
-  FOUND404 = '/notfound',
+  FOUND404 = '/404',
   REGISTER = '/register',
   TEST = '/test',
 }
