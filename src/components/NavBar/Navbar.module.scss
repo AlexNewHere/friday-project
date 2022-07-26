@@ -1,0 +1,26 @@
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #e2f1ee;
+
+  .item {
+    text-align: center;
+    margin: 10px;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+  .link {
+    color: black;
+  }
+
+  .active {
+    color: chocolate;
+  }
+}

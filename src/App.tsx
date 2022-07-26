@@ -27,7 +27,7 @@ const App = (): ReactElement => {
   }, []);
 
   if (!isInitialized) {
-    return <div>ЗАгрузка</div>;
+    return <div>Loading</div>;
   }
 
   return (
