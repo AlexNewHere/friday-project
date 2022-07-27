@@ -50,10 +50,10 @@ const App = (): ReactElement => {
           <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
           <Route path={LINK.LOGIN} element={<LoginPage />} />
           <Route path={LINK.REGISTER} element={<RegisterPage />} />
+          <Route path={LINK.RECOVER} element={<RecoveryPage />} />
           <Route element={<UnAuthorizedRedirect />}>
             <Route path={LINK.AUTH} element={<AuthPage />} />
             <Route path={LINK.PROFILE} element={<ProfilePage />} />
-            <Route path={LINK.RECOVER} element={<RecoveryPage />} />
             <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
             <Route path={LINK.FOUND404} element={<NotFoundPage />} />
           </Route>
