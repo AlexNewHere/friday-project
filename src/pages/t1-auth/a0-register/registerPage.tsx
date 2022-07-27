@@ -32,7 +32,7 @@ export const RegisterPage = (): ReactElement => {
       } else if (!values.password) {
         errors.password = 'Password required';
       } else if (!/^[A-Z\d.+-]{8,20}$/i.test(values.password)) {
-        errors.password = 'Bad password';
+        errors.password = 'Password must be more than 7 characters';
       } else if (values.password !== formik.values.confirmPassword) {
         errors.password = "Passwords don't match";
       }

@@ -21,13 +21,13 @@ export const LoginPage = (): ReactElement => {
     validate: (values: FormikInitialType) => {
       const errors: FormikErrors<FormikInitialType> = {};
       if (!values.email) {
-        errors.email = 'Required';
+        errors.email = 'Email required';
       } else if (!/^[A-Z\d._%+-]+@[A-Z\d.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = 'Invalid email address';
       } else if (!values.password) {
-        errors.password = 'Required';
-      } else if (!/^[A-Z\d.+-]{3,20}$/i.test(values.password)) {
-        errors.password = 'Bad password';
+        errors.password = 'Password required';
+      } else if (!/^[A-Z\d.+-]{8,20}$/i.test(values.password)) {
+        errors.password = 'Password must be more than 7 characters';
       }
       return errors;
     },

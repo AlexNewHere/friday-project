@@ -1,0 +1,20 @@
+@import './mixins';
+@import './variables';
+
+%authPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .textField {
+    margin: 12px 0;
+  }
+
+  .button {
+    margin: 48px 0 24px;
+    background: $bgButtonPrimary;
+    border-radius: 30px;
+    text-transform: none;
+    @include fontStyle($fontPrimary, 500, 16px, 20px, $colorLight);
+  }
+}
