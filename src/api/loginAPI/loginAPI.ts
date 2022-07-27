@@ -3,7 +3,7 @@ import { UserRegisterData } from './loginApiTypes';
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
 import { FormikInitialType, updateProfileType } from 'pages';
-import { AuthType } from 'store';
+import { AuthType, updateUserType } from 'store';
 
 export const loginAPI = {
   ping() {
@@ -31,6 +31,6 @@ export const loginAPI = {
     return instance.post<AuthType>(ENDPOINT.AUTH, {});
   },
   changeMe({ name, avatar }: updateProfileType) {
-    return instance.put(ENDPOINT.AUTH, { name, avatar });
+    return instance.put<updateUserType>(ENDPOINT.AUTH, { name, avatar });
   },
 };

@@ -1,14 +1,11 @@
 import React, { ReactElement } from 'react';
 
-import userAvatar from '../../../assets/logo/avatar.png';
-
 import s from './profilePage.module.css';
 
-import { SuperButton } from 'components';
-import { EditableSpan } from 'components/editableSpan/EditableSpan';
+import userAvatar from 'assets/logo/avatar.png';
+import { SuperButton, EditableSpan } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { logOutUserThunk } from 'store/features/login/loginSlice';
-import { updateProfileThunk } from 'store/features/profile/profileSlice';
+import { logOutUserThunk, updateProfileThunk } from 'store';
 
 const avatar: string = '';
 

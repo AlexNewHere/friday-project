@@ -32,7 +32,6 @@ export const LoginPage = (): ReactElement => {
       return errors;
     },
     onSubmit: values => {
-      // console.log(values);
       dispatch(loginUserThunk(values));
       formik.resetForm();
     },

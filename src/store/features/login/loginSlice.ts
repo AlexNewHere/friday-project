@@ -1,8 +1,12 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { loginAPI } from 'api';
-import { FormikInitialType } from 'pages';
-import { LoginType, AppDispatch, AuthType } from 'store';
+import {
+  LoginType,
+  AuthType,
+  loginUserThunk,
+  isInitializedAppThunk,
+  logOutUserThunk,
+} from 'store';
 
 const initialState: LoginType = {
   _id: null,
@@ -13,35 +17,6 @@ const initialState: LoginType = {
   isInitialized: false,
   isLoggedIn: false,
 };
-
-export const loginUserThunk = createAsyncThunk<
-  void,
-  FormikInitialType,
-  { dispatch: AppDispatch }
->('login/loginUserThunk', async (data, thunkAPI) => {
-  const response = await loginAPI.login(data);
-  thunkAPI.dispatch(setUserData(response.data));
-});
-
-export const logOutUserThunk = createAsyncThunk<void, void>(
-  'login/logOutUserThunk',
-  async () => {
-    await loginAPI.logOut();
-  },
-);
-
-export const isInitializedAppThunk = createAsyncThunk<
-  void,
-  void,
-  { dispatch: AppDispatch }
->('login/isInitializedAppThunk', async (_, thunkAPI) => {
-  try {
-    const res = await loginAPI.authMe();
-    thunkAPI.dispatch(setUserData(res.data));
-  } catch (e) {
-    console.log(e);
-  }
-});
 
 export const loginSlice = createSlice({
   name: 'login',
@@ -68,11 +43,12 @@ export const loginSlice = createSlice({
       .addCase(isInitializedAppThunk.pending, (state, action) => {
         console.log(action);
       })
-      .addCase(isInitializedAppThunk.fulfilled, state => {
+      .addCase(isInitializedAppThunk.fulfilled, (state, action) => {
+        console.log(action);
         state.isInitialized = true;
       })
       .addCase(isInitializedAppThunk.rejected, (state, action) => {
-        console.log(action.error);
+        console.log(action);
       })
       .addCase(logOutUserThunk.pending, (state, action) => {
         console.log(action);

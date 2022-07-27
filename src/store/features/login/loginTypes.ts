@@ -10,3 +10,7 @@ export type LoginType = AuthType & {
   isInitialized: boolean;
   isLoggedIn: boolean;
 };
+
+export type updateUserType = {
+  updatedUser: AuthType;
+};
