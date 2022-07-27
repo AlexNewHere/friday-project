@@ -30,7 +30,7 @@ export const EditableSpan = React.memo(({ value, onChange }: EditableSpanPropsTy
     <input
       value={title}
       onChange={changeTitle}
-      onKeyPress={onKeyPressHandler}
+      onKeyDown={onKeyPressHandler}
       onBlur={activateViewMode}
     />
   ) : (

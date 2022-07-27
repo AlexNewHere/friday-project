@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 
 import Paper from '@mui/material/Paper';
+import { PaperProps } from '@mui/material/Paper/Paper';
 
 import style from './AuthPageWrapper.module.scss';
 
-export const AuthPageWrapper = (props: any): ReactElement => (
+export const AuthPageWrapper = (props: PaperProps): ReactElement => (
   <Paper className={style.wrapper} elevation={8} {...props} />
 );
