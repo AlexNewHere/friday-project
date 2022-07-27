@@ -5,8 +5,7 @@ import TextField from '@mui/material/TextField';
 import { FormikErrors, useFormik } from 'formik';
 import { Link, Navigate } from 'react-router-dom';
 
-import style from './registerPage.module.scss';
-
+import style from 'common/styles/authPage.module.scss';
 import { AuthPageWrapper } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
@@ -80,7 +79,7 @@ export const RegisterPage = (): ReactElement => {
         </Button>
       </form>
       <span className={style.span}>Already have an account?</span>
-      <Link to="/login">Sign in</Link>
+      <Link to={LINK.LOGIN}>Sign in</Link>
     </AuthPageWrapper>
   );
 };

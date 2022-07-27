@@ -20,6 +20,25 @@
     opacity: 0.5;
   }
 
+  p {
+    display: flex;
+    align-items: center;
+    @include fontStyle($fontPrimary, 500, 14px, 17px, $colorDark);
+  }
+
+  p:nth-child(odd) {
+    justify-content: start;
+  }
+
+  p:nth-child(even) {
+    justify-content: end;
+
+    & a {
+      @include fontStyle($fontPrimary, 500, 14px, 17px, $colorDark);
+      text-decoration: none;
+    }
+  }
+
   a {
     padding: 0 0 12px;
     @include fontStyle($fontPrimary, 600, 16px, 24px, $bgButtonPrimary);

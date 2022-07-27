@@ -1,0 +1,5 @@
+@import '../sass/templates';
+
+.form {
+  @extend %authPage;
+}

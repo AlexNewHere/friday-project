@@ -1,8 +1,13 @@
 import React, { ReactElement } from 'react';
 
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
 import { useFormik, FormikErrors } from 'formik';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
+import style from 'common/styles/authPage.module.scss';
+import { AuthPageWrapper } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { FormikInitialType } from 'pages';
@@ -40,14 +45,38 @@ export const LoginPage = (): ReactElement => {
     return <Navigate replace to={LINK.PROFILE} />;
   }
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <input type="email" {...formik.getFieldProps('email')} />
-      <input type="password" {...formik.getFieldProps('password')} />
-      <input type="checkbox" {...formik.getFieldProps('rememberMe')} />
-      <button type="submit">Log In</button>
-      {formik.touched.email && formik.errors.email ? (
-        <div style={{ color: 'red' }}>{formik.errors.email}</div>
-      ) : null}
-    </form>
+    <AuthPageWrapper>
+      <h1>Sign in</h1>
+      <form className={style.form} onSubmit={formik.handleSubmit}>
+        <TextField
+          {...formik.getFieldProps('email')}
+          error={!!formik.errors.email}
+          helperText={formik.errors.email}
+          label="Email"
+          variant="standard"
+          className={style.textField}
+        />
+        <TextField
+          {...formik.getFieldProps('password')}
+          error={!!formik.errors.password}
+          label="Password"
+          type="password"
+          variant="standard"
+          className={style.textField}
+        />
+        <p>
+          <Checkbox {...formik.getFieldProps('rememberMe')} />
+          Remember me
+        </p>
+        <p>
+          <Link to={LINK.RECOVER}>Forgot password?</Link>
+        </p>
+        <Button className={style.button} type="submit" variant="contained">
+          Sign In
+        </Button>
+      </form>
+      <span className={style.span}>Don&apos;t have an account?</span>
+      <Link to="/register">Sign up</Link>
+    </AuthPageWrapper>
   );
 };
