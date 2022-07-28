@@ -6,7 +6,7 @@ import { FormikErrors, useFormik } from 'formik';
 import { Link, Navigate } from 'react-router-dom';
 
 import style from 'common/styles/authPage.module.scss';
-import { AuthPageWrapper } from 'components';
+import { AuthPageWrapper, usePassVisible } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { FormikRegisterType } from 'pages';
@@ -15,6 +15,8 @@ import { registerUserThunk } from 'store';
 export const RegisterPage = (): ReactElement => {
   const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
   const dispatch = useAppDispatch();
+  const [visibleMain, showPassMain] = usePassVisible();
+  const [visibleConfirm, showPassConfirm] = usePassVisible();
 
   const formik = useFormik<FormikRegisterType>({
     initialValues: {
@@ -61,18 +63,24 @@ export const RegisterPage = (): ReactElement => {
           {...formik.getFieldProps('password')}
           error={!!formik.errors.password}
           label="Password"
-          type="password"
+          type={visibleMain}
           variant="standard"
           className={style.textField}
+          InputProps={{
+            endAdornment: showPassMain,
+          }}
         />
         <TextField
           {...formik.getFieldProps('confirmPassword')}
           error={!!formik.errors.password}
           helperText={formik.errors.password}
           label="Confirm password"
-          type="password"
+          type={visibleConfirm}
           variant="standard"
           className={style.textField}
+          InputProps={{
+            endAdornment: showPassConfirm,
+          }}
         />
         <Button className={style.button} type="submit" variant="contained">
           Sign Up
