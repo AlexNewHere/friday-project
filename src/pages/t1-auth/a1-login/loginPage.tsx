@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 
+// import { Visibility } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
@@ -7,7 +8,7 @@ import { useFormik, FormikErrors } from 'formik';
 import { Link, Navigate } from 'react-router-dom';
 
 import style from 'common/styles/authPage.module.scss';
-import { AuthPageWrapper } from 'components';
+import { AuthPageWrapper, usePassVisible } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { FormikInitialType } from 'pages';
@@ -16,6 +17,7 @@ import { loginUserThunk } from 'store';
 export const LoginPage = (): ReactElement => {
   const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
   const dispatch = useAppDispatch();
+  const [visible, showPass] = usePassVisible();
 
   const formik = useFormik<FormikInitialType>({
     initialValues: {
@@ -59,10 +61,13 @@ export const LoginPage = (): ReactElement => {
         <TextField
           {...formik.getFieldProps('password')}
           error={!!formik.errors.password}
-          label="Password"
-          type="password"
           variant="standard"
+          label="Password"
+          type={visible}
           className={style.textField}
+          InputProps={{
+            endAdornment: showPass,
+          }}
         />
         <p>
           <Checkbox {...formik.getFieldProps('rememberMe')} />

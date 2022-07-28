@@ -34,6 +34,6 @@ export const EditableSpan = React.memo(({ value, onChange }: EditableSpanPropsTy
       onBlur={activateViewMode}
     />
   ) : (
-    <span onDoubleClick={activateEditMode}>{value}</span>
+    <span onDoubleClick={activateEditMode}>{value} ✎ </span>
   );
 });

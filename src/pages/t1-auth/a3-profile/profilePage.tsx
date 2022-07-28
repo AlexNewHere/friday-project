@@ -3,9 +3,9 @@ import React, { ReactElement } from 'react';
 import s from './profilePage.module.css';
 
 import userAvatar from 'assets/logo/avatar.png';
-import { SuperButton, EditableSpan } from 'components';
+import { EditableSpan, AuthPageWrapper, LogInOutButton } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { logOutUserThunk, updateProfileThunk } from 'store';
+import { updateProfileThunk } from 'store';
 
 const avatar: string = '';
 
@@ -17,29 +17,31 @@ export const ProfilePage = (): ReactElement => {
   const UpdateUserName = (name: string): void => {
     dispatch(updateProfileThunk({ name, avatar }));
   };
-  const logOutHandler = (): void => {
-    dispatch(logOutUserThunk());
-  };
 
   return (
-    <div>
-      <div>Personal Information</div>
+    <AuthPageWrapper>
+      <h1>Personal Information</h1>
       <div>
         <img className={s.img} src={userAvatar} alt="avatar" />
       </div>
-      <div>
-        Name:{' '}
+      <p>
+        <strong>Name: </strong>
         <EditableSpan
           value={userName}
           onChange={title => {
             UpdateUserName(title);
           }}
         />
-        ✎
-      </div>
-      <div>Email:{`${userEmail}`}</div>
-      <div>Количество созданных колод:{`${publicCardPacksCount}`}</div>
-      <SuperButton onClick={logOutHandler}>LOGOUT</SuperButton>
-    </div>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        {`${userEmail}`}
+      </p>
+      <p>
+        <strong>Количество созданных колод:</strong>
+        {`${publicCardPacksCount}`}
+      </p>
+      <LogInOutButton />
+    </AuthPageWrapper>
   );
 };
