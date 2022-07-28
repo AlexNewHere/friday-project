@@ -15,11 +15,11 @@ export const usePassVisible = (): [string, ReactElement] => {
     }
   };
 
-  const showPass = (
+  const showPassword = (
     <IconButton onClick={() => toggleVisibility()}>
       {visible === 'password' ? <VisibilityIcon /> : <VisibilityOffIcon />}
     </IconButton>
   );
 
-  return [visible, showPass];
+  return [visible, showPassword];
 };

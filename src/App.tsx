@@ -1,11 +1,11 @@
 import React, { ReactElement, useEffect } from 'react';
 
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Container } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import s from './App.module.css';
 
-import { NavBar, UnAuthorizedRedirect } from 'components';
+import { HeadBar, UnAuthorizedRedirect, NavBar } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import {
@@ -43,23 +43,24 @@ const App = (): ReactElement => {
   }
 
   return (
-    <div className={s.App}>
-      <NavBar />
-      <div>
-        <Routes>
-          <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
-          <Route path={LINK.LOGIN} element={<LoginPage />} />
-          <Route path={LINK.REGISTER} element={<RegisterPage />} />
-          <Route path={LINK.RECOVER} element={<RecoveryPage />} />
-          <Route element={<UnAuthorizedRedirect />}>
-            <Route path={LINK.AUTH} element={<AuthPage />} />
-            <Route path={LINK.PROFILE} element={<ProfilePage />} />
-            <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
-            <Route path={LINK.FOUND404} element={<NotFoundPage />} />
-          </Route>
-        </Routes>
+    <Container fixed>
+      <HeadBar />
+      <Routes>
+        <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
+        <Route path={LINK.LOGIN} element={<LoginPage />} />
+        <Route path={LINK.REGISTER} element={<RegisterPage />} />
+        <Route path={LINK.RECOVER} element={<RecoveryPage />} />
+        <Route element={<UnAuthorizedRedirect />}>
+          <Route path={LINK.AUTH} element={<AuthPage />} />
+          <Route path={LINK.PROFILE} element={<ProfilePage />} />
+          <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
+          <Route path={LINK.FOUND404} element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+      <div className={s.App}>
+        <NavBar />
       </div>
-    </div>
+    </Container>
   );
 };
 

@@ -1,3 +1,9 @@
 import React, { ReactElement } from 'react';
 
-export const RecoveryPage = (): ReactElement => <div>Recovery password</div>;
+import { AuthPageWrapper } from 'components';
+
+export const RecoveryPage = (): ReactElement => (
+  <AuthPageWrapper>
+    <div>Recovery password</div>
+  </AuthPageWrapper>
+);
