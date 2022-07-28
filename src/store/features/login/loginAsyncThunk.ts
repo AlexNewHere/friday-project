@@ -17,6 +17,7 @@ export const isInitializedAppThunk = createAsyncThunk<
     console.log(e);
   }
 });
+
 export const loginUserThunk = createAsyncThunk<
   void,
   FormikInitialType,
