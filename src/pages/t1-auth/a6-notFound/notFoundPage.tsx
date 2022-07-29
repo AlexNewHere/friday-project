@@ -1,11 +1,18 @@
 import React, { ReactElement } from 'react';
 
-import s from './notFound.module.scss';
+import { Box } from '@mui/material';
+
+import error404 from 'assets/logo/error404.png';
 
 export const NotFoundPage = (): ReactElement => (
-  <div id={s.main}>
-    <div className={s.fof}>
-      <h1>Page not found 404</h1>
-    </div>
-  </div>
+  <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '80vh',
+    }}
+  >
+    <img src={error404} alt="page404" style={{ width: '100%' }} />
+  </Box>
 );

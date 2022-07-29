@@ -53,6 +53,7 @@ const App = (): ReactElement => {
         <Route path={LINK.FOUND404} element={<NotFoundPage />} />
         <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
         <Route path={LINK.EMAIL} element={<CheckEmail />} />
+        <Route path="*" element={<Navigate replace to={LINK.FOUND404} />} />
         <Route element={<UnAuthorizedRedirect />}>
           <Route path={LINK.PROFILE} element={<ProfilePage />} />
         </Route>
