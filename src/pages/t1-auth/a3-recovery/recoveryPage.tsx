@@ -18,12 +18,14 @@ export const RecoveryPage = (): ReactElement => (
         type="email"
         className={style.textField}
       />
-      <p>Enter your email address and we will send you further instructions</p>
+      <p style={{ opacity: '0.5', textAlign: 'start', lineHeight: '24px' }}>
+        Enter your email address and we will send you further instructions
+      </p>
       <Button className={style.button} type="submit" variant="contained">
         Send Instructions
       </Button>
     </div>
-    <span className={style.span}>Already have an account?</span>
+    <span className={style.span}>Did you remember your password?</span>
     <Link to={LINK.LOGIN}>Try logging in</Link>
   </AuthPageWrapper>
 );

@@ -1,6 +1,6 @@
 export enum LINK {
   LOGIN = '/login',
-  AUTH = '/auth',
+  EMAIL = '/email',
   PROFILE = '/profile',
   RECOVER = '/recovery',
   PASSWORD = '/password',

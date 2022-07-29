@@ -14,7 +14,7 @@ export const ProfilePage = (): ReactElement => {
   const userEmail = useAppSelector(state => state.login.email);
   const publicCardPacksCount = useAppSelector(state => state.login.publicCardPacksCount);
   const dispatch = useAppDispatch();
-  const UpdateUserName = (name: string): void => {
+  const updateUserName = (name: string): void => {
     dispatch(updateProfileThunk({ name, avatar }));
   };
 
@@ -29,13 +29,12 @@ export const ProfilePage = (): ReactElement => {
         <EditableSpan
           value={userName}
           onChange={title => {
-            UpdateUserName(title);
+            updateUserName(title);
           }}
         />
       </p>
       <p>
-        <strong>Email:</strong>
-        {`${userEmail}`}
+        <strong> {`${userEmail}`}</strong>
       </p>
       <p>
         <strong>Количество созданных колод:</strong>

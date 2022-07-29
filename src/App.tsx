@@ -14,7 +14,7 @@ import {
   NotFoundPage,
   ProfilePage,
   RecoveryPage,
-  AuthPage,
+  CheckEmail,
   RegisterPage,
 } from 'pages';
 import { isInitializedAppThunk } from 'store';
@@ -50,11 +50,11 @@ const App = (): ReactElement => {
         <Route path={LINK.LOGIN} element={<LoginPage />} />
         <Route path={LINK.REGISTER} element={<RegisterPage />} />
         <Route path={LINK.RECOVER} element={<RecoveryPage />} />
+        <Route path={LINK.FOUND404} element={<NotFoundPage />} />
+        <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
+        <Route path={LINK.EMAIL} element={<CheckEmail />} />
         <Route element={<UnAuthorizedRedirect />}>
-          <Route path={LINK.AUTH} element={<AuthPage />} />
           <Route path={LINK.PROFILE} element={<ProfilePage />} />
-          <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
-          <Route path={LINK.FOUND404} element={<NotFoundPage />} />
         </Route>
       </Routes>
       <div className={s.App}>

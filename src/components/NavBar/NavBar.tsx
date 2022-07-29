@@ -22,11 +22,6 @@ export const NavBar = (): ReactElement => (
       </NavLink>
     </div>
     <div className={s.item}>
-      <NavLink to={LINK.AUTH} className={linkActive}>
-        Authentication
-      </NavLink>
-    </div>
-    <div className={s.item}>
       <NavLink to={LINK.PROFILE} className={linkActive}>
         Profile
       </NavLink>
@@ -39,6 +34,11 @@ export const NavBar = (): ReactElement => (
     <div className={s.item}>
       <NavLink to={LINK.PASSWORD} className={linkActive}>
         New password
+      </NavLink>
+    </div>
+    <div className={s.item}>
+      <NavLink to={LINK.EMAIL} className={linkActive}>
+        Check email
       </NavLink>
     </div>
     <div className={s.item}>
