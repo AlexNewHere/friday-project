@@ -9,3 +9,4 @@ export { usePassVisible } from './usePassVisible/usePassVisible';
 export { HeadBar } from './HeadBar/HeadBar';
 export { AppRoutes } from './Routes/AppRoutes';
 export { ModalLoader } from './modalLoader/modalLoader';
+export { CircularInitialized } from './circularInitialized/circularInitialized';

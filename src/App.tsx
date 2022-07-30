@@ -1,10 +1,10 @@
 import React, { ReactElement, useEffect } from 'react';
 
-import { CircularProgress, Container } from '@mui/material';
+import { Container } from '@mui/material';
 
 import s from './App.module.css';
 
-import { HeadBar, NavBar, AppRoutes } from 'components';
+import { HeadBar, NavBar, AppRoutes, CircularInitialized } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { isInitializedAppThunk } from 'store';
 
@@ -17,18 +17,7 @@ const App = (): ReactElement => {
   }, []);
 
   if (!isInitialized) {
-    return (
-      <div
-        style={{
-          position: 'fixed',
-          top: '30%',
-          textAlign: 'center',
-          width: '100%',
-        }}
-      >
-        <CircularProgress />
-      </div>
-    );
+    return <CircularInitialized />;
   }
 
   return (
