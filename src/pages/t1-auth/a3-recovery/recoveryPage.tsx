@@ -9,16 +9,19 @@ import { forgotFormSchema } from 'common';
 import style from 'common/styles/authPage.module.scss';
 import { AuthPageWrapper } from 'components';
 import { LINK } from 'enums';
+import { useAppDispatch } from 'hooks/useTypeHooks';
+import { forgotPasswordThunk } from 'store';
 
 export const RecoveryPage = (): ReactElement => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const formik = useFormik<{ email: string }>({
     initialValues: {
       email: '',
     },
     validationSchema: forgotFormSchema,
     onSubmit: values => {
-      // dispatch(loginUserThunk(values));
+      dispatch(forgotPasswordThunk(values));
       console.log(values);
       navigate(LINK.EMAIL);
     },

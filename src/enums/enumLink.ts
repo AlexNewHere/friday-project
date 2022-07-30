@@ -3,7 +3,7 @@ export enum LINK {
   EMAIL = '/email',
   PROFILE = '/profile',
   RECOVER = '/recovery',
-  PASSWORD = '/password',
+  PASSWORD = '/password/:token',
   FOUND404 = '/404',
   REGISTER = '/register',
   TEST = '/test',

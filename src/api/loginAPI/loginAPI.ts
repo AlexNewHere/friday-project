@@ -1,9 +1,9 @@
-import { UserRegisterData } from './loginApiTypes';
+import { InfoResponseType, UserRegisterData } from './loginApiTypes';
 
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
 import { FormikInitialType, updateProfileType } from 'pages';
-import { AuthType, updateUserType } from 'store';
+import { AuthType, ForgotInitialType, NewPasswordType, updateUserType } from 'store';
 
 export const loginAPI = {
   ping() {
@@ -13,7 +13,7 @@ export const loginAPI = {
     return instance.post<AuthType>(ENDPOINT.LOGIN, { email, password, rememberMe });
   },
   logOut() {
-    return instance.delete(ENDPOINT.AUTH);
+    return instance.delete<InfoResponseType>(ENDPOINT.AUTH);
   },
   register({ email, password }: UserRegisterData) {
     return instance.post(ENDPOINT.REGISTER, {
@@ -21,11 +21,14 @@ export const loginAPI = {
       password,
     });
   },
-  forgot() {
-    return instance.post(ENDPOINT.FORGOT, {});
+  forgot({ email, from, message }: ForgotInitialType) {
+    return instance.post<InfoResponseType>(ENDPOINT.FORGOT, { email, from, message });
   },
-  newPassword() {
-    return instance.post(ENDPOINT.PASSWORD, {});
+  newPassword({ password, token }: NewPasswordType) {
+    return instance.post<InfoResponseType>(ENDPOINT.PASSWORD, {
+      password,
+      resetPasswordToken: token,
+    });
   },
   authMe() {
     return instance.post<AuthType>(ENDPOINT.AUTH);

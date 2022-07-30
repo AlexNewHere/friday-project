@@ -29,6 +29,6 @@ export const forgotFormSchema = yup.object().shape({
 export const createNewPasswordSchema = yup.object().shape({
   password: yup
     .string()
-    .min(VALID.PASSWORD_LENGTH, 'Too Short!')
+    .min(VALID.PASSWORD_LENGTH, 'Password must be more than 7 characters')
     .required('Password required'),
 });
