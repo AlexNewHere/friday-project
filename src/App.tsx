@@ -1,22 +1,11 @@
 import React, { ReactElement, useEffect } from 'react';
 
 import { CircularProgress, Container } from '@mui/material';
-import { Routes, Route, Navigate } from 'react-router-dom';
 
 import s from './App.module.css';
 
-import { HeadBar, UnAuthorizedRedirect, NavBar } from 'components';
-import { LINK } from 'enums';
+import { HeadBar, NavBar, AppRoutes } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import {
-  LoginPage,
-  NewPasswordPage,
-  NotFoundPage,
-  ProfilePage,
-  RecoveryPage,
-  CheckEmail,
-  RegisterPage,
-} from 'pages';
 import { isInitializedAppThunk } from 'store';
 
 const App = (): ReactElement => {
@@ -45,19 +34,7 @@ const App = (): ReactElement => {
   return (
     <Container fixed>
       <HeadBar />
-      <Routes>
-        <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
-        <Route path={LINK.LOGIN} element={<LoginPage />} />
-        <Route path={LINK.REGISTER} element={<RegisterPage />} />
-        <Route path={LINK.RECOVER} element={<RecoveryPage />} />
-        <Route path={LINK.FOUND404} element={<NotFoundPage />} />
-        <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
-        <Route path={LINK.EMAIL} element={<CheckEmail />} />
-        <Route element={<UnAuthorizedRedirect />}>
-          <Route path={LINK.PROFILE} element={<ProfilePage />} />
-        </Route>
-        <Route path="*" element={<Navigate replace to={LINK.FOUND404} />} />
-      </Routes>
+      <AppRoutes />
       <div className={s.App}>
         <NavBar />
       </div>
