@@ -9,10 +9,10 @@ export const isInitializedAppThunk = createAsyncThunk<
   void,
   void,
   { dispatch: AppDispatch }
->('login/isInitializedAppThunk', async (_, thunkAPI) => {
+>('login/isInitializedAppThunk', async (_, { dispatch }) => {
   try {
     const res = await loginAPI.authMe();
-    thunkAPI.dispatch(setUserData(res.data));
+    dispatch(setUserData(res.data));
   } catch (e) {
     console.log(e);
   }

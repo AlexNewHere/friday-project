@@ -22,9 +22,9 @@ export const NewPasswordPage = (): ReactElement => {
       password: '',
     },
     validationSchema: createNewPasswordSchema,
-    onSubmit: ({ password }) => {
+    onSubmit: async ({ password }) => {
       if (token !== undefined) {
-        dispatch(newPasswordThunk({ password, token }));
+        await dispatch(newPasswordThunk({ password, token }));
         navigate(LINK.LOGIN);
       }
     },

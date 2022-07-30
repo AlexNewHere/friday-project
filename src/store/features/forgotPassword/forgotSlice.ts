@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { emailTemplates } from './emailTemplates/emailTemplates';
+
 import { forgotPasswordThunk, ForgotInitialType, newPasswordThunk } from 'store';
 
 const initialState: ForgotInitialType = {
   email: '',
   from: 'Hello. Sent from https://alexnewhere.github.io/friday-project/ ',
-  message: `<div style="background-color: lime; padding: 15px">
-password recovery link: 
-<a href='http://localhost:3000/#/password/$token$'>
-link</a>
-</div>`,
+  message: emailTemplates,
 };
 
 export const forgotSlice = createSlice({

@@ -20,9 +20,8 @@ export const RecoveryPage = (): ReactElement => {
       email: '',
     },
     validationSchema: forgotFormSchema,
-    onSubmit: values => {
-      dispatch(forgotPasswordThunk(values));
-      console.log(values);
+    onSubmit: async ({ email }) => {
+      await dispatch(forgotPasswordThunk({ email }));
       navigate(LINK.EMAIL);
     },
   });
