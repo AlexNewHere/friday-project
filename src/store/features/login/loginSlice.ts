@@ -59,6 +59,7 @@ export const loginSlice = createSlice({
       })
       .addCase(logOutUserThunk.rejected, (state, action) => {
         console.log(action.error);
+        return { ...initialState, isInitialized: true };
       });
   },
 });

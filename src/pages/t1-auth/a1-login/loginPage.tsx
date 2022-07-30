@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 
-// import { Visibility } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
-import { useFormik, FormikErrors } from 'formik';
+import { useFormik } from 'formik';
 import { Link, Navigate } from 'react-router-dom';
 
+import { loginFormSchema } from 'common';
 import style from 'common/styles/authPage.module.scss';
 import { AuthPageWrapper, usePassVisible } from 'components';
 import { LINK } from 'enums';
@@ -25,19 +25,7 @@ export const LoginPage = (): ReactElement => {
       password: '',
       rememberMe: false,
     },
-    validate: (values: FormikInitialType) => {
-      const errors: FormikErrors<FormikInitialType> = {};
-      if (!values.email) {
-        errors.email = 'Email required';
-      } else if (!/^[A-Z\d._%+-]+@[A-Z\d.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-      } else if (!values.password) {
-        errors.password = 'Password required';
-      } else if (!/^[A-Z\d.+-]{8,20}$/i.test(values.password)) {
-        errors.password = 'Password must be more than 7 characters';
-      }
-      return errors;
-    },
+    validationSchema: loginFormSchema,
     onSubmit: values => {
       dispatch(loginUserThunk(values));
       formik.resetForm();
@@ -61,6 +49,7 @@ export const LoginPage = (): ReactElement => {
         <TextField
           {...formik.getFieldProps('password')}
           error={!!formik.errors.password}
+          helperText={formik.errors.password}
           variant="standard"
           label="Password"
           type={visible}
