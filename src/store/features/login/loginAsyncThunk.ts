@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikInitialType, updateProfileType } from 'pages';
+import { AppDispatch, changeFetching } from 'store';
 import { setUserData } from 'store/features/login/loginSlice';
-import { AppDispatch } from 'store/store';
 
 export const isInitializedAppThunk = createAsyncThunk<
   void,
@@ -22,25 +22,36 @@ export const loginUserThunk = createAsyncThunk<
   void,
   FormikInitialType,
   { dispatch: AppDispatch }
->('login/loginUserThunk', async (data, thunkAPI) => {
-  const response = await loginAPI.login(data);
-  thunkAPI.dispatch(setUserData(response.data));
+>('login/loginUserThunk', async (data, { dispatch }) => {
+  dispatch(changeFetching(true));
+  try {
+    const response = await loginAPI.login(data);
+    dispatch(setUserData(response.data));
+    dispatch(changeFetching(false));
+  } catch (e) {
+    dispatch(changeFetching(false));
+  }
 });
 
 export const logOutUserThunk = createAsyncThunk<void, void>(
   'login/logOutUserThunk',
-  async () => {
+  async (_, { dispatch }) => {
+    dispatch(changeFetching(true));
     await loginAPI.logOut();
+    dispatch(changeFetching(false));
   },
 );
 
 export const updateProfileThunk = createAsyncThunk<void, updateProfileType>(
   'profile/updateUserNameThunk',
-  async (data, thunkAPI) => {
+  async (data, { dispatch }) => {
     try {
+      dispatch(changeFetching(true));
       const response = await loginAPI.changeMe(data);
-      thunkAPI.dispatch(setUserData(response.data.updatedUser));
+      dispatch(setUserData(response.data.updatedUser));
+      dispatch(changeFetching(true));
     } catch (e) {
+      dispatch(changeFetching(true));
       console.log(e);
     }
   },

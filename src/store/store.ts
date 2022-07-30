@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { loginSlice, registerSlice, profileSlice, forgotSlice } from 'store';
+import { loginSlice, registerSlice, profileSlice, forgotSlice, fetchSlice } from 'store';
 
 export const store = configureStore({
   reducer: {
@@ -8,6 +8,7 @@ export const store = configureStore({
     register: registerSlice.reducer,
     profile: profileSlice.reducer,
     forgot: forgotSlice.reducer,
+    fetch: fetchSlice.reducer,
   },
 });
 

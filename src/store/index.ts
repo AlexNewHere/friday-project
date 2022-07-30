@@ -11,6 +11,8 @@ export type { LoginType, AuthType, updateUserType } from './features/login/login
 
 export { profileSlice } from './features/profile/profileSlice';
 
+export { fetchSlice, changeFetching } from './features/fetchEvent/fetchSlice';
+
 export { forgotSlice } from './features/forgotPassword/forgotSlice';
 export {
   forgotPasswordThunk,

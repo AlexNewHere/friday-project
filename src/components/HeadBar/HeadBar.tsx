@@ -6,7 +6,7 @@ import { AppBar, Toolbar, IconButton } from '@mui/material';
 import { LogInOutButton } from 'components';
 
 export const HeadBar = (): ReactElement => (
-  <AppBar position="absolute" color="inherit">
+  <AppBar position="absolute" color="inherit" style={{ zIndex: '100' }}>
     <Toolbar>
       <IconButton
         size="large"
