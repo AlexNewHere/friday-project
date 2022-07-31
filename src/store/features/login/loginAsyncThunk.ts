@@ -49,7 +49,7 @@ export const updateProfileThunk = createAsyncThunk<void, updateProfileType>(
       dispatch(changeFetching(true));
       const response = await loginAPI.changeMe(data);
       dispatch(setUserData(response.data.updatedUser));
-      dispatch(changeFetching(true));
+      dispatch(changeFetching(false));
     } catch (e) {
       dispatch(changeFetching(true));
       console.log(e);
