@@ -20,6 +20,12 @@
     opacity: 0.5;
   }
 
+  button {
+    span {
+      padding: 0;
+    }
+  }
+
   p {
     display: flex;
     align-items: center;

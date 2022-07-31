@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 import s from './App.module.css';
 
 import { HeadBar, NavBar, AppRoutes, CircularInitialized } from 'components';
+import { ErrorSnackbar } from 'components/ErrorSnackbar/ErrorSnackbar';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { isInitializedAppThunk } from 'store';
 
@@ -22,6 +23,7 @@ const App = (): ReactElement => {
 
   return (
     <Container fixed>
+      <ErrorSnackbar />
       <HeadBar />
       <AppRoutes />
       <div className={s.App}>

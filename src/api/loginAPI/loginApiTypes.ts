@@ -4,6 +4,6 @@ export type UserRegisterData = {
 };
 
 export type InfoResponseType = {
-  info: string;
-  error: string;
+  info: string | null;
+  error: string | null;
 };

@@ -12,7 +12,7 @@ const initialState: LoginType = {
   _id: null,
   email: null,
   name: '',
-  avatar: null,
+  avatar: '',
   publicCardPacksCount: 0,
   isInitialized: false,
   isLoggedIn: false,

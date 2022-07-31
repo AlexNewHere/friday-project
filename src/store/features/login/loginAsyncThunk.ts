@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikInitialType, updateProfileType } from 'pages';
-import { AppDispatch, changeFetching } from 'store';
+import { AppDispatch, changeFetching, setResponse } from 'store';
 import { setUserData } from 'store/features/login/loginSlice';
 
 export const isInitializedAppThunk = createAsyncThunk<
@@ -37,8 +37,14 @@ export const logOutUserThunk = createAsyncThunk<void, void>(
   'login/logOutUserThunk',
   async (_, { dispatch }) => {
     dispatch(changeFetching(true));
-    await loginAPI.logOut();
-    dispatch(changeFetching(false));
+    try {
+      const response = await loginAPI.logOut();
+      dispatch(changeFetching(false));
+      console.log(response.data);
+      dispatch(setResponse(response.data));
+    } catch (e) {
+      console.log();
+    }
   },
 );
 

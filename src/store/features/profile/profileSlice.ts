@@ -6,7 +6,7 @@ const initialState: AuthType = {
   _id: null,
   email: null,
   name: '',
-  avatar: null,
+  avatar: '',
   publicCardPacksCount: 0,
 };
 

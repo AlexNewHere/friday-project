@@ -2,7 +2,7 @@ export type AuthType = {
   _id: string | null;
   email: string | null;
   name: string;
-  avatar: string | null;
+  avatar: string;
   publicCardPacksCount: number;
 };
 
