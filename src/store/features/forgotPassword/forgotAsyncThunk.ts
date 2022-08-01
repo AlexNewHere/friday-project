@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { AppDispatch, AppRootStateType, changeFetching, NewPasswordType } from 'store';
+import { handleError } from 'untils/handleError';
 
 export const forgotPasswordThunk = createAsyncThunk<
   void,
@@ -15,7 +16,7 @@ export const forgotPasswordThunk = createAsyncThunk<
     await loginAPI.forgot({ email, from, message });
     dispatch(changeFetching(false));
   } catch (e) {
-    console.log(e);
+    handleError(e, dispatch);
     dispatch(changeFetching(false));
   }
 });
@@ -30,7 +31,7 @@ export const newPasswordThunk = createAsyncThunk<
     await loginAPI.newPassword({ password, token });
     dispatch(changeFetching(false));
   } catch (e) {
-    console.log(e);
+    handleError(e, dispatch);
     dispatch(changeFetching(false));
   }
 });

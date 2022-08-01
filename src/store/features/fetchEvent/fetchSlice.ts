@@ -1,16 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { InfoResponseType } from 'api';
-
 export type LoadingType = {
   isFetching: boolean;
-  info: string | null;
   error: string | null;
 };
 
 export const InitialState: LoadingType = {
   isFetching: false,
-  info: null,
   error: null,
 };
 
@@ -21,9 +17,8 @@ export const fetchSlice = createSlice({
     changeFetching: (state, action: PayloadAction<boolean>): void => {
       state.isFetching = action.payload;
     },
-    setResponse: (state, action: PayloadAction<InfoResponseType>): void => {
+    setResponse: (state, action: PayloadAction<{ error: string | null }>): void => {
       state.error = action.payload.error;
-      state.info = action.payload.info;
     },
   },
 });

@@ -38,7 +38,7 @@ export const loginSlice = createSlice({
         console.log(action);
       })
       .addCase(loginUserThunk.rejected, (state, action) => {
-        console.log(action.error);
+        console.log(action);
       })
       .addCase(isInitializedAppThunk.pending, (state, action) => {
         console.log(action);

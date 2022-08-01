@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikInitialType, updateProfileType } from 'pages';
-import { AppDispatch, changeFetching, setResponse } from 'store';
-import { setUserData } from 'store/features/login/loginSlice';
+import { AppDispatch, changeFetching, setUserData } from 'store';
+import { handleError } from 'untils/handleError';
 
 export const isInitializedAppThunk = createAsyncThunk<
   void,
@@ -29,36 +29,37 @@ export const loginUserThunk = createAsyncThunk<
     dispatch(setUserData(response.data));
     dispatch(changeFetching(false));
   } catch (e) {
+    handleError(e, dispatch);
     dispatch(changeFetching(false));
   }
 });
 
-export const logOutUserThunk = createAsyncThunk<void, void>(
+export const logOutUserThunk = createAsyncThunk<void, void, { dispatch: AppDispatch }>(
   'login/logOutUserThunk',
   async (_, { dispatch }) => {
     dispatch(changeFetching(true));
     try {
-      const response = await loginAPI.logOut();
+      await loginAPI.logOut();
       dispatch(changeFetching(false));
-      console.log(response.data);
-      dispatch(setResponse(response.data));
     } catch (e) {
-      console.log();
+      handleError(e, dispatch);
+      dispatch(changeFetching(false));
     }
   },
 );
 
-export const updateProfileThunk = createAsyncThunk<void, updateProfileType>(
-  'profile/updateUserNameThunk',
-  async (data, { dispatch }) => {
-    try {
-      dispatch(changeFetching(true));
-      const response = await loginAPI.changeMe(data);
-      dispatch(setUserData(response.data.updatedUser));
-      dispatch(changeFetching(false));
-    } catch (e) {
-      dispatch(changeFetching(true));
-      console.log(e);
-    }
-  },
-);
+export const updateProfileThunk = createAsyncThunk<
+  void,
+  updateProfileType,
+  { dispatch: AppDispatch }
+>('profile/updateUserNameThunk', async (data, { dispatch }) => {
+  try {
+    dispatch(changeFetching(true));
+    const response = await loginAPI.changeMe(data);
+    dispatch(setUserData(response.data.updatedUser));
+    dispatch(changeFetching(false));
+  } catch (e) {
+    handleError(e, dispatch);
+    dispatch(changeFetching(true));
+  }
+});
