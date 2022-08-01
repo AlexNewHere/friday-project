@@ -7,4 +7,5 @@ export enum LINK {
   FOUND404 = '/404',
   REGISTER = '/register',
   TEST = '/test',
+  PACKS = '/packsList',
 }

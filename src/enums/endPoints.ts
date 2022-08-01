@@ -5,4 +5,5 @@ export enum ENDPOINT {
   FORGOT = `/auth/forgot`,
   PASSWORD = `/auth/set-new-password`,
   AUTH = `/auth/me`,
+  PACKS = `/cards/pack`,
 }

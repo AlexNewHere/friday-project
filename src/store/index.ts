@@ -33,3 +33,5 @@ export {
   setAddedUser,
 } from './features/register/registerSlice';
 export type { RegisterType } from './features/register/registerTypes';
+
+export { packsSlice } from './features/packs/packsSlice';

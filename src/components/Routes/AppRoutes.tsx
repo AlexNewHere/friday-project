@@ -13,6 +13,7 @@ import {
   RecoveryPage,
   RegisterPage,
 } from 'pages';
+import { PacksTable } from 'pages/t2-packs/packsList/PacksTable';
 
 export const AppRoutes = (): ReactElement => (
   <div>
@@ -28,6 +29,7 @@ export const AppRoutes = (): ReactElement => (
       <Route element={<UnAuthorizedRedirect />}>
         <Route path={LINK.PROFILE} element={<ProfilePage />} />
       </Route>
+      <Route path={LINK.PACKS} element={<PacksTable />} />
       <Route path="*" element={<Navigate replace to={LINK.FOUND404} />} />
     </Routes>
   </div>
