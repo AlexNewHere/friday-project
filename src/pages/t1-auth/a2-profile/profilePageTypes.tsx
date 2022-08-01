@@ -1,4 +1,4 @@
 export type updateProfileType = {
   name: string;
-  avatar: string;
+  avatar: string | ArrayBuffer;
 };
