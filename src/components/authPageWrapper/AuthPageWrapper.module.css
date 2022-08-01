@@ -26,6 +26,9 @@
   color: black;
   opacity: 0.5;
 }
+.wrapper button span {
+  padding: 0;
+}
 .wrapper p {
   display: flex;
   align-items: center;

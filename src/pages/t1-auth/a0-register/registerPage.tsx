@@ -14,6 +14,7 @@ import { registerUserThunk } from 'store';
 
 export const RegisterPage = (): ReactElement => {
   const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
+  const addedUser = useAppSelector(state => state.register.addedUser);
   const dispatch = useAppDispatch();
   const [visibleMain, showPassMain] = usePassVisible();
   const [visibleConfirm, showPassConfirm] = usePassVisible();
@@ -46,6 +47,9 @@ export const RegisterPage = (): ReactElement => {
   });
   if (isLoggedIn) {
     return <Navigate replace to={LINK.PROFILE} />;
+  }
+  if (addedUser) {
+    return <Navigate replace to={LINK.LOGIN} />;
   }
   return (
     <AuthPageWrapper>
