@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikRegisterType } from 'pages';
-import { AppDispatch, RegisterType } from 'store';
+import { AppDispatch, RegisterType, changeFetching } from 'store';
 
 const initialState: RegisterType = {
   addedUser: null,
@@ -14,14 +14,16 @@ export const registerUserThunk = createAsyncThunk<
   FormikRegisterType,
   { dispatch: AppDispatch }
 >('register/registerUserThunk', async (data, { dispatch }) => {
+  dispatch(changeFetching(true));
   try {
     const response = await loginAPI.register({
       email: data.email,
       password: data.password,
     });
-    const { setAddedUser } = registerSlice.actions;
     dispatch(setAddedUser(response.data));
+    dispatch(changeFetching(false));
   } catch (e) {
+    dispatch(changeFetching(false));
     console.log(e);
   }
 });
@@ -48,3 +50,4 @@ export const registerSlice = createSlice({
       });
   },
 });
+export const { setAddedUser } = registerSlice.actions;

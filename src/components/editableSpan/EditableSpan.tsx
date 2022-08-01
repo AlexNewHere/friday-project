@@ -36,19 +36,25 @@ export const EditableSpan = React.memo(
           value={title}
           onChange={changeTitle}
           onKeyDown={onKeyPressHandler}
+          InputProps={{
+            endAdornment: withButton ? (
+              <Button variant="contained" size="small" onClick={activateViewMode}>
+                {titleButton}
+              </Button>
+            ) : (
+              ''
+            ),
+          }}
         />
-        {withButton ? (
-          <Button variant="contained" size="small" onClick={activateViewMode}>
-            {titleButton}
-          </Button>
-        ) : (
-          ''
-        )}
       </div>
     ) : (
       <div>
-        <strong>{name}</strong>
-        <span onDoubleClick={activateEditMode}>{value} ✎ </span>
+        <div
+          onDoubleClick={activateEditMode}
+          style={{ fontSize: '20px', padding: '5px' }}
+        >
+          {value} ✎{' '}
+        </div>
       </div>
     );
   },

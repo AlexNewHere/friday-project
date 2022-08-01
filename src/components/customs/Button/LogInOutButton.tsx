@@ -16,7 +16,12 @@ export const LogInOutButton = (): ReactElement => {
   };
 
   return isLoggedIn ? (
-    <Button variant="outlined" startIcon={<LogoutIcon />} onClick={logOutHandle}>
+    <Button
+      variant="outlined"
+      style={{ borderRadius: '20px' }}
+      startIcon={<LogoutIcon />}
+      onClick={logOutHandle}
+    >
       Log out
     </Button>
   ) : (

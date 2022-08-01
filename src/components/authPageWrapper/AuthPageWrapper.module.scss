@@ -17,7 +17,6 @@
   span {
     padding: 11px 0;
     @include fontStyle($fontPrimary, 600, 14px, 24px, $colorDark);
-    opacity: 0.5;
   }
 
   button {
