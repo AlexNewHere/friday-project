@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikRegisterType } from 'pages';
@@ -30,7 +30,7 @@ export const registerSlice = createSlice({
   name: 'register',
   initialState,
   reducers: {
-    setAddedUser: (state, action) => {
+    setAddedUser: (state, action: PayloadAction<RegisterType>) => {
       state.addedUser = action.payload;
     },
   },
