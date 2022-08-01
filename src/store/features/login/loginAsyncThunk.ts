@@ -14,7 +14,7 @@ export const isInitializedAppThunk = createAsyncThunk<
     const res = await loginAPI.authMe();
     dispatch(setUserData(res.data));
   } catch (e) {
-    console.log(e);
+    console.log();
   }
 });
 
@@ -28,8 +28,9 @@ export const loginUserThunk = createAsyncThunk<
     const response = await loginAPI.login(data);
     dispatch(setUserData(response.data));
     dispatch(changeFetching(false));
-  } catch (e) {
+  } catch (e: any) {
     dispatch(changeFetching(false));
+    dispatch(setResponse(e.response.data));
   }
 });
 
@@ -56,9 +57,10 @@ export const updateProfileThunk = createAsyncThunk<void, updateProfileType>(
       const response = await loginAPI.changeMe(data);
       dispatch(setUserData(response.data.updatedUser));
       dispatch(changeFetching(false));
-    } catch (e) {
+    } catch (e: any) {
       dispatch(changeFetching(true));
-      console.log(e);
+      dispatch(setResponse(e.response.data));
+      console.log();
     }
   },
 );

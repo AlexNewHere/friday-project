@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikRegisterType } from 'pages';
-import { AppDispatch, RegisterType, changeFetching } from 'store';
+import { AppDispatch, RegisterType, changeFetching, setResponse } from 'store';
 
 const initialState: RegisterType = {
   addedUser: null,
@@ -22,8 +22,9 @@ export const registerUserThunk = createAsyncThunk<
     });
     dispatch(setAddedUser(response.data));
     dispatch(changeFetching(false));
-  } catch (e) {
+  } catch (e: any) {
     dispatch(changeFetching(false));
+    dispatch(setResponse(e.response.data));
     console.log(e);
   }
 });

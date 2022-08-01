@@ -1,7 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
-import { AppDispatch, AppRootStateType, changeFetching, NewPasswordType } from 'store';
+import {
+  AppDispatch,
+  AppRootStateType,
+  changeFetching,
+  NewPasswordType,
+  setResponse,
+} from 'store';
 
 export const forgotPasswordThunk = createAsyncThunk<
   void,
@@ -12,11 +18,13 @@ export const forgotPasswordThunk = createAsyncThunk<
   const { message, from } = state.forgot;
   dispatch(changeFetching(true));
   try {
-    await loginAPI.forgot({ email, from, message });
+    const response = await loginAPI.forgot({ email, from, message });
     dispatch(changeFetching(false));
-  } catch (e) {
+    dispatch(setResponse(response.data));
+  } catch (e: any) {
     console.log(e);
     dispatch(changeFetching(false));
+    dispatch(setResponse(e.response.data));
   }
 });
 
@@ -27,10 +35,12 @@ export const newPasswordThunk = createAsyncThunk<
 >('forgot/newPasswordThunk', async ({ password, token }, { dispatch }) => {
   dispatch(changeFetching(true));
   try {
-    await loginAPI.newPassword({ password, token });
+    const response = await loginAPI.newPassword({ password, token });
     dispatch(changeFetching(false));
-  } catch (e) {
+    dispatch(setResponse(response.data));
+  } catch (e: any) {
     console.log(e);
     dispatch(changeFetching(false));
+    dispatch(setResponse(e.response.data));
   }
 });
