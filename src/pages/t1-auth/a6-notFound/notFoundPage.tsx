@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
 import error404 from 'assets/logo/error404.png';
 

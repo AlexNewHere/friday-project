@@ -51,7 +51,7 @@ export const EditableSpan = React.memo(
       <div>
         <div
           onDoubleClick={activateEditMode}
-          style={{ fontSize: '20px', padding: '5px' }}
+          style={{ fontSize: '20px', padding: '5px', cursor: 'pointer' }}
         >
           {value} ✎{' '}
         </div>
