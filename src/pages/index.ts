@@ -1,10 +1,10 @@
-export { LoginPage } from 'pages/t1-auth/a1-login/LoginPage';
+export { LoginPage } from './t1-auth/a1-login/loginPage';
 export type { FormikInitialType } from './t1-auth/a1-login/loginPageType';
-export { CheckEmail } from 'pages/t1-auth/a5-checkEmail/CheckEmail';
-export { ProfilePage } from 'pages/t1-auth/a2-profile/ProfilePage';
-export type { updateProfileType } from 'pages/t1-auth/a2-profile/profilePageTypes';
-export { RecoveryPage } from 'pages/t1-auth/a3-recovery/RecoveryPage';
-export { NewPasswordPage } from 'pages/t1-auth/a4-newPassword/NewPasswordPage';
-export { NotFoundPage } from 'pages/t1-auth/a6-notFound/NotFoundPage';
-export { RegisterPage } from 'pages/t1-auth/a0-register/RegisterPage';
+export { CheckEmail } from 'pages/t1-auth/a5-checkEmail/checkEmail';
+export { ProfilePage } from './t1-auth/a2-profile/profilePage';
+export type { updateProfileType } from './t1-auth/a2-profile/profilePageTypes';
+export { RecoveryPage } from './t1-auth/a3-recovery/recoveryPage';
+export { NewPasswordPage } from './t1-auth/a4-newPassword/newPasswordPage';
+export { NotFoundPage } from './t1-auth/a6-notFound/notFoundPage';
+export { RegisterPage } from './t1-auth/a0-register/registerPage';
 export type { FormikRegisterType } from './t1-auth/a0-register/registerPageTypes';
