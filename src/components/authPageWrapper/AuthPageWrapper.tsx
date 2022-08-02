@@ -11,6 +11,6 @@ export const AuthPageWrapper = (props: PaperProps): ReactElement => (
     fixed
     style={{ display: 'flex', justifyContent: 'center', paddingTop: '120px' }}
   >
-    <Paper className={style.wrapper} elevation={8} {...props} />
+    <Paper className={style.wrapper} elevation={2} {...props} />
   </Container>
 );
