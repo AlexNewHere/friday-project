@@ -38,7 +38,7 @@ export const loginSlice = createSlice({
         console.log(action);
       })
       .addCase(loginUserThunk.rejected, (state, action) => {
-        console.log(action.error);
+        console.log(action);
       })
       .addCase(isInitializedAppThunk.pending, (state, action) => {
         console.log(action);
@@ -53,14 +53,14 @@ export const loginSlice = createSlice({
       .addCase(logOutUserThunk.pending, (state, action) => {
         console.log(action);
       })
-      .addCase(logOutUserThunk.fulfilled, (state, action) => {
-        console.log(action);
-        return { ...initialState, isInitialized: true };
-      })
-      .addCase(logOutUserThunk.rejected, (state, action) => {
-        console.log(action.error);
-        return { ...initialState, isInitialized: true };
-      });
+      .addCase(logOutUserThunk.fulfilled, () => ({
+        ...initialState,
+        isInitialized: true,
+      }))
+      .addCase(logOutUserThunk.rejected, () => ({
+        ...initialState,
+        isInitialized: true,
+      }));
   },
 });
 

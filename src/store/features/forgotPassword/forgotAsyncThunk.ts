@@ -1,13 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
-import {
-  AppDispatch,
-  AppRootStateType,
-  changeFetching,
-  NewPasswordType,
-  setResponse,
-} from 'store';
+import { AppDispatch, AppRootStateType, changeFetching, NewPasswordType } from 'store';
+import { handleError } from 'untils/handleError';
 
 export const forgotPasswordThunk = createAsyncThunk<
   void,
@@ -18,13 +13,11 @@ export const forgotPasswordThunk = createAsyncThunk<
   const { message, from } = state.forgot;
   dispatch(changeFetching(true));
   try {
-    const response = await loginAPI.forgot({ email, from, message });
+    await loginAPI.forgot({ email, from, message });
     dispatch(changeFetching(false));
-    dispatch(setResponse(response.data));
-  } catch (e: any) {
-    console.log(e);
+  } catch (e) {
+    handleError(e, dispatch);
     dispatch(changeFetching(false));
-    dispatch(setResponse(e.response.data));
   }
 });
 
@@ -35,12 +28,10 @@ export const newPasswordThunk = createAsyncThunk<
 >('forgot/newPasswordThunk', async ({ password, token }, { dispatch }) => {
   dispatch(changeFetching(true));
   try {
-    const response = await loginAPI.newPassword({ password, token });
+    await loginAPI.newPassword({ password, token });
     dispatch(changeFetching(false));
-    dispatch(setResponse(response.data));
-  } catch (e: any) {
-    console.log(e);
+  } catch (e) {
+    handleError(e, dispatch);
     dispatch(changeFetching(false));
-    dispatch(setResponse(e.response.data));
   }
 });

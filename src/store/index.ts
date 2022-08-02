@@ -27,11 +27,8 @@ export type {
   ForgotInitialType,
 } from './features/forgotPassword/forgotTypes';
 
-export {
-  registerSlice,
-  registerUserThunk,
-  setAddedUser,
-} from './features/register/registerSlice';
+export { registerSlice, setAddedUser } from './features/register/registerSlice';
+export { registerUserThunk } from './features/register/registerAsyncThunk';
 export type { RegisterType } from './features/register/registerTypes';
 
 export { packsSlice } from './features/packs/packsSlice';

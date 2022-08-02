@@ -26,8 +26,8 @@ export const LoginPage = (): ReactElement => {
       rememberMe: false,
     },
     validationSchema: loginFormSchema,
-    onSubmit: values => {
-      dispatch(loginUserThunk(values));
+    onSubmit: async values => {
+      await dispatch(loginUserThunk(values));
       formik.resetForm();
     },
   });

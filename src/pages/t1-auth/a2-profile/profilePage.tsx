@@ -1,10 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { PhotoCamera } from '@mui/icons-material';
-import { Avatar, Badge, IconButton } from '@mui/material';
-
-import userDefaultAvatar from 'assets/logo/avatar.png';
-import { EditableSpan, AuthPageWrapper, LogInOutButton } from 'components';
+import { EditableSpan, AuthPageWrapper, LogInOutButton, UpdateAvatar } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { updateProfileThunk } from 'store';
 
@@ -21,31 +17,14 @@ export const ProfilePage = (): ReactElement => {
   return (
     <AuthPageWrapper>
       <h1>Personal Information</h1>
-      <Badge
-        overlap="circular"
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        badgeContent={
-          <IconButton color="default" aria-label="upload picture" component="label">
-            <input hidden accept="image/*" type="file" />
-            <PhotoCamera />
-          </IconButton>
-        }
-      >
-        <Avatar
-          src={avatar || userDefaultAvatar}
-          alt="avatar"
-          sx={{ width: 120, height: 120 }}
-        />
-      </Badge>
-      <p>
-        <EditableSpan
-          name="Name: "
-          withButton
-          titleButton="SAVE"
-          value={userName}
-          onChange={updateUserName}
-        />
-      </p>
+      <UpdateAvatar avatar={avatar} />
+      <EditableSpan
+        name="Name: "
+        withButton
+        titleButton="SAVE"
+        value={userName}
+        onChange={updateUserName}
+      />
       <p>
         <strong>{`${userEmail}`}</strong>
       </p>
