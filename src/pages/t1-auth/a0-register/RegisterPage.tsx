@@ -78,7 +78,7 @@ export const RegisterPage = (): ReactElement => {
           className={style.button}
           type="submit"
           variant="contained"
-          // disabled={!!formik.errors}
+          disabled={!formik.dirty || !formik.isValid}
         >
           Sign Up
         </Button>

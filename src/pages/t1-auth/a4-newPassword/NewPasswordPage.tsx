@@ -49,7 +49,12 @@ export const NewPasswordPage = (): ReactElement => {
         <p style={{ opacity: '0.5', textAlign: 'start', lineHeight: '24px' }}>
           Create new password and we will send you further instructions email
         </p>
-        <Button className={style.button} type="submit" variant="contained">
+        <Button
+          className={style.button}
+          type="submit"
+          variant="contained"
+          disabled={!formik.dirty || !formik.isValid}
+        >
           Create new password
         </Button>
       </form>

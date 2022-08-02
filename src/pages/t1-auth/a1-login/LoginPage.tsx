@@ -65,7 +65,12 @@ export const LoginPage = (): ReactElement => {
         <p>
           <Link to={LINK.RECOVER}>Forgot password?</Link>
         </p>
-        <Button className={style.button} type="submit" variant="contained">
+        <Button
+          className={style.button}
+          type="submit"
+          variant="contained"
+          disabled={!formik.dirty || !formik.isValid}
+        >
           Sign In
         </Button>
       </form>

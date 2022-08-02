@@ -44,7 +44,12 @@ export const RecoveryPage = (): ReactElement => {
         <p style={{ opacity: '0.5', textAlign: 'start', lineHeight: '24px' }}>
           Enter your email address and we will send you further instructions
         </p>
-        <Button className={style.button} type="submit" variant="contained">
+        <Button
+          className={style.button}
+          type="submit"
+          variant="contained"
+          disabled={!formik.dirty || !formik.isValid}
+        >
           Send Instructions
         </Button>
       </form>
