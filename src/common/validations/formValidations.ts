@@ -6,11 +6,11 @@ export const registerFormSchema = yup.object().shape({
   email: yup.string().email('Invalid email address').required('Email required'),
   password: yup
     .string()
-    .min(VALID.PASSWORD_LENGTH, 'Too Short!')
+    .min(VALID.PASSWORD_LENGTH, 'Password must be more than 7 characters')
     .required('Password required'),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref('password')], 'Passwords must match')
+    .oneOf([yup.ref('password')], "Passwords doesn't match")
     .required('Required'),
 });
 

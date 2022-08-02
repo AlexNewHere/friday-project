@@ -2,9 +2,10 @@ import React, { ReactElement } from 'react';
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { FormikErrors, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import { Link, Navigate } from 'react-router-dom';
 
+import { registerFormSchema } from 'common';
 import style from 'common/styles/authPage.module.scss';
 import { AuthPageWrapper, usePassVisible } from 'components';
 import { LINK } from 'enums';
@@ -25,21 +26,7 @@ export const RegisterPage = (): ReactElement => {
       password: '',
       confirmPassword: '',
     },
-    validate: (values: FormikRegisterType) => {
-      const errors: FormikErrors<FormikRegisterType> = {};
-      if (!values.email) {
-        errors.email = 'Email required';
-      } else if (!/^[A-Z\d._%+-]+@[A-Z\d.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-      } else if (!values.password) {
-        errors.password = 'Password required';
-      } else if (!/^[A-Z\d.+-]{8,20}$/i.test(values.password)) {
-        errors.password = 'Password must be more than 7 characters';
-      } else if (values.password !== formik.values.confirmPassword) {
-        errors.password = "Passwords don't match";
-      }
-      return errors;
-    },
+    validationSchema: registerFormSchema,
     onSubmit: values => {
       dispatch(registerUserThunk(values));
       formik.resetForm();
@@ -66,6 +53,7 @@ export const RegisterPage = (): ReactElement => {
         <TextField
           {...formik.getFieldProps('password')}
           error={!!formik.errors.password}
+          helperText={formik.errors.password}
           label="Password"
           type={visibleMain}
           variant="standard"
@@ -76,8 +64,8 @@ export const RegisterPage = (): ReactElement => {
         />
         <TextField
           {...formik.getFieldProps('confirmPassword')}
-          error={!!formik.errors.password}
-          helperText={formik.errors.password}
+          error={!!formik.errors.confirmPassword}
+          helperText={formik.errors.confirmPassword}
           label="Confirm password"
           type={visibleConfirm}
           variant="standard"
@@ -86,7 +74,12 @@ export const RegisterPage = (): ReactElement => {
             endAdornment: showPassConfirm,
           }}
         />
-        <Button className={style.button} type="submit" variant="contained">
+        <Button
+          className={style.button}
+          type="submit"
+          variant="contained"
+          // disabled={!!formik.errors}
+        >
           Sign Up
         </Button>
       </form>
