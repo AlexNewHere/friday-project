@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { packsAPI } from 'api/packsAPI/packsAPI';
 import { AppDispatch } from 'store';
 import { setPacks } from 'store/features/packs/packsSlice';
+import { handleError } from 'untils/handleError';
 
 export const getPacksThunk = createAsyncThunk<void, void, { dispatch: AppDispatch }>(
   'packs/getPacksThunk',
@@ -10,9 +11,8 @@ export const getPacksThunk = createAsyncThunk<void, void, { dispatch: AppDispatc
     try {
       const res = await packsAPI.getPacks();
       dispatch(setPacks(res.data));
-      console.log(`res.data ${res.data}`);
     } catch (e) {
-      console.log();
+      handleError(e, dispatch);
     }
   },
 );

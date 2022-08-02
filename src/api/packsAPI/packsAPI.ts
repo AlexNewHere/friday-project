@@ -1,6 +1,6 @@
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
-import { cardPacksType } from 'store/features/packs/packsSlice';
+import { cardPacksType } from 'store';
 
 export const packsAPI = {
   getPacks() {

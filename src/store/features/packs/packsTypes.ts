@@ -1,16 +1,17 @@
-export type AuthType = {
-  _id: string | null;
-  email: string | null;
+export type cardPackType = {
+  _id: string;
+  user_id: string;
   name: string;
-  avatar: string;
-  publicCardPacksCount: number;
+  cardsCount: number;
+  created: string;
+  updated: string;
 };
 
-export type LoginType = AuthType & {
-  isInitialized: boolean;
-  isLoggedIn: boolean;
-};
-
-export type updateUserType = {
-  updatedUser: AuthType;
+export type cardPacksType = {
+  cardPacks: cardPackType[];
+  cardPacksTotalCount: number;
+  maxCardsCount: number;
+  minCardsCount: number;
+  page: number;
+  pageCount: number;
 };

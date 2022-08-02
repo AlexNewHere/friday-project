@@ -28,8 +28,8 @@ export const AppRoutes = (): ReactElement => (
       <Route path={LINK.EMAIL} element={<CheckEmail />} />
       <Route element={<UnAuthorizedRedirect />}>
         <Route path={LINK.PROFILE} element={<ProfilePage />} />
+        <Route path={LINK.PACKS} element={<PacksTable />} />
       </Route>
-      <Route path={LINK.PACKS} element={<PacksTable />} />
       <Route path="*" element={<Navigate replace to={LINK.FOUND404} />} />
     </Routes>
   </div>

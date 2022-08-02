@@ -31,4 +31,6 @@ export { registerSlice, setAddedUser } from './features/register/registerSlice';
 export { registerUserThunk } from './features/register/registerAsyncThunk';
 export type { RegisterType } from './features/register/registerTypes';
 
-export { packsSlice } from './features/packs/packsSlice';
+export { packsSlice, setPacks } from './features/packs/packsSlice';
+export type { cardPackType, cardPacksType } from './features/packs/packsTypes';
+export { getPacksThunk } from './features/packs/packsAsyncThunk';
