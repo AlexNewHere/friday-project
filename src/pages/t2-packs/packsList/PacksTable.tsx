@@ -10,16 +10,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
+import { PaginationRow } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { getPacksThunk } from 'store';
 
 export const PacksTable = (): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
+  const params = useAppSelector(state => state.params);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getPacksThunk());
-  }, []);
+  }, [params]);
 
   return (
     <Container sx={{ paddingTop: '120px' }}>
@@ -37,7 +39,7 @@ export const PacksTable = (): ReactElement => {
           <TableBody>
             {packs.map(pack => (
               <TableRow
-                key={pack.name}
+                key={pack._id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
@@ -51,6 +53,7 @@ export const PacksTable = (): ReactElement => {
           </TableBody>
         </Table>
       </TableContainer>
+      <PaginationRow />
     </Container>
   );
 };

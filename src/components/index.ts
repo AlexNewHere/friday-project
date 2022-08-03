@@ -11,3 +11,4 @@ export { AppRoutes } from './routes/AppRoutes';
 export { ModalLoader } from 'components/modalLoader/ModalLoader';
 export { CircularInitialized } from 'components/circularInitialized/CircularInitialized';
 export { UpdateAvatar } from 'components/updateAvatar/UpdateAvatar';
+export { PaginationRow } from 'components/PaginationRow/PaginationRow';

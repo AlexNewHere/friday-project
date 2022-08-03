@@ -7,7 +7,7 @@ export type CardPackType = {
   updated: string;
 };
 
-export type CardPacksType = {
+export type PacksType = {
   cardPacks: CardPackType[];
   cardPacksTotalCount: number;
   maxCardsCount: number;

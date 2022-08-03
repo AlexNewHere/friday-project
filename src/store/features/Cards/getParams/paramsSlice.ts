@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ParamsType } from 'store';
 
@@ -16,8 +16,10 @@ export const paramsSlice = createSlice({
   name: 'params',
   initialState,
   reducers: {
-    // setPacks: (_, action: PayloadAction<CardPacksType>): CardPacksType => action.payload,
+    setParams: (state, action: PayloadAction<string>) => {
+      state.page = action.payload;
+    },
   },
 });
 
-// export const { setPacks } = paramsSlice.actions;
+export const { setParams } = paramsSlice.actions;
