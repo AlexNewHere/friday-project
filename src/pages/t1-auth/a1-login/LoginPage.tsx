@@ -32,7 +32,7 @@ export const LoginPage = (): ReactElement => {
     },
   });
   if (isLoggedIn) {
-    return <Navigate replace to={LINK.PROFILE} />;
+    return <Navigate replace to={LINK.PACKS} />;
   }
   return (
     <AuthPageWrapper>

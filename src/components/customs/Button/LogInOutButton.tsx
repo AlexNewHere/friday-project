@@ -26,7 +26,9 @@ export const LogInOutButton = (): ReactElement => {
     </Button>
   ) : (
     <NavLink to="/login" style={{ textDecoration: 'none' }}>
-      <Button variant="contained">Log in</Button>
+      <Button variant="contained" style={{ borderRadius: '20px' }}>
+        Sing in
+      </Button>
     </NavLink>
   );
 };

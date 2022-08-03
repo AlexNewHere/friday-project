@@ -1,23 +1,13 @@
 import React, { ReactElement } from 'react';
 
-import MenuIcon from '@mui/icons-material/Menu';
-import { AppBar, Toolbar, IconButton } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 
-import { LogInOutButton } from 'components';
+import { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
 
 export const HeadBar = (): ReactElement => (
   <AppBar position="absolute" color="inherit" style={{ zIndex: '100' }}>
     <Toolbar>
-      <IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="menu"
-        sx={{ mr: 2 }}
-      >
-        <MenuIcon />
-      </IconButton>
-      <LogInOutButton />
+      <HeadProfile />
     </Toolbar>
   </AppBar>
 );
