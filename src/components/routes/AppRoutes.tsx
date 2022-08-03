@@ -13,6 +13,7 @@ import {
   RecoveryPage,
   RegisterPage,
 } from 'pages';
+import { CardsPage } from 'pages/t2-packs/cardsPage/CardsPage';
 import { PacksTable } from 'pages/t2-packs/packsList/PacksTable';
 
 export const AppRoutes = (): ReactElement => (
@@ -29,6 +30,7 @@ export const AppRoutes = (): ReactElement => (
       <Route element={<UnAuthorizedRedirect />}>
         <Route path={LINK.PROFILE} element={<ProfilePage />} />
         <Route path={LINK.PACKS} element={<PacksTable />} />
+        <Route path={LINK.CARDS} element={<CardsPage />} />
       </Route>
       <Route path="*" element={<Navigate replace to={LINK.FOUND404} />} />
     </Routes>

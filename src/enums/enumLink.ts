@@ -8,4 +8,5 @@ export enum LINK {
   REGISTER = '/register',
   TEST = '/test',
   PACKS = '/packsList',
+  CARDS = '/cards',
 }
