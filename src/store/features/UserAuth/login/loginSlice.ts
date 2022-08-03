@@ -6,7 +6,7 @@ import {
   loginUserThunk,
   isInitializedAppThunk,
   logOutUserThunk,
-} from 'store';
+} from 'store/index';
 
 const initialState: LoginType = {
   _id: null,

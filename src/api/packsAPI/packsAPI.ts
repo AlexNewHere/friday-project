@@ -4,6 +4,6 @@ import { cardPacksType } from 'store';
 
 export const packsAPI = {
   getPacks() {
-    return instance.get<cardPacksType>(ENDPOINT.PACKS, {});
+    return instance.get<cardPacksType>(`${ENDPOINT.PACKS}/?page=1&pageCount=10`, {});
   },
 };

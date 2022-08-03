@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { cardPacksType } from 'store';
+import { cardPacksType } from 'store/index';
 
 const initialState: cardPacksType = {
   cardPacks: [],

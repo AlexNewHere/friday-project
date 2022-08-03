@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RegisterType, registerUserThunk } from 'store';
+import { RegisterType, registerUserThunk } from 'store/index';
 
 const initialState: RegisterType = {
   addedUser: null,

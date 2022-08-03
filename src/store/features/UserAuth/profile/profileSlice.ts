@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { AuthType } from 'store';
+import { AuthType } from 'store/index';
 
 const initialState: AuthType = {
   _id: null,

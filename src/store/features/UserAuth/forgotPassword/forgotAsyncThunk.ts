@@ -1,7 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
-import { AppDispatch, AppRootStateType, changeFetching, NewPasswordType } from 'store';
+import {
+  AppDispatch,
+  AppRootStateType,
+  changeFetching,
+  NewPasswordType,
+} from 'store/index';
 import { handleError } from 'untils/handleError';
 
 export const forgotPasswordThunk = createAsyncThunk<

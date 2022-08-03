@@ -1,36 +1,40 @@
 export type { AppDispatch, AppRootStateType } from './store';
 
-export { loginSlice, setUserData } from './features/login/loginSlice';
+export { loginSlice, setUserData } from './features/UserAuth/login/loginSlice';
 export {
   loginUserThunk,
   isInitializedAppThunk,
   logOutUserThunk,
   updateProfileThunk,
-} from './features/login/loginAsyncThunk';
-export type { LoginType, AuthType, updateUserType } from './features/login/loginTypes';
+} from './features/UserAuth/login/loginAsyncThunk';
+export type {
+  LoginType,
+  AuthType,
+  updateUserType,
+} from './features/UserAuth/login/loginTypes';
 
-export { profileSlice } from './features/profile/profileSlice';
+export { profileSlice } from './features/UserAuth/profile/profileSlice';
 
 export {
   fetchSlice,
   changeFetching,
   setResponse,
-} from './features/fetchEvent/fetchSlice';
+} from './features/UserAuth/fetchEvent/fetchSlice';
 
-export { forgotSlice } from './features/forgotPassword/forgotSlice';
+export { forgotSlice } from 'store/features/UserAuth/forgotPassword/forgotSlice';
 export {
   forgotPasswordThunk,
   newPasswordThunk,
-} from './features/forgotPassword/forgotAsyncThunk';
+} from 'store/features/UserAuth/forgotPassword/forgotAsyncThunk';
 export type {
   NewPasswordType,
   ForgotInitialType,
-} from './features/forgotPassword/forgotTypes';
+} from 'store/features/UserAuth/forgotPassword/forgotTypes';
 
-export { registerSlice, setAddedUser } from './features/register/registerSlice';
-export { registerUserThunk } from './features/register/registerAsyncThunk';
-export type { RegisterType } from './features/register/registerTypes';
+export { registerSlice, setAddedUser } from './features/UserAuth/register/registerSlice';
+export { registerUserThunk } from './features/UserAuth/register/registerAsyncThunk';
+export type { RegisterType } from './features/UserAuth/register/registerTypes';
 
-export { packsSlice, setPacks } from './features/packs/packsSlice';
-export type { cardPackType, cardPacksType } from './features/packs/packsTypes';
-export { getPacksThunk } from './features/packs/packsAsyncThunk';
+export { packsSlice, setPacks } from './features/Cards/packs/packsSlice';
+export type { cardPackType, cardPacksType } from './features/Cards/packs/packsTypes';
+export { getPacksThunk } from './features/Cards/packs/packsAsyncThunk';

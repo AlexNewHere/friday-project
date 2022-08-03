@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ReactElement, useEffect } from 'react';
 
+import { Container } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,7 +11,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { getPacksThunk } from 'store/features/packs/packsAsyncThunk';
+import { getPacksThunk } from 'store';
 
 export const PacksTable = (): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
@@ -21,11 +22,11 @@ export const PacksTable = (): ReactElement => {
   }, []);
 
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <Container sx={{ paddingTop: '120px' }}>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow sx={{ backgroundColor: '#EFEFEF' }}>
+          <TableHead sx={{ background: '#EFEFEF' }}>
+            <TableRow>
               <TableCell>Name</TableCell>
               <TableCell align="right">Cards</TableCell>
               <TableCell align="right">Last Updated</TableCell>
@@ -50,6 +51,6 @@ export const PacksTable = (): ReactElement => {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </Container>
   );
 };

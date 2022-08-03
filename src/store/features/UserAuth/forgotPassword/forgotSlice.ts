@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { emailTemplates } from './emailTemplates/emailTemplates';
-
-import { forgotPasswordThunk, ForgotInitialType, newPasswordThunk } from 'store';
+import { emailTemplates } from 'store/features/UserAuth/forgotPassword/emailTemplates/emailTemplates';
+import { forgotPasswordThunk, ForgotInitialType, newPasswordThunk } from 'store/index';
 
 const initialState: ForgotInitialType = {
   email: '',

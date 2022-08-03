@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { loginAPI } from 'api';
 import { FormikRegisterType } from 'pages';
-import { AppDispatch, changeFetching, setAddedUser } from 'store';
+import { AppDispatch, changeFetching, setAddedUser } from 'store/index';
 import { handleError } from 'untils/handleError';
 
 export const registerUserThunk = createAsyncThunk<
