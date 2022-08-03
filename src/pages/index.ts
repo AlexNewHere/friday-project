@@ -8,3 +8,4 @@ export { NewPasswordPage } from 'pages/t1-auth/a4-newPassword/NewPasswordPage';
 export { NotFoundPage } from 'pages/t1-auth/a6-notFound/NotFoundPage';
 export { RegisterPage } from 'pages/t1-auth/a0-register/RegisterPage';
 export type { FormikRegisterType } from './t1-auth/a0-register/registerPageTypes';
+export { PacksListPage } from 'pages/t2-packs/packsList/PacksListPage';
