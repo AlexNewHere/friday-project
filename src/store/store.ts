@@ -7,6 +7,7 @@ import {
   forgotSlice,
   fetchSlice,
   packsSlice,
+  paramsSlice,
 } from 'store';
 
 export const store = configureStore({
@@ -17,6 +18,7 @@ export const store = configureStore({
     forgot: forgotSlice.reducer,
     fetch: fetchSlice.reducer,
     packs: packsSlice.reducer,
+    params: paramsSlice.reducer,
   },
 });
 

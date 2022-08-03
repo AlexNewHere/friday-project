@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { cardPacksType } from 'store/index';
+import { CardPacksType } from 'store';
 
-const initialState: cardPacksType = {
+const initialState: CardPacksType = {
   cardPacks: [],
   cardPacksTotalCount: 0,
   maxCardsCount: 0,
@@ -15,7 +15,7 @@ export const packsSlice = createSlice({
   name: 'packs',
   initialState,
   reducers: {
-    setPacks: (_, action: PayloadAction<cardPacksType>): cardPacksType => action.payload,
+    setPacks: (_, action: PayloadAction<CardPacksType>): CardPacksType => action.payload,
   },
 });
 

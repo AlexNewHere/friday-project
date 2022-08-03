@@ -1,4 +1,4 @@
-export type cardPackType = {
+export type CardPackType = {
   _id: string;
   user_id: string;
   name: string;
@@ -7,8 +7,8 @@ export type cardPackType = {
   updated: string;
 };
 
-export type cardPacksType = {
-  cardPacks: cardPackType[];
+export type CardPacksType = {
+  cardPacks: CardPackType[];
   cardPacksTotalCount: number;
   maxCardsCount: number;
   minCardsCount: number;
