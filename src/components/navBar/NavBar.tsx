@@ -47,6 +47,11 @@ export const NavBar = (): ReactElement => (
       </NavLink>
     </div>
     <div className={s.item}>
+      <NavLink to={LINK.CARDS} className={linkActive}>
+        Cards
+      </NavLink>
+    </div>
+    <div className={s.item}>
       <NavLink to={LINK.FOUND404} className={linkActive}>
         Not Found
       </NavLink>
