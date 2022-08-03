@@ -25,7 +25,7 @@ export const CardsPage = (): ReactElement => {
     <Container sx={{ paddingTop: '120px' }}>
       <div>Back to Packs List</div>
       <div>Name Pack</div>
-      <div>Search</div>
+      <div>Search...</div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead sx={{ background: '#EFEFEF' }}>
