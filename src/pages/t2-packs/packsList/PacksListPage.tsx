@@ -22,11 +22,32 @@ export const PacksListPage = (): ReactElement => {
   return (
     <Container sx={{ paddingTop: '120px' }}>
       <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography>Packs list</Typography>
+        <Typography
+          sx={{
+            fontFamily: 'Montserrat',
+            fontStyle: 'normal',
+            fontWeight: 600,
+            fontSize: '22px',
+            lineHeight: '27px',
+          }}
+        >
+          Packs list
+        </Typography>
         <Button
           variant="contained"
           onClick={addNewPackHandle}
-          sx={{ w: '175px', h: '36px', borderRadius: '30px' }}
+          sx={{
+            w: '175px',
+            h: '36px',
+            borderRadius: '30px',
+            px: '28px',
+            textTransform: 'none',
+            fontFamily: 'Montserrat',
+            fontStyle: 'normal',
+            fontWeight: 500,
+            fontSize: '16px',
+            lineHeight: '20px',
+          }}
         >
           Add new pack
         </Button>
