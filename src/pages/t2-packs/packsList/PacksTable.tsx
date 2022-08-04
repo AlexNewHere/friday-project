@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ReactElement, useEffect } from 'react';
 
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -9,15 +10,22 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useNavigate } from 'react-router-dom';
 
 import { PaginationRow } from 'components';
+import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { getPacksThunk } from 'store';
+import { getPacksThunk, getCardsThunk } from 'store';
 
 export const PacksTable = (): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
   const params = useAppSelector(state => state.params);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const handleOpenPack = (packId: string): void => {
+    dispatch(getCardsThunk(packId));
+    navigate(LINK.CARDS);
+  };
   useEffect(() => {
     dispatch(getPacksThunk());
   }, [params]);
@@ -42,7 +50,7 @@ export const PacksTable = (): ReactElement => {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {pack.name}
+                  <Box onClick={() => handleOpenPack(pack._id)}>{pack.name}</Box>
                 </TableCell>
                 <TableCell align="right">{pack.cardsCount}</TableCell>
                 <TableCell align="right">{pack.updated}</TableCell>

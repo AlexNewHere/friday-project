@@ -1,10 +1,9 @@
 import { instance } from 'api';
 import { ENDPOINT } from 'enums';
-import { CardsResponseType } from 'store/features/Cards/card/cardsTypes';
+import { CardsResponseType } from 'store';
 
 export const cardsAPI = {
-  getCards() {
-    const packId = '62ea6c1126b1ff20345a0d96';
+  getCards(packId: string) {
     return instance.get<CardsResponseType>(`${ENDPOINT.CARDS}/?cardsPack_id=${packId}`);
   },
 };
