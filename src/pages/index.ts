@@ -9,3 +9,5 @@ export { NotFoundPage } from 'pages/t1-auth/a6-notFound/NotFoundPage';
 export { RegisterPage } from 'pages/t1-auth/a0-register/RegisterPage';
 export type { FormikRegisterType } from './t1-auth/a0-register/registerPageTypes';
 export { PacksListPage } from 'pages/t2-packs/packsList/PacksListPage';
+export { CardsPage } from 'pages/t2-packs/cards/CardsPage';
+export { NewPackPage } from 'pages/t2-packs/newPack/newPackPage';

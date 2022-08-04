@@ -9,4 +9,5 @@ export enum LINK {
   TEST = '/test',
   PACKS = '/packsList',
   CARDS = '/cards',
+  NEWPACK = '/newpack',
 }
