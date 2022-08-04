@@ -13,8 +13,8 @@ import {
   ProfilePage,
   RecoveryPage,
   RegisterPage,
+  CardsPage,
 } from 'pages';
-import { CardsPage } from 'pages/t2-packs/cardsPage/CardsPage';
 
 export const AppRoutes = (): ReactElement => (
   <div>
