@@ -54,7 +54,9 @@ export const PacksTable = (): ReactElement => {
                   <Box onClick={() => handleOpenPack(pack._id)}>{pack.name}</Box>
                 </TableCell>
                 <TableCell align="left">{pack.cardsCount}</TableCell>
-                <TableCell align="left">{pack.updated}</TableCell>
+                <TableCell align="left">
+                  {pack.updated.split('T')[0].split('-').reverse().join('.')}
+                </TableCell>
                 <TableCell align="left">{pack.name}</TableCell>
                 <TableCell align="left">
                   <ActionTable />
