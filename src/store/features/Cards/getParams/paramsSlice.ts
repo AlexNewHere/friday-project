@@ -9,7 +9,7 @@ const initialState: ParamsType = {
   sortPacks: '',
   page: '1',
   pageCount: '10',
-  userId: '',
+  user_id: '',
 };
 
 export const paramsSlice = createSlice({
