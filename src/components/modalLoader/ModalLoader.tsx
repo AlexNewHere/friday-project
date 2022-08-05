@@ -18,7 +18,7 @@ export const ModalLoader = (): ReactElement => {
       hideBackdrop
       open={isFetching}
     >
-      <CircularProgress color="secondary" />
+      <CircularProgress color="secondary" sx={{ pointerEvents: 'none' }} />
     </Modal>
   );
 };

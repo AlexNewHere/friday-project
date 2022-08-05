@@ -21,9 +21,11 @@ export const PacksTable = (): ReactElement => {
   const params = useAppSelector(state => state.params);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const handleOpenPack = (packId: string): void => {
-    dispatch(getCardsThunk(packId));
-    navigate(LINK.CARDS);
+  const handleOpenPack = async (packId: string, packName: string): Promise<void> => {
+    const res = await dispatch(getCardsThunk({ packId, packName }));
+    if (res) {
+      navigate(LINK.CARDS);
+    }
   };
   useEffect(() => {
     dispatch(getPacksThunk());
@@ -51,13 +53,18 @@ export const PacksTable = (): ReactElement => {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  <Box onClick={() => handleOpenPack(pack._id)}>{pack.name}</Box>
+                  <Box
+                    onClick={() => handleOpenPack(pack._id, pack.name)}
+                    sx={{ cursor: 'pointer' }}
+                  >
+                    {pack.name}
+                  </Box>
                 </TableCell>
                 <TableCell align="left">{pack.cardsCount}</TableCell>
                 <TableCell align="left">
                   {pack.updated.split('T')[0].split('-').reverse().join('.')}
                 </TableCell>
-                <TableCell align="left">{pack.name}</TableCell>
+                <TableCell align="left">{pack.user_name}</TableCell>
                 <TableCell align="left">
                   <ActionTable />
                 </TableCell>

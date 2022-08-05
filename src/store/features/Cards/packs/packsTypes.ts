@@ -1,6 +1,7 @@
 export type CardPackType = {
   _id: string;
   user_id: string;
+  user_name: string;
   name: string;
   cardsCount: number;
   created: string;

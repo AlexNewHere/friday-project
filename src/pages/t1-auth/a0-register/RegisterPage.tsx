@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useFormik } from 'formik';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 import { registerFormSchema } from 'common';
 import style from 'common/styles/authPage.module.scss';
@@ -15,7 +15,6 @@ import { registerUserThunk } from 'store';
 
 export const RegisterPage = (): ReactElement => {
   const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
-  const addedUser = useAppSelector(state => state.register.addedUser);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [visibleMain, showPassMain] = usePassVisible();
@@ -37,11 +36,9 @@ export const RegisterPage = (): ReactElement => {
     },
   });
   if (isLoggedIn) {
-    navigate(LINK.PROFILE);
+    return <Navigate to={LINK.PROFILE} />;
   }
-  if (addedUser) {
-    navigate(LINK.LOGIN);
-  }
+
   return (
     <AuthPageWrapper>
       <h1>Sign up</h1>

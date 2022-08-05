@@ -17,11 +17,13 @@ import { LINK } from 'enums';
 import { useAppSelector } from 'hooks/useTypeHooks';
 
 export const CardsPage = (): ReactElement => {
+  const cards = useAppSelector(state => state.cards.cards);
+  const packName = useAppSelector(state => state.cards.packName);
+
   const navigate = useNavigate();
   const toPacksListHandler = (): void => {
     navigate(LINK.PACKS);
   };
-  const cards = useAppSelector(state => state.cards.cards);
 
   return (
     <Container sx={{ paddingTop: '120px' }}>
@@ -53,7 +55,7 @@ export const CardsPage = (): ReactElement => {
           mb: '86px',
         }}
       >
-        Name Pack
+        {packName}
       </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

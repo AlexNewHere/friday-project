@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CardsResponseType } from 'store/features/Cards/card/cardsTypes';
+import { CardsPackType } from 'store';
 
-const initialState: CardsResponseType = {
+const initialState: CardsPackType = {
   cards: [],
   cardsTotalCount: 0,
   maxGrade: 0,
@@ -10,13 +10,14 @@ const initialState: CardsResponseType = {
   page: 0,
   pageCount: 0,
   packUserId: '',
+  packName: '',
 };
 
 export const cardsSlice = createSlice({
   name: 'cards',
   initialState,
   reducers: {
-    setCards: (state, action: PayloadAction<CardsResponseType>): CardsResponseType => ({
+    setCards: (state, action: PayloadAction<CardsPackType>): CardsPackType => ({
       ...action.payload,
     }),
   },
