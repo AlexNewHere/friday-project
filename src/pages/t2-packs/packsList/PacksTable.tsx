@@ -58,7 +58,7 @@ export const PacksTable = (): ReactElement => {
                     sx={{
                       cursor: 'pointer',
                       width: 'fit-content',
-                      '&:hover': { backgroundColor: 'yellow' },
+                      '&:hover': { backgroundColor: '#e2f1ee' },
                     }}
                   >
                     {pack.name}
