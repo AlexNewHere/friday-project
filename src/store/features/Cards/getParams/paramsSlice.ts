@@ -4,8 +4,8 @@ import { ParamsType } from 'store';
 
 const initialState: ParamsType = {
   packName: '',
-  min: '0',
-  max: '10',
+  min: 0,
+  max: 10,
   sortPacks: '',
   page: '1',
   pageCount: '10',
@@ -16,14 +16,7 @@ export const paramsSlice = createSlice({
   name: 'params',
   initialState,
   reducers: {
-    setParams: (
-      state,
-      action: PayloadAction<{ page: string; pageCount: string; userId: string }>,
-    ) => {
-      state.page = action.payload.page;
-      state.pageCount = action.payload.pageCount;
-      state.userId = action.payload.userId;
-    },
+    setParams: (state, action: PayloadAction<ParamsType>) => action.payload,
   },
 });
 

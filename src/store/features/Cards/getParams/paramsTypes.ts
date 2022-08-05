@@ -1,7 +1,7 @@
 export type ParamsType = {
   packName: string;
-  min: string;
-  max: string;
+  min: number;
+  max: number;
   sortPacks: string;
   page: string;
   pageCount: string;
