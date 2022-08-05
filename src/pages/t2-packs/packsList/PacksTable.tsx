@@ -11,6 +11,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useNavigate } from 'react-router-dom';
 
+import { ActionTable } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { getPacksThunk, getCardsThunk } from 'store';
@@ -34,8 +35,10 @@ export const PacksTable = (): ReactElement => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead sx={{ background: '#EFEFEF' }}>
             <TableRow>
-              <TableCell size="medium">Name</TableCell>
-              <TableCell align="left">Cards</TableCell>
+              <TableCell sx={{ width: '35%' }}>Name</TableCell>
+              <TableCell sx={{ width: '15%' }} align="left">
+                Cards
+              </TableCell>
               <TableCell align="left">Last Updated</TableCell>
               <TableCell align="left">Created by</TableCell>
               <TableCell align="left">Actions</TableCell>
@@ -53,6 +56,9 @@ export const PacksTable = (): ReactElement => {
                 <TableCell align="left">{pack.cardsCount}</TableCell>
                 <TableCell align="left">{pack.updated}</TableCell>
                 <TableCell align="left">{pack.name}</TableCell>
+                <TableCell align="left">
+                  <ActionTable />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
