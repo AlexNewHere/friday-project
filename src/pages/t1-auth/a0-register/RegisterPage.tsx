@@ -28,9 +28,12 @@ export const RegisterPage = (): ReactElement => {
       confirmPassword: '',
     },
     validationSchema: registerFormSchema,
-    onSubmit: values => {
-      dispatch(registerUserThunk(values));
-      formik.resetForm();
+    onSubmit: async values => {
+      const res = await dispatch(registerUserThunk(values));
+      if (res.payload) {
+        formik.resetForm();
+        navigate(LINK.LOGIN);
+      }
     },
   });
   if (isLoggedIn) {

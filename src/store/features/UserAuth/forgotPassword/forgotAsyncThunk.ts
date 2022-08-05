@@ -10,7 +10,7 @@ import {
 import { handleError } from 'untils/handleError';
 
 export const forgotPasswordThunk = createAsyncThunk<
-  void,
+  boolean | undefined,
   { email: string },
   { state: AppRootStateType; dispatch: AppDispatch }
 >('forgot/forgotPasswordThunk', async ({ email }, { getState, dispatch }) => {
@@ -20,6 +20,7 @@ export const forgotPasswordThunk = createAsyncThunk<
   try {
     await loginAPI.forgot({ email, from, message });
     dispatch(changeFetching(false));
+    return true;
   } catch (e) {
     handleError(e, dispatch);
     dispatch(changeFetching(false));
@@ -27,7 +28,7 @@ export const forgotPasswordThunk = createAsyncThunk<
 });
 
 export const newPasswordThunk = createAsyncThunk<
-  void,
+  boolean | undefined,
   NewPasswordType,
   { dispatch: AppDispatch }
 >('forgot/newPasswordThunk', async ({ password, token }, { dispatch }) => {
@@ -35,6 +36,7 @@ export const newPasswordThunk = createAsyncThunk<
   try {
     await loginAPI.newPassword({ password, token });
     dispatch(changeFetching(false));
+    return true;
   } catch (e) {
     handleError(e, dispatch);
     dispatch(changeFetching(false));

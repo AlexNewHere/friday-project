@@ -24,8 +24,11 @@ export const NewPasswordPage = (): ReactElement => {
     validationSchema: createNewPasswordSchema,
     onSubmit: async ({ password }) => {
       if (token !== undefined) {
-        await dispatch(newPasswordThunk({ password, token }));
-        navigate(LINK.LOGIN);
+        const res = await dispatch(newPasswordThunk({ password, token }));
+        if (res.payload) {
+          formik.resetForm();
+          navigate(LINK.LOGIN);
+        }
       }
     },
   });

@@ -29,6 +29,7 @@
     "no-debugger": "error",
     "no-plusplus": "error",
     "no-unused-vars": "off",
+    "consistent-return": "off",
     "no-underscore-dangle": "off",
     "no-magic-numbers": "off",
     "default-param-last": "off",
