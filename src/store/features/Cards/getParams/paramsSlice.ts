@@ -16,9 +16,13 @@ export const paramsSlice = createSlice({
   name: 'params',
   initialState,
   reducers: {
-    setParams: (state, action: PayloadAction<{ page: string; pageCount: string }>) => {
+    setParams: (
+      state,
+      action: PayloadAction<{ page: string; pageCount: string; userId: string }>,
+    ) => {
       state.page = action.payload.page;
       state.pageCount = action.payload.pageCount;
+      state.userId = action.payload.userId;
     },
   },
 });

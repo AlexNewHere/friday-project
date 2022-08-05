@@ -13,6 +13,7 @@ export const PaginationRow = (): ReactElement => {
   const count = useAppSelector(state => state.packs.cardPacksTotalCount);
   const pageCount = useAppSelector(state => state.params.pageCount);
   const page = useAppSelector(state => state.params.page);
+  const userId = useAppSelector(state => state.params.userId);
   const dispatch = useAppDispatch();
   const [stateParams, setStateParams] = useState<{ page: string; pageCount: string }>({
     page,
@@ -21,7 +22,7 @@ export const PaginationRow = (): ReactElement => {
   const numberPage: number = Math.ceil(count / +pageCount);
 
   useEffect(() => {
-    dispatch(setParams({ ...stateParams }));
+    dispatch(setParams({ ...stateParams, userId }));
   }, [stateParams]);
 
   const handleChangePage = (event: ChangeEvent<unknown> | null, value: number): void => {
