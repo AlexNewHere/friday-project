@@ -7,7 +7,10 @@ import { HeadProfile } from 'components';
 
 export const HeadBar = (): ReactElement => (
   <AppBar position="absolute" color="inherit">
-    <Container sx={{ display: 'flex', justifyContent: 'flex-end', padding: '12px 0' }}>
+    <Container
+      disableGutters
+      sx={{ display: 'flex', justifyContent: 'flex-end', padding: '12px 0' }}
+    >
       <HeadProfile />
     </Container>
   </AppBar>

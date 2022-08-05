@@ -1,69 +1,28 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
 
-import { PacksFilter } from './PacksFilter';
-
-import { LINK } from 'enums';
-import { PacksSearch } from 'pages/t2-packs/packsList/PacksSearch';
-import { PacksSlider } from 'pages/t2-packs/packsList/PacksSlider';
+import { PaginationRow, SearchInput } from 'components';
+import { PacksListHeader, PacksFilter, PacksSlider } from 'pages';
 import { PacksTable } from 'pages/t2-packs/packsList/PacksTable';
 
-export const PacksListPage = (): ReactElement => {
-  const navigate = useNavigate();
-  const addNewPackHandle = (): void => {
-    navigate(LINK.NEWPACK);
-  };
-  return (
-    <Container sx={{ paddingTop: '120px' }} disableGutters>
-      <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography
-          sx={{
-            fontFamily: 'Montserrat',
-            fontStyle: 'normal',
-            fontWeight: 600,
-            fontSize: '22px',
-            lineHeight: '27px',
-          }}
-        >
-          Packs list
-        </Typography>
-        <Button
-          variant="contained"
-          onClick={addNewPackHandle}
-          sx={{
-            w: '175px',
-            h: '36px',
-            borderRadius: '30px',
-            px: '28px',
-            textTransform: 'none',
-            fontFamily: 'Montserrat',
-            fontStyle: 'normal',
-            fontWeight: 500,
-            fontSize: '16px',
-            lineHeight: '20px',
-          }}
-        >
-          Add new pack
-        </Button>
-      </Container>
-      <Grid container spacing={2} sx={{ w: '100%', my: '24px' }}>
-        <Grid item xs>
-          <PacksSearch />
-        </Grid>
-        <Grid item xs={3}>
-          <PacksFilter />
-        </Grid>
-        <Grid item xs={4}>
-          <PacksSlider />
-        </Grid>
+export const PacksListPage = (): ReactElement => (
+  <Container sx={{ paddingTop: '120px' }} disableGutters>
+    <PacksListHeader />
+    <Grid container spacing={2} sx={{ w: '100%', my: '24px' }} gap={3}>
+      <Grid item xs>
+        <SearchInput />
       </Grid>
-      <PacksTable />
-    </Container>
-  );
-};
+      <Grid item xs={2}>
+        <PacksFilter />
+      </Grid>
+      <Grid item xs={3}>
+        <PacksSlider />
+      </Grid>
+    </Grid>
+    <PacksTable />
+    <PaginationRow />
+  </Container>
+);

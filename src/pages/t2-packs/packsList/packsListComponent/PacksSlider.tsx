@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 
@@ -15,7 +15,7 @@ export const PacksSlider = (): ReactElement => {
   };
 
   return (
-    <Container>
+    <Box>
       <Typography
         sx={{
           fontFamily: 'Montserrat',
@@ -34,6 +34,6 @@ export const PacksSlider = (): ReactElement => {
         valueLabelDisplay="auto"
         // getAriaValueText={valuetext}
       />
-    </Container>
+    </Box>
   );
 };

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Typography from '@mui/material/Typography';
 
 export const PacksFilter = (): ReactElement => (
-  <Container>
+  <Box>
     <Typography
       sx={{
         fontFamily: 'Montserrat',
@@ -23,5 +23,5 @@ export const PacksFilter = (): ReactElement => (
       <Button sx={{ width: '50%' }}>My</Button>
       <Button sx={{ width: '50%' }}>All</Button>
     </ButtonGroup>
-  </Container>
+  </Box>
 );

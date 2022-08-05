@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
-export const PacksSearch = (): ReactElement => (
-  <Container>
+export const SearchInput = (): ReactElement => (
+  <Box>
     <Typography
       sx={{
         fontFamily: 'Montserrat',
@@ -30,5 +30,5 @@ export const PacksSearch = (): ReactElement => (
         inputProps={{ 'aria-label': 'search' }}
       />
     </Paper>
-  </Container>
+  </Box>
 );
