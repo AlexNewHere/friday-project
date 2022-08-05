@@ -1,4 +1,4 @@
-import React, { ReactElement, ChangeEvent, useState, useEffect } from 'react';
+import React, { ReactElement, ChangeEvent } from 'react';
 
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
@@ -6,44 +6,31 @@ import MenuItem from '@mui/material/MenuItem';
 import Pagination from '@mui/material/Pagination';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { setParams } from 'store';
+type PropsType = {
+  page: number;
+  count: number;
+  pageCount: number;
+  callback: (page: number, pageCount: number) => void;
+};
 
-export const PaginationRow = (): ReactElement => {
-  const count = useAppSelector(state => state.packs.cardPacksTotalCount);
-  const pageCount = useAppSelector(state => state.params.pageCount);
-  const page = useAppSelector(state => state.params.page);
-  const params = useAppSelector(state => state.params);
-  const userId = useAppSelector(state => state.params.user_id);
-  const dispatch = useAppDispatch();
-  const [stateParams, setStateParams] = useState<{ page: string; pageCount: string }>({
-    page,
-    pageCount,
-  });
+export const PaginationRow = ({
+  callback,
+  pageCount,
+  count,
+  page,
+}: PropsType): ReactElement => {
   const numberPage: number = Math.ceil(count / +pageCount);
-
-  useEffect(() => {
-    dispatch(
-      setParams({
-        ...params,
-        page: stateParams.page,
-        pageCount: stateParams.pageCount,
-        user_id: userId,
-      }),
-    );
-  }, [stateParams]);
-
   const handleChangePage = (event: ChangeEvent<unknown> | null, value: number): void => {
-    setStateParams({ ...stateParams, page: value.toString() });
+    callback(value, pageCount);
   };
   const handleSelect = (event: SelectChangeEvent): void => {
-    setStateParams({ ...stateParams, pageCount: event.target.value.toString() });
+    callback(page, +event.target.value);
   };
 
   return (
     <Box sx={{ padding: '36px 0', display: 'flex', alignItems: 'center' }}>
       <Pagination
-        page={+page}
+        page={page}
         count={numberPage}
         shape="rounded"
         color="primary"
@@ -52,7 +39,7 @@ export const PaginationRow = (): ReactElement => {
       <span>Show</span>
       <FormControl size="small" sx={{ padding: '0 10px' }}>
         <Select
-          value={stateParams.pageCount}
+          value={pageCount.toString()}
           onChange={handleSelect}
           SelectDisplayProps={{
             style: { padding: '5px 10px', marginRight: '20px' },

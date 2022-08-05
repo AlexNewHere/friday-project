@@ -6,18 +6,19 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Typography from '@mui/material/Typography';
 
-import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { setParams } from 'store';
+import { useAppSelector } from 'hooks/useTypeHooks';
 
-export const PacksFilter = (): ReactElement => {
-  const params = useAppSelector(state => state.params);
+type PropsType = {
+  callback: (userId: string) => void;
+};
+
+export const PacksFilter = ({ callback }: PropsType): ReactElement => {
   const profileId = useAppSelector(state => state.login._id);
-  const dispatch = useAppDispatch();
   const [check, setCheck] = useState<boolean>(false);
   const handleCheck = (set: boolean): void => {
     if (profileId != null) {
       const userId: string = set ? profileId : '';
-      dispatch(setParams({ ...params, user_id: userId }));
+      callback(userId);
       setCheck(set);
     }
   };

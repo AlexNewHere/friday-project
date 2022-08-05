@@ -27,7 +27,6 @@ export const loginSlice = createSlice({
       isLoggedIn: true,
       isInitialized: true,
     }),
-    // changeFetching: (state, action: PayloadAction<any>): any => action,
   },
   extraReducers: builder => {
     builder

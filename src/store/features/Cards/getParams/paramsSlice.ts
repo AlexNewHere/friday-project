@@ -7,8 +7,8 @@ const initialState: ParamsType = {
   min: 0,
   max: 30,
   sortPacks: '',
-  page: '1',
-  pageCount: '10',
+  page: 1,
+  pageCount: 10,
   user_id: '',
 };
 

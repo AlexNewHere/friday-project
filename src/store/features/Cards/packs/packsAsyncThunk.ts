@@ -1,16 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { packsAPI } from 'api';
-import { AppDispatch, AppRootStateType, changeFetching, setPacks } from 'store/index';
+import {
+  AppDispatch,
+  AppRootStateType,
+  changeFetching,
+  ParamsType,
+  setPacks,
+} from 'store/index';
 import { handleError } from 'untils/handleError';
 
 export const getPacksThunk = createAsyncThunk<
   void,
-  void,
+  ParamsType,
   { dispatch: AppDispatch; state: AppRootStateType }
->('packs/getPacksThunk', async (_, { dispatch, getState }) => {
+>('packs/getPacksThunk', async (params, { dispatch }) => {
   dispatch(changeFetching(true));
-  const { params } = getState();
   try {
     const res = await packsAPI.getPacks(params);
     dispatch(setPacks(res.data));

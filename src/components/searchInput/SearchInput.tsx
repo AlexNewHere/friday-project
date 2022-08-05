@@ -10,20 +10,20 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
 import { useDebounce } from 'hooks/useDebounce';
-import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { setParams } from 'store';
 
-export const SearchInput = (): ReactElement => {
+type PropsType = {
+  callback: (packName: string) => void;
+};
+
+export const SearchInput = ({ callback }: PropsType): ReactElement => {
   const [value, setValue] = useState<string>('');
   const debouncedValue = useDebounce<string>(value);
-  const params = useAppSelector(state => state.params);
-  const dispatch = useAppDispatch();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
   };
   useEffect(() => {
-    dispatch(setParams({ ...params, packName: debouncedValue }));
+    callback(debouncedValue);
   }, [debouncedValue]);
   return (
     <Box>

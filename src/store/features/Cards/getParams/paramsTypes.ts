@@ -3,7 +3,7 @@ export type ParamsType = {
   min: number;
   max: number;
   sortPacks: string;
-  page: string;
-  pageCount: string;
+  page: number;
+  pageCount: number;
   user_id: string;
 };

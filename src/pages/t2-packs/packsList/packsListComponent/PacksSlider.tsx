@@ -6,20 +6,19 @@ import Slider from '@mui/material/Slider';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { setParams } from 'store';
+type PropsType = {
+  min: number;
+  max: number;
+  callback: (min: number, max: number) => void;
+};
 
-export const PacksSlider = (): ReactElement => {
-  const startMin = useAppSelector(state => state.params.min);
-  const startMax = useAppSelector(state => state.params.max);
-  const [value, setValue] = React.useState<number[]>([startMin, startMax]);
-  const params = useAppSelector(state => state.params);
-  const dispatch = useAppDispatch();
+export const PacksSlider = ({ min, max, callback }: PropsType): ReactElement => {
+  const [value, setValue] = React.useState<number[]>([min, max]);
   const handleChange = (event: Event, newValue: number | number[]): void => {
     setValue(newValue as number[]);
   };
   const handleSubmit = (): void => {
-    dispatch(setParams({ ...params, min: value[0], max: value[1] }));
+    callback(value[0], value[1]);
   };
   return (
     <Box>
