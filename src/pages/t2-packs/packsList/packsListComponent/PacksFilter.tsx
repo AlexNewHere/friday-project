@@ -17,7 +17,7 @@ export const PacksFilter = (): ReactElement => {
   const handleCheck = (set: boolean): void => {
     if (profileId != null) {
       const userId: string = set ? profileId : '';
-      dispatch(setParams({ ...params, userId }));
+      dispatch(setParams({ ...params, user_id: userId }));
       setCheck(set);
     }
   };

@@ -14,7 +14,7 @@ export const PaginationRow = (): ReactElement => {
   const pageCount = useAppSelector(state => state.params.pageCount);
   const page = useAppSelector(state => state.params.page);
   const params = useAppSelector(state => state.params);
-  const userId = useAppSelector(state => state.params.userId);
+  const userId = useAppSelector(state => state.params.user_id);
   const dispatch = useAppDispatch();
   const [stateParams, setStateParams] = useState<{ page: string; pageCount: string }>({
     page,
@@ -28,7 +28,7 @@ export const PaginationRow = (): ReactElement => {
         ...params,
         page: stateParams.page,
         pageCount: stateParams.pageCount,
-        userId,
+        user_id: userId,
       }),
     );
   }, [stateParams]);

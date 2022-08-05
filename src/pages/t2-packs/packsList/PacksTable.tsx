@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -14,11 +14,10 @@ import { useNavigate } from 'react-router-dom';
 import { ActionTable } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import { getPacksThunk, getCardsThunk } from 'store';
+import { getCardsThunk } from 'store';
 
 export const PacksTable = (): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
-  const params = useAppSelector(state => state.params);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const handleOpenPack = async (packId: string, packName: string): Promise<void> => {
@@ -27,9 +26,6 @@ export const PacksTable = (): ReactElement => {
       navigate(LINK.CARDS);
     }
   };
-  useEffect(() => {
-    dispatch(getPacksThunk());
-  }, [params]);
 
   return (
     <Box>

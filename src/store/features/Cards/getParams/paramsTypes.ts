@@ -5,5 +5,5 @@ export type ParamsType = {
   sortPacks: string;
   page: string;
   pageCount: string;
-  userId: string;
+  user_id: string;
 };
