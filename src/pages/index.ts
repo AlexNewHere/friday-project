@@ -14,3 +14,4 @@ export { PacksFilter } from 'pages/t2-packs/packsList/packsListComponent/PacksFi
 export { PacksSlider } from 'pages/t2-packs/packsList/packsListComponent/PacksSlider';
 export { CardsPage } from 'pages/t2-packs/cards/CardsPage';
 export { NewPackPage } from 'pages/t2-packs/newPack/NewPackPage';
+export { PacksTable } from 'pages/t2-packs/packsList/PacksTable';
