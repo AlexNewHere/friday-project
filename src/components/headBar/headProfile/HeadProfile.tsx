@@ -47,6 +47,7 @@ export const HeadProfile = (): ReactElement => {
         open={open}
         onClose={handleClose}
         TransitionComponent={Fade}
+        disableAutoFocusItem
       >
         <MenuItem onClick={() => navigate(LINK.PROFILE)}>
           <SportsMartialArtsIcon sx={{ marginRight: '5px' }} />

@@ -5,7 +5,7 @@ import { ParamsType } from 'store';
 const initialState: ParamsType = {
   packName: '',
   min: 0,
-  max: 10,
+  max: 30,
   sortPacks: '',
   page: '1',
   pageCount: '10',

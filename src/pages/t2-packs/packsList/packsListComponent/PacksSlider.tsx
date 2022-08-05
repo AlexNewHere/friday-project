@@ -60,7 +60,7 @@ export const PacksSlider = (): ReactElement => {
           onChangeCommitted={handleSubmit}
           valueLabelDisplay="auto"
           min={0}
-          max={100}
+          max={30}
           disableSwap
         />
         <TextField
