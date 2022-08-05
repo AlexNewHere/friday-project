@@ -2,9 +2,9 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 
 import SearchIcon from '@mui/icons-material/Search';
-import { InputAdornment } from '@mui/material';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
+import InputAdornment from '@mui/material/InputAdornment';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';

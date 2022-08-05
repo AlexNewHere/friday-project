@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useState, KeyboardEvent } from 'react';
 
+import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -49,14 +51,24 @@ export const EditableSpan = React.memo(
         />
       </div>
     ) : (
-      <div>
-        <div
-          onDoubleClick={activateEditMode}
-          style={{ fontSize: '20px', padding: '5px', cursor: 'pointer' }}
-        >
-          {value} ✎{' '}
-        </div>
-      </div>
+      <Box
+        sx={{
+          pt: '17px',
+          display: 'flex',
+          alignItems: 'center',
+          fontFamily: 'Montserrat',
+          fontStyle: 'normal',
+          fontWeight: 500,
+          fontSize: '20px',
+          lineHeight: '24px',
+        }}
+      >
+        {value}
+        <DriveFileRenameOutlineOutlinedIcon
+          onClick={activateEditMode}
+          sx={{ ml: '10px', cursor: 'pointer' }}
+        />
+      </Box>
     );
   },
 );
