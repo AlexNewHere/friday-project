@@ -41,12 +41,12 @@ export const PaginationRow = (): ReactElement => {
         onChange={handleChangePage}
       />
       <span>Show</span>
-      <FormControl size="small">
+      <FormControl size="small" sx={{ padding: '0 10px' }}>
         <Select
           value={stateParams.pageCount}
           onChange={handleSelect}
-          MenuProps={{
-            style: { padding: '0' },
+          SelectDisplayProps={{
+            style: { padding: '5px 10px', marginRight: '20px' },
           }}
         >
           <MenuItem value={10}>10</MenuItem>
