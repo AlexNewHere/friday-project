@@ -1,13 +1,10 @@
 import React, { ReactElement, ChangeEvent, useState, useEffect } from 'react';
 
-import {
-  Box,
-  FormControl,
-  MenuItem,
-  Pagination,
-  Select,
-  SelectChangeEvent,
-} from '@mui/material';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+import Pagination from '@mui/material/Pagination';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { setParams } from 'store';
@@ -33,6 +30,7 @@ export const PaginationRow = (): ReactElement => {
   const handleSelect = (event: SelectChangeEvent): void => {
     setStateParams({ ...stateParams, pageCount: event.target.value.toString() });
   };
+
   return (
     <Box sx={{ padding: '36px 0', display: 'flex', alignItems: 'center' }}>
       <Pagination
@@ -44,7 +42,13 @@ export const PaginationRow = (): ReactElement => {
       />
       <span>Show</span>
       <FormControl size="small">
-        <Select value={stateParams.pageCount} onChange={handleSelect}>
+        <Select
+          value={stateParams.pageCount}
+          onChange={handleSelect}
+          MenuProps={{
+            style: { padding: '0' },
+          }}
+        >
           <MenuItem value={10}>10</MenuItem>
           <MenuItem value={50}>50</MenuItem>
           <MenuItem value={100}>100</MenuItem>
