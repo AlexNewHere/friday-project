@@ -1,8 +1,10 @@
 import React, { ChangeEvent, ReactElement, useState } from 'react';
 
-import { PhotoCamera } from '@mui/icons-material';
 import OutboxIcon from '@mui/icons-material/Outbox';
-import { Avatar, Badge, IconButton } from '@mui/material';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Avatar from '@mui/material/Avatar';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
 
 import userDefaultAvatar from 'assets/logo/avatar.png';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';

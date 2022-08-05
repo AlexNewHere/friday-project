@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 
-import { CircularProgress } from '@mui/material';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const CircularInitialized = (): ReactElement => (
-  <div
+  <Box
     style={{
       position: 'fixed',
       top: '30%',
@@ -12,5 +13,5 @@ export const CircularInitialized = (): ReactElement => (
     }}
   >
     <CircularProgress />
-  </div>
+  </Box>
 );

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Container } from '@mui/material';
+import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import { PaperProps } from '@mui/material/Paper/Paper';
 

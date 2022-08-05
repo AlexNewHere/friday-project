@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Typography from '@mui/material/Typography';

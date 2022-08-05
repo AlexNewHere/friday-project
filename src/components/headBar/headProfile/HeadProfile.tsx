@@ -35,7 +35,12 @@ export const HeadProfile = (): ReactElement => {
   return isLoggedIn ? (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       <div style={{ marginRight: '12px' }}>{userName}</div>
-      <Avatar alt={userName} src={userAvatar} onClick={handleClick} />
+      <Avatar
+        alt={userName}
+        src={userAvatar}
+        onClick={handleClick}
+        sx={{ cursor: 'pointer' }}
+      />
       <Menu
         id="fade-menu"
         anchorEl={anchorEl}

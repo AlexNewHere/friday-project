@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
-import { Modal, CircularProgress } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import Modal from '@mui/material/Modal';
 
 import { useAppSelector } from 'hooks/useTypeHooks';
 
@@ -18,7 +19,7 @@ export const ModalLoader = (): ReactElement => {
       hideBackdrop
       open={isFetching}
     >
-      <CircularProgress color="secondary" sx={{ pointerEvents: 'none' }} />
+      <CircularProgress color="secondary" />
     </Modal>
   );
 };

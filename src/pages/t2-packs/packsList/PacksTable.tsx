@@ -55,7 +55,11 @@ export const PacksTable = (): ReactElement => {
                 <TableCell component="th" scope="row">
                   <Box
                     onClick={() => handleOpenPack(pack._id, pack.name)}
-                    sx={{ cursor: 'pointer' }}
+                    sx={{
+                      cursor: 'pointer',
+                      width: 'fit-content',
+                      '&:hover': { backgroundColor: 'yellow' },
+                    }}
                   >
                     {pack.name}
                   </Box>

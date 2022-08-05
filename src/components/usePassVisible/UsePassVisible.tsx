@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { IconButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 
 export const usePassVisible = (): [string, ReactElement] => {
   const [visible, setVisible] = useState<string>('password');

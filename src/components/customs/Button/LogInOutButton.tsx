@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';

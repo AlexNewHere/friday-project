@@ -11,7 +11,7 @@ export { AppRoutes } from './routes/AppRoutes';
 export { ModalLoader } from 'components/modalLoader/ModalLoader';
 export { CircularInitialized } from 'components/circularInitialized/CircularInitialized';
 export { UpdateAvatar } from 'components/updateAvatar/UpdateAvatar';
-export { PaginationRow } from 'components/PaginationRow/PaginationRow';
+export { PaginationRow } from 'components/paginationRow/PaginationRow';
 export { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
 export { ErrorSnackbar } from 'components/errorSnackbar/ErrorSnackbar';
 export { SearchInput } from 'components/searchInput/SearchInput';
