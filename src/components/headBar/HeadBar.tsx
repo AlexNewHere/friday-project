@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react';
 
-import { AppBar, Toolbar } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Container from '@mui/material/Container';
 
-import { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
+import { HeadProfile } from 'components';
 
 export const HeadBar = (): ReactElement => (
   <AppBar position="absolute" color="inherit">
-    <Toolbar>
+    <Container sx={{ display: 'flex', justifyContent: 'flex-end', padding: '12px 0' }}>
       <HeadProfile />
-    </Toolbar>
+    </Container>
   </AppBar>
 );

@@ -1,11 +1,16 @@
 import React, { ReactElement, useEffect } from 'react';
 
-import { Container } from '@mui/material';
+import Container from '@mui/material/Container';
 
 import s from './App.module.css';
 
-import { HeadBar, NavBar, AppRoutes, CircularInitialized } from 'components';
-import { ErrorSnackbar } from 'components/errorSnackbar/ErrorSnackbar';
+import {
+  HeadBar,
+  NavBar,
+  AppRoutes,
+  CircularInitialized,
+  ErrorSnackbar,
+} from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { isInitializedAppThunk } from 'store';
 
@@ -22,7 +27,7 @@ const App = (): ReactElement => {
   }
 
   return (
-    <Container fixed>
+    <Container fixed disableGutters>
       <ErrorSnackbar />
       <HeadBar />
       <AppRoutes />

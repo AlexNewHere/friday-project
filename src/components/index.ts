@@ -12,3 +12,5 @@ export { ModalLoader } from 'components/modalLoader/ModalLoader';
 export { CircularInitialized } from 'components/circularInitialized/CircularInitialized';
 export { UpdateAvatar } from 'components/updateAvatar/UpdateAvatar';
 export { PaginationRow } from 'components/PaginationRow/PaginationRow';
+export { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
+export { ErrorSnackbar } from 'components/errorSnackbar/ErrorSnackbar';

@@ -20,7 +20,7 @@ export const PacksListPage = (): ReactElement => {
     navigate(LINK.NEWPACK);
   };
   return (
-    <Container sx={{ paddingTop: '120px' }}>
+    <Container sx={{ paddingTop: '120px' }} disableGutters>
       <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography
           sx={{
