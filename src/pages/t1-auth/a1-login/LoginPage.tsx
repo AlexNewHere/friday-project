@@ -40,7 +40,7 @@ export const LoginPage = (): ReactElement => {
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <TextField
           {...formik.getFieldProps('email')}
-          error={!!formik.errors.email}
+          error={!!formik.errors.email && formik.values.email.length > 0}
           helperText={formik.errors.email}
           label="Email"
           variant="standard"
@@ -48,8 +48,8 @@ export const LoginPage = (): ReactElement => {
         />
         <TextField
           {...formik.getFieldProps('password')}
-          error={!!formik.errors.password}
-          helperText={formik.errors.password}
+          error={!!formik.errors.password && formik.values.password.length > 0}
+          helperText={formik.values.password.length > 0 && formik.errors.password}
           variant="standard"
           label="Password"
           type={visible}
