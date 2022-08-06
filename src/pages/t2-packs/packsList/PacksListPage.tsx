@@ -18,7 +18,15 @@ export const PacksListPage = (): ReactElement => {
 
   useEffect(() => {
     dispatch(getPacksThunk(allParams));
-  }, [allParams]);
+  }, [
+    allParams.page,
+    allParams.pageCount,
+    allParams.packName,
+    allParams.min,
+    allParams.max,
+    allParams.user_id,
+    allParams.sortPacks,
+  ]);
 
   const handleSearch = (packName: string | null): void => {
     setAllParams({
