@@ -39,8 +39,8 @@ export const NewPasswordPage = (): ReactElement => {
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <TextField
           {...formik.getFieldProps('password')}
-          error={!!formik.errors.password}
-          helperText={formik.errors.password}
+          error={formik.touched.password && !!formik.errors.password}
+          helperText={formik.touched.password && formik.errors.password}
           variant="standard"
           label="Password"
           type={visible}
