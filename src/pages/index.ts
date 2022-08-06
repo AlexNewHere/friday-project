@@ -9,7 +9,7 @@ export { NotFoundPage } from 'pages/t1-auth/a6-notFound/NotFoundPage';
 export { RegisterPage } from 'pages/t1-auth/a0-register/RegisterPage';
 export type { FormikRegisterType } from './t1-auth/a0-register/registerPageTypes';
 export { PacksListPage } from 'pages/t2-packs/packsList/PacksListPage';
-export { PacksListHeader } from 'pages/t2-packs/packsList/packsListComponent/packsListHeader';
+export { PacksListHeader } from 'pages/t2-packs/packsList/packsListComponent/PacksListHeader';
 export { PacksFilter } from 'pages/t2-packs/packsList/packsListComponent/PacksFilter';
 export { PacksSlider } from 'pages/t2-packs/packsList/packsListComponent/PacksSlider';
 export { CardsPage } from 'pages/t2-packs/cards/CardsPage';

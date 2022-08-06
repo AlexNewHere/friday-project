@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
 import * as React from 'react';
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -13,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
+import { BackToNameArrow } from 'components';
 import { LINK } from 'enums';
 import { useAppSelector } from 'hooks/useTypeHooks';
 
@@ -41,8 +41,7 @@ export const CardsPage = (): ReactElement => {
         }}
         onClick={toPacksListHandler}
       >
-        <ArrowBackIcon style={{ marginRight: '12px' }} />
-        Back to Packs List
+        <BackToNameArrow name="Packs List" link={LINK.PROFILE} />
       </Typography>
       <Typography
         sx={{
