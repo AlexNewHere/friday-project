@@ -14,7 +14,7 @@ import { createPacksThunk } from 'store';
 export const PacksListHeader = (): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
   const [check, setCheck] = useState<boolean>(false);
-  const [name, setName] = useState<string | null>(null);
+  const [name, setName] = useState<string>('');
   const dispatch = useAppDispatch();
   const addNewPackHandle = (): void => {
     setOpen(!open);

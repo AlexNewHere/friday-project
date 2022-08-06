@@ -34,8 +34,8 @@ export const ModalWindow: FC<ModalProps & ModalType> = ({
     <Paper sx={style}>
       <Box className={scss.header}>
         <h3>{name}</h3>
-        <IconButton>
-          <CloseIcon onClick={onClose} />
+        <IconButton onClick={onClose}>
+          <CloseIcon />
         </IconButton>
       </Box>
       <Box className={scss.body}> {children}</Box>
