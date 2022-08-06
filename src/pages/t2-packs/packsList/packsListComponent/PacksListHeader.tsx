@@ -1,16 +1,35 @@
-import React, { ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement, useState } from 'react';
 
+import { FormControlLabel } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
 
-import { LINK } from 'enums';
+import { ModalWindow } from 'components';
+import { useAppDispatch } from 'hooks/useTypeHooks';
+import { createPacksThunk } from 'store';
 
 export const PacksListHeader = (): ReactElement => {
-  const navigate = useNavigate();
+  const [open, setOpen] = useState<boolean>(false);
+  const [check, setCheck] = useState<boolean>(false);
+  const [name, setName] = useState<string>('');
+  const dispatch = useAppDispatch();
   const addNewPackHandle = (): void => {
-    navigate(LINK.NEWPACK);
+    setOpen(!open);
+  };
+  const handleCheck = (): void => {
+    setCheck(!check);
+  };
+  const handleName = (value: ChangeEvent<HTMLInputElement>): void => {
+    setName(value.target.value);
+  };
+  const handleCreate = async (): Promise<void> => {
+    const res = await dispatch(createPacksThunk({ name, private: check }));
+    if (res) {
+      setOpen(false);
+    }
   };
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -43,6 +62,44 @@ export const PacksListHeader = (): ReactElement => {
       >
         Add new pack
       </Button>
+      <ModalWindow open={open} onClose={addNewPackHandle} name="Add new pack">
+        <Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              padding: '35px 24px 15px',
+              gap: '20px',
+            }}
+          >
+            <TextField
+              value={name}
+              onChange={handleName}
+              label="Name pack"
+              fullWidth
+              variant="standard"
+            />
+            <FormControlLabel
+              control={<Checkbox checked={check} onChange={handleCheck} name="private" />}
+              label="Private pack"
+            />
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button
+              onClick={addNewPackHandle}
+              sx={{ border: 'none' }}
+              color="inherit"
+              variant="outlined"
+            >
+              Cancel
+            </Button>
+            <Button onClick={handleCreate} variant="contained">
+              Save
+            </Button>
+          </Box>
+        </Box>
+      </ModalWindow>
     </Box>
   );
 };

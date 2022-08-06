@@ -1,0 +1,23 @@
+.text {
+  position: fixed;
+  top: 10%;
+  left: 20%;
+}
+.text p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: black;
+}
+.text svg {
+  margin-right: 12px;
+}
+
+/*# sourceMappingURL=BackToNameArrow.module.css.map */
