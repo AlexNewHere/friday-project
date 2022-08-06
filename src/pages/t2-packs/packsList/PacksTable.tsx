@@ -30,7 +30,7 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
   const handleOpenPack = async (packId: string, packName: string): Promise<void> => {
     const res = await dispatch(getCardsThunk({ packId, packName }));
     if (res) {
-      navigate(LINK.CARDS);
+      navigate(`${LINK.CARDS}/${packId}`);
     }
   };
   const handleSort = (): void => {
