@@ -7,6 +7,7 @@ import {
   changeFetching,
   ParamsType,
   setPacks,
+  setParams,
 } from 'store/index';
 import { handleError } from 'untils/handleError';
 
@@ -19,6 +20,7 @@ export const getPacksThunk = createAsyncThunk<
   try {
     const res = await packsAPI.getPacks(params);
     dispatch(changeFetching(false));
+    dispatch(setParams(params));
     dispatch(setPacks(res.data));
   } catch (e) {
     dispatch(changeFetching(false));

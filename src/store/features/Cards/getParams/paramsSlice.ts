@@ -6,10 +6,10 @@ const initialState: ParamsType = {
   packName: null,
   min: 0,
   max: 30,
-  sortPacks: '',
+  sortPacks: null,
   page: 1,
   pageCount: 10,
-  user_id: '',
+  user_id: null,
 };
 
 export const paramsSlice = createSlice({

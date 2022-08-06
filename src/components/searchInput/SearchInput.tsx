@@ -13,7 +13,7 @@ import { useDebounce } from 'hooks/useDebounce';
 
 type PropsType = {
   packName: string | null;
-  callback: (packName: string) => void;
+  callback: (packName: string | null) => void;
 };
 
 export const SearchInput = React.memo(
