@@ -45,16 +45,16 @@ export const RegisterPage = (): ReactElement => {
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <TextField
           {...formik.getFieldProps('email')}
-          error={!!formik.errors.email && formik.values.email.length > 0}
-          helperText={formik.errors.email}
+          error={formik.touched.email && !!formik.errors.email}
+          helperText={formik.touched.email && formik.errors.email}
           label="Email"
           variant="standard"
           className={style.textField}
         />
         <TextField
           {...formik.getFieldProps('password')}
-          error={!!formik.errors.password && formik.values.password.length > 0}
-          helperText={formik.values.password.length > 0 && formik.errors.password}
+          error={formik.touched.password && !!formik.errors.password}
+          helperText={formik.touched.password && formik.errors.password}
           label="Password"
           type={visibleMain}
           variant="standard"
@@ -65,12 +65,8 @@ export const RegisterPage = (): ReactElement => {
         />
         <TextField
           {...formik.getFieldProps('confirmPassword')}
-          error={
-            !!formik.errors.confirmPassword && formik.values.confirmPassword.length > 0
-          }
-          helperText={
-            formik.values.confirmPassword.length > 0 && formik.errors.confirmPassword
-          }
+          error={formik.touched.confirmPassword && !!formik.errors.confirmPassword}
+          helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
           label="Confirm password"
           type={visibleConfirm}
           variant="standard"
