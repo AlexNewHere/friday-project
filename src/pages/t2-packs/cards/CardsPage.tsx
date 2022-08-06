@@ -61,11 +61,10 @@ export const CardsPage = (): ReactElement => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead sx={{ background: '#EFEFEF' }}>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Question</TableCell>
-              <TableCell align="right">Answer</TableCell>
-              <TableCell align="right">Last Updated</TableCell>
-              <TableCell align="right">Grade</TableCell>
+              <TableCell>Question</TableCell>
+              <TableCell>Answer</TableCell>
+              <TableCell>Last Updated</TableCell>
+              <TableCell>Grade</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -77,9 +76,9 @@ export const CardsPage = (): ReactElement => {
                 <TableCell component="th" scope="row">
                   {card.question}
                 </TableCell>
-                <TableCell align="right">{card.answer}</TableCell>
-                <TableCell align="right">{card.updated}</TableCell>
-                <TableCell align="right">{card.grade}</TableCell>
+                <TableCell>{card.answer}</TableCell>
+                <TableCell>{card.updated}</TableCell>
+                <TableCell>{card.grade}</TableCell>
               </TableRow>
             ))}
           </TableBody>

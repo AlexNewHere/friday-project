@@ -1,4 +1,4 @@
-export type cardsParamsTypes = {
+export type CardsParamsTypes = {
   cardAnswer: string;
   cardQuestion: string;
   cardsPack_id: string;
