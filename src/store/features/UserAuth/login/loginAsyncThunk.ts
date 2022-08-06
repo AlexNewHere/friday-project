@@ -14,7 +14,7 @@ export const isInitializedAppThunk = createAsyncThunk<
     const res = await loginAPI.authMe();
     dispatch(setUserData(res.data));
   } catch (e) {
-    console.log(e);
+    console.log(`Error is - ${e}`);
   }
 });
 
