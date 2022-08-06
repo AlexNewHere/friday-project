@@ -23,30 +23,21 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action: PayloadAction<AuthType>): LoginType => ({
-      ...state,
       ...action.payload,
+      isInitialized: true,
+      isLoggedIn: true,
     }),
   },
   extraReducers: builder => {
     builder
-      .addCase(loginUserThunk.pending, (state, action) => {
-        console.log(action);
-      })
-      .addCase(loginUserThunk.fulfilled, (state, action) => {
-        console.log(action);
-      })
-      .addCase(loginUserThunk.rejected, (state, action) => {
-        console.log(action);
-      })
       .addCase(isInitializedAppThunk.fulfilled, state => {
         state.isInitialized = true;
-        state.isLoggedIn = true;
       })
       .addCase(isInitializedAppThunk.rejected, state => {
         state.isInitialized = true;
       })
-      .addCase(logOutUserThunk.pending, (state, action) => {
-        console.log(action);
+      .addCase(loginUserThunk.fulfilled, state => {
+        state.isLoggedIn = true;
       })
       .addCase(logOutUserThunk.fulfilled, () => ({
         ...initialState,
