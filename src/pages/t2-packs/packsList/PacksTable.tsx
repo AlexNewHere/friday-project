@@ -20,6 +20,7 @@ export const PacksTable = (): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
   const handleOpenPack = async (packId: string, packName: string): Promise<void> => {
     const res = await dispatch(getCardsThunk({ packId, packName }));
     if (res) {

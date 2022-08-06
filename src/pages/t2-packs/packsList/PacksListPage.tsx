@@ -15,6 +15,7 @@ export const PacksListPage = (): ReactElement => {
   const params = useAppSelector(state => state.params);
   const [allParams, setAllParams] = useState<ParamsType>(params);
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(getPacksThunk(allParams));
   }, [allParams]);
@@ -22,21 +23,25 @@ export const PacksListPage = (): ReactElement => {
   const handleSearch = (packName: string): void => {
     setAllParams({ ...allParams, packName });
   };
+
   const handleFilter = (userId: string): void => {
     setAllParams({ ...allParams, user_id: userId });
   };
+
   const handleSlider = (min: number, max: number): void => {
     setAllParams({ ...allParams, min, max });
   };
+
   const handlePagination = (page: number, pageCount: number): void => {
     setAllParams({ ...allParams, page, pageCount, user_id: userParamsId });
   };
+
   return (
     <Container sx={{ paddingTop: '120px' }} disableGutters>
       <PacksListHeader />
       <Grid container spacing={2} sx={{ w: '100%', my: '24px' }} gap={3}>
         <Grid item xs>
-          <SearchInput callback={handleSearch} />
+          <SearchInput callback={handleSearch} packName={allParams.packName} />
         </Grid>
         <Grid item xs={2}>
           <PacksFilter callback={handleFilter} />

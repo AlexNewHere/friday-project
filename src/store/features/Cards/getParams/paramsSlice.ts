@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ParamsType } from 'store';
 
 const initialState: ParamsType = {
-  packName: '',
+  packName: null,
   min: 0,
   max: 30,
   sortPacks: '',

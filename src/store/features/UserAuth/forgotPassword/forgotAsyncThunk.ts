@@ -20,7 +20,7 @@ export const forgotPasswordThunk = createAsyncThunk<
   try {
     await loginAPI.forgot({ email, from, message });
     dispatch(changeFetching(false));
-    return true;
+    return true; // for redirect
   } catch (e) {
     handleError(e, dispatch);
     dispatch(changeFetching(false));
@@ -36,7 +36,7 @@ export const newPasswordThunk = createAsyncThunk<
   try {
     await loginAPI.newPassword({ password, token });
     dispatch(changeFetching(false));
-    return true;
+    return true; // for redirect
   } catch (e) {
     handleError(e, dispatch);
     dispatch(changeFetching(false));

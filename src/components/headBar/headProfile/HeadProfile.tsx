@@ -21,9 +21,6 @@ export const HeadProfile = (): ReactElement => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const logOutHandle = (): void => {
-    dispatch(logOutUserThunk());
-  };
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: MouseEvent<HTMLElement>): void => {
@@ -31,6 +28,10 @@ export const HeadProfile = (): ReactElement => {
   };
   const handleClose = (): void => {
     setAnchorEl(null);
+  };
+
+  const logOutHandle = (): void => {
+    dispatch(logOutUserThunk());
   };
   return isLoggedIn ? (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>

@@ -18,8 +18,8 @@ export const getPacksThunk = createAsyncThunk<
   dispatch(changeFetching(true));
   try {
     const res = await packsAPI.getPacks(params);
-    dispatch(setPacks(res.data));
     dispatch(changeFetching(false));
+    dispatch(setPacks(res.data));
   } catch (e) {
     dispatch(changeFetching(false));
     handleError(e, dispatch);

@@ -1,5 +1,5 @@
 export type ParamsType = {
-  packName: string;
+  packName: string | null;
   min: number;
   max: number;
   sortPacks: string;

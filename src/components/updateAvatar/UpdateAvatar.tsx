@@ -31,7 +31,6 @@ export const UpdateAvatar = ({ avatar }: { avatar: string }): ReactElement => {
     }
     setUpload(null);
   };
-  console.log('1');
   return (
     <Badge
       overlap="circular"

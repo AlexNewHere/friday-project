@@ -18,6 +18,8 @@ export const ModalLoader = (): ReactElement => {
       }}
       hideBackdrop
       open={isFetching}
+      disableAutoFocus
+      disableScrollLock
     >
       <CircularProgress color="secondary" />
     </Modal>
