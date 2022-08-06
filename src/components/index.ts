@@ -16,4 +16,5 @@ export { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
 export { ErrorSnackbar } from 'components/errorSnackbar/ErrorSnackbar';
 export { SearchInput } from 'components/searchInput/SearchInput';
 export { ActionTable } from 'components/actionTable/ActionTable';
+export { BackToNameArrow } from 'components/backToPacksListArrow/BackToNameArrow';
 export { ModalWindow } from 'components/modalWindow/ModalWindow';

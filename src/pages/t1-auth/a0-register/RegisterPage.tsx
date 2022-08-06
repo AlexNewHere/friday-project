@@ -36,7 +36,7 @@ export const RegisterPage = (): ReactElement => {
     },
   });
   if (isLoggedIn) {
-    return <Navigate to={LINK.PROFILE} />;
+    return <Navigate to={LINK.PACKS} />;
   }
 
   return (

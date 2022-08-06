@@ -1,7 +1,7 @@
 import React, { ReactElement, MouseEvent } from 'react';
 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
-import SportsMartialArtsIcon from '@mui/icons-material/SportsMartialArts';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
@@ -79,8 +79,13 @@ export const HeadProfile = (): ReactElement => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={() => navigate(LINK.PROFILE)}>
-          <SportsMartialArtsIcon sx={{ marginRight: '5px' }} />
+        <MenuItem
+          onClick={() => {
+            navigate(LINK.PROFILE);
+            handleClose();
+          }}
+        >
+          <AccountCircleIcon sx={{ marginRight: '5px' }} />
           Profile
         </MenuItem>
         <MenuItem onClick={logOutHandle}>
