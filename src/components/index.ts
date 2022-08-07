@@ -1,4 +1,4 @@
-export { LogOutButton } from 'components/customs/logOutButton/LogOutButton';
+export { LogInOutButton } from 'components/customs/logInOutButton/LogInOutButton';
 export { NavBar } from './navBar/NavBar';
 export { AuthPageWrapper } from './authPageWrapper/AuthPageWrapper';
 export { UnAuthorizedRedirect } from './unAuthorizedRedirect/UnAuthorizedRedirect';
