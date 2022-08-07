@@ -15,3 +15,4 @@ export { ErrorSnackbar } from 'components/errorSnackbar/ErrorSnackbar';
 export { SearchInput } from 'components/searchInput/SearchInput';
 export { BackToNameArrow } from 'components/backToPacksListArrow/BackToNameArrow';
 export { ModalWindow } from 'components/modalWindow/ModalWindow';
+export { GradeRating } from 'components/gradeRating/GradeRating';

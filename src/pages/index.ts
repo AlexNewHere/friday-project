@@ -13,6 +13,7 @@ export { PacksListHeader } from 'pages/cardsPacks/packsList/packsListComponent/P
 export { PacksFilter } from 'pages/cardsPacks/packsList/packsListComponent/PacksFilter';
 export { PacksSlider } from 'pages/cardsPacks/packsList/packsListComponent/PacksSlider';
 export { CardsPage } from 'pages/cardsPacks/userCards/CardsPage';
+export { CardsTable } from 'pages/cardsPacks/userCards/cardsTable/CardsTable';
 export { NewPackPage } from 'pages/cardsPacks/newPack/NewPackPage';
 export { PacksTable } from 'pages/cardsPacks/packsList/PacksTable';
 export { RemoveIcon } from 'pages/cardsPacks/packsList/actionTableComponent/removeIcon';

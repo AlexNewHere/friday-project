@@ -1,89 +1,40 @@
 import { ReactElement } from 'react';
 import * as React from 'react';
 
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+
+import style from './cardStyle.module.scss';
 
 import { BackToNameArrow } from 'components';
 import { LINK } from 'enums';
 import { useAppSelector } from 'hooks/useTypeHooks';
+import { CardsTable } from 'pages/';
 
 export const CardsPage = (): ReactElement => {
-  const cards = useAppSelector(state => state.cards.cards);
   const packName = useAppSelector(state => state.cards.packName);
-
-  const navigate = useNavigate();
-  const toPacksListHandler = (): void => {
-    navigate(LINK.PACKS);
-  };
+  const cardsTotalCount = useAppSelector(state => state.cards.cardsTotalCount);
+  const packUserId = useAppSelector(state => state.cards.packUserId);
+  const userId = useAppSelector(state => state.login._id);
 
   return (
-    <Container sx={{ paddingTop: '120px' }}>
-      <Typography
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          cursor: 'pointer',
-          fontFamily: 'Montserrat',
-          fontStyle: 'normal',
-          fontWeight: 400,
-          fontSize: '14px',
-          lineHeight: '24px',
-        }}
-        onClick={toPacksListHandler}
-      >
-        <BackToNameArrow name="Packs List" link={LINK.PROFILE} />
-      </Typography>
-      <Typography
-        sx={{
-          fontFamily: 'Montserrat',
-          fontStyle: 'normal',
-          fontWeight: 600,
-          fontSize: '22px',
-          lineHeight: '27px',
-          mt: '27px',
-          mb: '86px',
-        }}
-      >
-        {packName}
-      </Typography>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead sx={{ background: '#EFEFEF' }}>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Question</TableCell>
-              <TableCell align="right">Answer</TableCell>
-              <TableCell align="right">Last Updated</TableCell>
-              <TableCell align="right">Grade</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {cards.map(card => (
-              <TableRow
-                key={card._id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {card.question}
-                </TableCell>
-                <TableCell align="right">{card.answer}</TableCell>
-                <TableCell align="right">{card.updated}</TableCell>
-                <TableCell align="right">{card.grade}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+    <Container className={style.container}>
+      <BackToNameArrow name="Packs List" link={LINK.PACKS} />
+      <Typography className={style.name_pack}>{packName}</Typography>
+      {packUserId !== userId || cardsTotalCount > 1 ? (
+        <CardsTable />
+      ) : (
+        <Box>
+          <Typography className={style.empty_name}>
+            This pack is empty. Click add new card to fill this pack
+          </Typography>
+          <Typography align="center">
+            <Button variant="contained">Add new card</Button>
+          </Typography>
+        </Box>
+      )}
     </Container>
   );
 };
