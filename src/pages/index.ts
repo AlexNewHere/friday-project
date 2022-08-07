@@ -14,6 +14,8 @@ export { PacksFilter } from 'pages/cardsPacks/packsList/packsListComponent/Packs
 export { PacksSlider } from 'pages/cardsPacks/packsList/packsListComponent/PacksSlider';
 export { CardsPage } from 'pages/cardsPacks/userCards/CardsPage';
 export { ButtonAddCards } from 'pages/cardsPacks/userCards/cardsCompanent/ButtonAddCards';
+export { RemoveCardIcon } from 'pages/cardsPacks/userCards/actionCard/removeCardIcon';
+export { EditCardIcon } from 'pages/cardsPacks/userCards/actionCard/editCardIcon';
 export { CardsTable } from 'pages/cardsPacks/userCards/cardsCompanent/CardsTable';
 export { NewPackPage } from 'pages/cardsPacks/newPack/NewPackPage';
 export { PacksTable } from 'pages/cardsPacks/packsList/PacksTable';

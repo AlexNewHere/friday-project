@@ -26,7 +26,7 @@ export const CardsPage = (): ReactElement => {
       {packUserId !== userId || cardsTotalCount >= 1 ? (
         <CardsTable />
       ) : (
-        <Box>
+        <Box className={style.empty_box}>
           <Typography className={style.empty_name}>
             This pack is empty. Click add new card to fill this pack
           </Typography>
