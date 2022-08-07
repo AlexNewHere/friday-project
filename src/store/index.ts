@@ -48,5 +48,11 @@ export { cardsSlice, setCards } from './features/Cards/card/cardsSlice';
 export { getCardsThunk } from './features/Cards/card/cardsAsyncThunk';
 export type { CardsPackType } from './features/Cards/card/cardsTypes';
 
+export {
+  cardsParamsSlice,
+  setCardsParams,
+} from './features/Cards/card/getCardsParams/cardsParamsSlice';
+export type { CardsParamsTypes } from './features/Cards/card/getCardsParams/cardsParamsTypes';
+
 export { paramsSlice, setParams } from './features/Cards/getParams/paramsSlice';
 export type { ParamsType } from './features/Cards/getParams/paramsTypes';
