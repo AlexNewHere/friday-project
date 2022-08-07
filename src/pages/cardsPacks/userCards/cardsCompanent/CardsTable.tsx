@@ -44,7 +44,7 @@ export const CardsTable = (): ReactElement => {
               <TableCell component="th" scope="row">
                 {card.question}
               </TableCell>
-              <TableCell align="left">{card.question}</TableCell>
+              <TableCell align="left">{card.answer}</TableCell>
               <TableCell align="left">
                 {card.updated.split('T')[0].split('-').reverse().join('.')}
               </TableCell>
@@ -53,7 +53,12 @@ export const CardsTable = (): ReactElement => {
                   <GradeRating grade={card.grade} />
                   {packUserId === userId && (
                     <Box component="div">
-                      <RemoveCardIcon cardId={card._id} cardName={card.question} />
+                      <RemoveCardIcon
+                        packName={packName}
+                        packId={card.cardsPack_id}
+                        cardId={card._id}
+                        cardName={card.question}
+                      />
                       <EditCardIcon
                         cardId={card._id}
                         question={card.question}

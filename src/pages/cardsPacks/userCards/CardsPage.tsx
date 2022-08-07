@@ -22,7 +22,13 @@ export const CardsPage = (): ReactElement => {
   return (
     <Container className={style.container}>
       <BackToNameArrow name="Packs List" link={LINK.PACKS} />
-      <Typography className={style.name_pack}>{packName}</Typography>
+      <Box className={style.pack}>
+        <Typography className={style.name_pack}>{packName}</Typography>
+        {packUserId !== userId ||
+          (cardsTotalCount >= 1 && (
+            <ButtonAddCards packId={packId} packName={packName} />
+          ))}
+      </Box>
       {packUserId !== userId || cardsTotalCount >= 1 ? (
         <CardsTable />
       ) : (

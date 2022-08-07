@@ -7,14 +7,21 @@ import IconButton from '@mui/material/IconButton';
 
 import { ModalWindow } from 'components';
 import { useAppDispatch } from 'hooks/useTypeHooks';
-import { removeCardsThunk } from 'store';
+import { getCardsThunk, removeCardsThunk } from 'store';
 
 type PropsType = {
   cardId: string;
   cardName: string;
+  packName: string;
+  packId: string;
 };
 
-export const RemoveCardIcon = ({ cardId, cardName }: PropsType): ReactElement => {
+export const RemoveCardIcon = ({
+  cardId,
+  cardName,
+  packName,
+  packId,
+}: PropsType): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
@@ -26,6 +33,7 @@ export const RemoveCardIcon = ({ cardId, cardName }: PropsType): ReactElement =>
     const res = await dispatch(removeCardsThunk({ cardId }));
     if (res) {
       setOpen(false);
+      dispatch(getCardsThunk({ packId, packName }));
     }
   };
   return (

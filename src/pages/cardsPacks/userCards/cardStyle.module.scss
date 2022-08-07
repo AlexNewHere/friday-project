@@ -5,12 +5,22 @@
 .container {
   padding-top: 120px;
 
-  .name_pack {
-    margin-top: 27px;
-    margin-bottom: 86px;
-    @include fontStyle(600, 22px, 27px, $colorDark);
-    text-align: start;
+  .pack {
+    display: flex;
+    justify-content: space-between;
+    .name_pack {
+      margin-top: 27px;
+      margin-bottom: 86px;
+      @include fontStyle(600, 22px, 27px, $colorDark);
+      text-align: start;
+    }
+    button {
+      @include buttonPage;
+      margin-top: 20px;
+      @include fontStyle(500, 16px, 20px, $colorLight);
+    }
   }
+
 
   .empty_name {
     @include fontStyle(400, 16px, 20px, $colorDark);
@@ -20,12 +30,7 @@
 
   .empty_box {
     button {
-      width: 175px;
-      height: 36px;
-      border-radius: 30px;
-      padding: 0 28px;
-      margin-top: 32px;
-      text-transform: none;
+      @include buttonPage;
       @include fontStyle(500, 16px, 20px, $colorLight);
     }
   }
