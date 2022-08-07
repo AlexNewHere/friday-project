@@ -37,7 +37,11 @@ export type { RegisterType } from './features/UserAuth/register/registerTypes';
 
 export { packsSlice, setPacks } from './features/Cards/packs/packsSlice';
 export type { CardPackType, PacksType } from './features/Cards/packs/packsTypes';
-export { getPacksThunk, createPacksThunk } from './features/Cards/packs/packsAsyncThunk';
+export {
+  getPacksThunk,
+  createPacksThunk,
+  removePacksThunk,
+} from './features/Cards/packs/packsAsyncThunk';
 
 export { cardsSlice, setCards } from './features/Cards/card/cardsSlice';
 export { getCardsThunk } from './features/Cards/card/cardsAsyncThunk';

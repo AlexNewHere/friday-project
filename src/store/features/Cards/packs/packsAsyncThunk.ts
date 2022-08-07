@@ -45,3 +45,21 @@ export const createPacksThunk = createAsyncThunk<
     handleError(e, dispatch);
   }
 });
+
+export const removePacksThunk = createAsyncThunk<
+  boolean | undefined,
+  string,
+  { dispatch: AppDispatch; state: AppRootStateType }
+>('packs/getPacksThunk', async (id, { dispatch, getState }) => {
+  dispatch(changeFetching(true));
+  const { params } = getState();
+  try {
+    await packsAPI.removePacks(id);
+    dispatch(changeFetching(false));
+    dispatch(getPacksThunk(params));
+    return true; // for close modal window
+  } catch (e) {
+    dispatch(changeFetching(false));
+    handleError(e, dispatch);
+  }
+});

@@ -17,4 +17,7 @@ export const packsAPI = {
       },
     });
   },
+  removePacks(id: string) {
+    return instance.delete<{ error: string }>(`${ENDPOINT.PACKS}/?id=${id}`);
+  },
 };

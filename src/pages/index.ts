@@ -15,3 +15,6 @@ export { PacksSlider } from 'pages/cardsPacks/packsList/packsListComponent/Packs
 export { CardsPage } from 'pages/cardsPacks/userCards/CardsPage';
 export { NewPackPage } from 'pages/cardsPacks/newPack/NewPackPage';
 export { PacksTable } from 'pages/cardsPacks/packsList/PacksTable';
+export { RemoveIcon } from 'pages/cardsPacks/packsList/actionTableComponent/removeIcon';
+export { EditIcon } from 'pages/cardsPacks/packsList/actionTableComponent/editIcon';
+export { StartTest } from 'pages/cardsPacks/packsList/actionTableComponent/StartTest';

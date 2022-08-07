@@ -12,9 +12,9 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import { useNavigate } from 'react-router-dom';
 
-import { ActionTable } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
+import { RemoveIcon, EditIcon, StartTest } from 'pages';
 import { getCardsThunk } from 'store';
 
 type PropsType = {
@@ -48,7 +48,7 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
         <Table sx={{ minWidth: 650 }} aria-label="packs table">
           <TableHead sx={{ background: '#EFEFEF' }}>
             <TableRow>
-              <TableCell sx={{ width: '35%' }}>Name</TableCell>
+              <TableCell sx={{ width: '40%' }}>Name</TableCell>
               <TableCell sx={{ width: '15%' }} align="left">
                 Cards
               </TableCell>
@@ -61,7 +61,9 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
                 />
               </TableCell>
               <TableCell align="left">Created by</TableCell>
-              <TableCell align="left">Actions</TableCell>
+              <TableCell sx={{ width: '12%' }} align="left">
+                Actions
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -88,7 +90,16 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
                 </TableCell>
                 <TableCell align="left">{pack.user_name}</TableCell>
                 <TableCell align="left">
-                  <ActionTable />
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <RemoveIcon userId={pack.user_id} packId={pack._id} />
+                    <EditIcon userId={pack.user_id} />
+                    <StartTest />
+                  </Box>
                 </TableCell>
               </TableRow>
             ))}
