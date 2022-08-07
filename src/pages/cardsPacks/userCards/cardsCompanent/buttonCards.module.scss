@@ -1,0 +1,15 @@
+@import '../../../../common/sass/variables';
+@import '../../../../common/sass/mixins.scss';
+@import '../../../../common/sass/templates';
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 35px 24px 15px;
+  gap: 20px;
+
+  select {
+    padding: 0;
+  }
+}

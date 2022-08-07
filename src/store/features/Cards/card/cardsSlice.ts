@@ -11,6 +11,7 @@ const initialState: CardsPackType = {
   pageCount: 0,
   packUserId: '',
   packName: '',
+  packId: '',
 };
 
 export const cardsSlice = createSlice({

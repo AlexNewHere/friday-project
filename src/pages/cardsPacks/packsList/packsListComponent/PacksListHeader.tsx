@@ -16,7 +16,7 @@ export const PacksListHeader = (): ReactElement => {
   const [check, setCheck] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const dispatch = useAppDispatch();
-  const addNewPackHandle = (): void => {
+  const handleNewPack = (): void => {
     setOpen(!open);
   };
   const handleCheck = (): void => {
@@ -46,7 +46,7 @@ export const PacksListHeader = (): ReactElement => {
       </Typography>
       <Button
         variant="contained"
-        onClick={addNewPackHandle}
+        onClick={handleNewPack}
         sx={{
           w: '175px',
           h: '36px',
@@ -62,7 +62,7 @@ export const PacksListHeader = (): ReactElement => {
       >
         Add new pack
       </Button>
-      <ModalWindow open={open} onClose={addNewPackHandle} name="Add new pack">
+      <ModalWindow open={open} onClose={handleNewPack} name="Add new pack">
         <Box>
           <Box
             sx={{
@@ -87,7 +87,7 @@ export const PacksListHeader = (): ReactElement => {
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Button
-              onClick={addNewPackHandle}
+              onClick={handleNewPack}
               sx={{ border: 'none' }}
               color="inherit"
               variant="outlined"

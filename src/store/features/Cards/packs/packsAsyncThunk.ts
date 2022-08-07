@@ -32,7 +32,7 @@ export const createPacksThunk = createAsyncThunk<
   boolean | undefined,
   CreatePackType,
   { dispatch: AppDispatch; state: AppRootStateType }
->('packs/getPacksThunk', async (data, { dispatch, getState }) => {
+>('packs/createPacksThunk', async (data, { dispatch, getState }) => {
   dispatch(changeFetching(true));
   const { params } = getState();
   try {
@@ -50,7 +50,7 @@ export const editPacksThunk = createAsyncThunk<
   boolean | undefined,
   EditPackType,
   { dispatch: AppDispatch; state: AppRootStateType }
->('packs/getPacksThunk', async (data, { dispatch, getState }) => {
+>('packs/editPacksThunk', async (data, { dispatch, getState }) => {
   dispatch(changeFetching(true));
   const { params } = getState();
   try {
@@ -68,7 +68,7 @@ export const removePacksThunk = createAsyncThunk<
   boolean | undefined,
   string,
   { dispatch: AppDispatch; state: AppRootStateType }
->('packs/getPacksThunk', async (id, { dispatch, getState }) => {
+>('packs/removePacksThunk', async (id, { dispatch, getState }) => {
   dispatch(changeFetching(true));
   const { params } = getState();
   try {

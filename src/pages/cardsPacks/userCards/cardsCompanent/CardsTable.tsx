@@ -23,7 +23,7 @@ export const CardsTable = (): ReactElement => {
             <TableCell sx={{ width: '35%' }} align="left">
               Question
             </TableCell>
-            <TableCell sx={{ width: '35%' }} align="left">
+            <TableCell sx={{ width: '30%' }} align="left">
               Answer
             </TableCell>
             <TableCell align="left">Last Updated</TableCell>
@@ -45,8 +45,8 @@ export const CardsTable = (): ReactElement => {
               </TableCell>
               <TableCell align="left">
                 <GradeRating grade={card.grade} />
+                {packUserId === userId && <span>555</span>}
               </TableCell>
-              {packUserId === userId && <TableCell align="left">555</TableCell>}
             </TableRow>
           ))}
         </TableBody>
