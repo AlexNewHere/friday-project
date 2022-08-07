@@ -49,4 +49,5 @@ export { getCardsThunk } from './features/Cards/card/cardsAsyncThunk';
 export type { CardsPackType } from './features/Cards/card/cardsTypes';
 
 export { paramsSlice, setParams } from './features/Cards/getParams/paramsSlice';
+
 export type { ParamsType } from './features/Cards/getParams/paramsTypes';
