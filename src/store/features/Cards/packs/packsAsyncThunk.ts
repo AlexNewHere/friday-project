@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { CreatePackType, packsAPI } from 'api';
+import { CreatePackType, EditPackType, packsAPI } from 'api';
 import {
   AppDispatch,
   AppRootStateType,
@@ -37,6 +37,24 @@ export const createPacksThunk = createAsyncThunk<
   const { params } = getState();
   try {
     await packsAPI.createPacks(data);
+    dispatch(changeFetching(false));
+    dispatch(getPacksThunk(params));
+    return true; // for close modal window
+  } catch (e) {
+    dispatch(changeFetching(false));
+    handleError(e, dispatch);
+  }
+});
+
+export const editPacksThunk = createAsyncThunk<
+  boolean | undefined,
+  EditPackType,
+  { dispatch: AppDispatch; state: AppRootStateType }
+>('packs/getPacksThunk', async (data, { dispatch, getState }) => {
+  dispatch(changeFetching(true));
+  const { params } = getState();
+  try {
+    await packsAPI.editPacks(data);
     dispatch(changeFetching(false));
     dispatch(getPacksThunk(params));
     return true; // for close modal window

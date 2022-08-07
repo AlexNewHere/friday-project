@@ -12,9 +12,10 @@ import { removePacksThunk } from 'store';
 type PropsType = {
   userId: string;
   packId: string;
+  packName: string;
 };
 
-export const RemoveIcon = ({ userId, packId }: PropsType): ReactElement => {
+export const RemoveIcon = ({ userId, packId, packName }: PropsType): ReactElement => {
   const profileId = useAppSelector(state => state.login._id);
   const [open, setOpen] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -51,7 +52,8 @@ export const RemoveIcon = ({ userId, packId }: PropsType): ReactElement => {
             }}
           >
             <span>
-              Do you really want to remove Pack Name? All cards will be deleted.
+              Do you really want to remove
+              <strong> {packName}</strong>? All cards will be deleted.
             </span>
           </Box>
 

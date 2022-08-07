@@ -40,6 +40,7 @@ export type { CardPackType, PacksType } from './features/Cards/packs/packsTypes'
 export {
   getPacksThunk,
   createPacksThunk,
+  editPacksThunk,
   removePacksThunk,
 } from './features/Cards/packs/packsAsyncThunk';
 

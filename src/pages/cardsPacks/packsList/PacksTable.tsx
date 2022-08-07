@@ -96,8 +96,16 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
                       alignItems: 'center',
                     }}
                   >
-                    <RemoveIcon userId={pack.user_id} packId={pack._id} />
-                    <EditIcon userId={pack.user_id} />
+                    <RemoveIcon
+                      userId={pack.user_id}
+                      packId={pack._id}
+                      packName={pack.name}
+                    />
+                    <EditIcon
+                      userId={pack.user_id}
+                      packName={pack.name}
+                      packId={pack._id}
+                    />
                     <StartTest />
                   </Box>
                 </TableCell>
