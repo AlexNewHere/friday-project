@@ -11,7 +11,7 @@ import {
   NotFoundPage,
   PacksListPage,
   ProfilePage,
-  RecoveryPage,
+  ForgotPage,
   RegisterPage,
   CardsPage,
   NewPackPage,
@@ -24,7 +24,7 @@ export const AppRoutes = (): ReactElement => (
       <Route path="/" element={<Navigate replace to={LINK.LOGIN} />} />
       <Route path={LINK.LOGIN} element={<LoginPage />} />
       <Route path={LINK.REGISTER} element={<RegisterPage />} />
-      <Route path={LINK.RECOVER} element={<RecoveryPage />} />
+      <Route path={LINK.RECOVER} element={<ForgotPage />} />
       <Route path={LINK.FOUND404} element={<NotFoundPage />} />
       <Route path={LINK.PASSWORD} element={<NewPasswordPage />} />
       <Route path={LINK.EMAIL} element={<CheckEmail />} />

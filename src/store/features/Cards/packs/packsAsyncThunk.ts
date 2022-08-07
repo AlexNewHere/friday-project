@@ -39,7 +39,7 @@ export const createPacksThunk = createAsyncThunk<
     await packsAPI.createPacks(data);
     dispatch(changeFetching(false));
     dispatch(getPacksThunk(params));
-    return true;
+    return true; // for close modal window
   } catch (e) {
     dispatch(changeFetching(false));
     handleError(e, dispatch);

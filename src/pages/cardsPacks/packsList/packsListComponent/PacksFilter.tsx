@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -14,12 +14,11 @@ type PropsType = {
 
 export const PacksFilter = ({ callback }: PropsType): ReactElement => {
   const profileId = useAppSelector(state => state.login._id);
-  const [check, setCheck] = useState<boolean>(false);
+  const paramsId = useAppSelector(state => state.params.user_id);
   const handleCheck = (set: boolean): void => {
     if (profileId != null) {
       const userId: string | null = set ? profileId : null;
       callback(userId);
-      setCheck(set);
     }
   };
   return (
@@ -38,14 +37,14 @@ export const PacksFilter = ({ callback }: PropsType): ReactElement => {
       <ButtonGroup color="primary" variant="outlined" sx={{ width: '100%' }}>
         <Button
           value="My"
-          variant={check ? 'contained' : 'outlined'}
+          variant={paramsId ? 'contained' : 'outlined'}
           sx={{ width: '50%' }}
           onClick={() => handleCheck(true)}
         >
           My
         </Button>
         <Button
-          variant={check ? 'outlined' : 'contained'}
+          variant={paramsId ? 'outlined' : 'contained'}
           sx={{ width: '50%' }}
           onClick={() => handleCheck(false)}
         >

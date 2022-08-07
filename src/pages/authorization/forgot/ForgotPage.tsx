@@ -12,7 +12,7 @@ import { LINK } from 'enums';
 import { useAppDispatch } from 'hooks/useTypeHooks';
 import { forgotPasswordThunk } from 'store';
 
-export const RecoveryPage = (): ReactElement => {
+export const ForgotPage = (): ReactElement => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const formik = useFormik<{ email: string }>({
