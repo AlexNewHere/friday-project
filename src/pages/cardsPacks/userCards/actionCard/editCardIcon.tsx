@@ -1,38 +1,48 @@
 import React, { ChangeEvent, ReactElement, useState } from 'react';
 
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import { Select } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 
-import style from './buttonCards.module.scss';
-
 import { CardCreateType } from 'api';
 import { ModalWindow } from 'components';
 import { useAppDispatch } from 'hooks/useTypeHooks';
-import { createCardsThunk, getCardsThunk } from 'store';
+import style from 'pages/cardsPacks/userCards/cardsCompanent/buttonCards.module.scss';
+import { getCardsThunk, editCardsThunk } from 'store';
 
 type PropsType = {
+  cardId: string;
+  question: string;
+  answer: string;
   packName: string;
   packId: string;
 };
 
-export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement => {
+export const EditCardIcon = ({
+  cardId,
+  answer,
+  question,
+  packName,
+  packId,
+}: PropsType): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
   const [select, setSelect] = useState<string>('');
   const [params, setParams] = useState<CardCreateType>({
-    question: '',
-    answer: '',
+    question,
+    answer,
   });
   const dispatch = useAppDispatch();
-  const handleNewCard = (): void => {
+  const handleOpenEdit = (): void => {
     setOpen(!open);
   };
 
-  const handleCreateCard = async (): Promise<void> => {
-    const res = await dispatch(createCardsThunk({ ...params, packId }));
+  const handleEditCard = async (): Promise<void> => {
+    const res = await dispatch(editCardsThunk({ ...params, cardId }));
     if (res) {
       setOpen(false);
       dispatch(getCardsThunk({ packId, packName }));
@@ -53,10 +63,10 @@ export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement =>
 
   return (
     <Box>
-      <Button onClick={handleNewCard} variant="contained">
-        Add new card
-      </Button>
-      <ModalWindow open={open} onClose={handleNewCard} name="Add new card">
+      <IconButton onClick={handleOpenEdit} size="small" color="primary">
+        <DriveFileRenameOutlineIcon />
+      </IconButton>
+      <ModalWindow open={open} onClose={handleOpenEdit} name="Add new card">
         <Box>
           <Box className={style.body}>
             <Select
@@ -89,15 +99,15 @@ export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement =>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Button
-              onClick={handleNewCard}
+              onClick={handleOpenEdit}
               sx={{ border: 'none' }}
               color="inherit"
               variant="outlined"
             >
               Cancel
             </Button>
-            <Button onClick={handleCreateCard} variant="contained">
-              Create
+            <Button onClick={handleEditCard} variant="contained">
+              SAVE
             </Button>
           </Box>
         </Box>

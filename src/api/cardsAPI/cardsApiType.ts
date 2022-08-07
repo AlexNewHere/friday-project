@@ -19,3 +19,8 @@ export type CardsResponseType = {
   pageCount: number;
   packUserId: string;
 };
+
+export type CardCreateType = {
+  question: string;
+  answer: string;
+};

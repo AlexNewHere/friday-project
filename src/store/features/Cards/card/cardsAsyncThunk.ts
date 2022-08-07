@@ -40,3 +40,39 @@ export const createCardsThunk = createAsyncThunk<
     handleError(e, dispatch);
   }
 });
+
+export const editCardsThunk = createAsyncThunk<
+  boolean | undefined,
+  {
+    question: string;
+    answer: string;
+    cardId: string;
+  },
+  { dispatch: AppDispatch; state: AppRootStateType }
+>('cards/getCardsThunk', async ({ question, answer, cardId }, { dispatch }) => {
+  dispatch(changeFetching(true));
+  try {
+    await cardsAPI.editCards({ question, answer, cardId });
+    dispatch(changeFetching(false));
+    return true;
+  } catch (e) {
+    dispatch(changeFetching(false));
+    handleError(e, dispatch);
+  }
+});
+
+export const removeCardsThunk = createAsyncThunk<
+  boolean | undefined,
+  { cardId: string },
+  { dispatch: AppDispatch }
+>('cards/getCardsThunk', async ({ cardId }, { dispatch }) => {
+  dispatch(changeFetching(true));
+  try {
+    await cardsAPI.removeCards({ cardId });
+    dispatch(changeFetching(false));
+    return true;
+  } catch (e) {
+    dispatch(changeFetching(false));
+    handleError(e, dispatch);
+  }
+});

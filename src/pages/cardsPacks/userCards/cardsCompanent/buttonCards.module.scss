@@ -13,3 +13,14 @@
     padding: 0;
   }
 }
+
+.row_action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

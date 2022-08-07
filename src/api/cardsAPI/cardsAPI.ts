@@ -22,4 +22,24 @@ export const cardsAPI = {
       },
     });
   },
+  editCards({
+    question,
+    answer,
+    cardId,
+  }: {
+    question: string;
+    answer: string;
+    cardId: string;
+  }) {
+    return instance.put<CardsResponseType>(`${ENDPOINT.CARDS}/`, {
+      card: {
+        _id: cardId,
+        question,
+        answer,
+      },
+    });
+  },
+  removeCards({ cardId }: { cardId: string }) {
+    return instance.delete<{ error: string }>(`${ENDPOINT.CARDS}/?id=${cardId}`);
+  },
 };
