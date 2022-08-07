@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { RemoveIcon, EditIcon, StartTest } from 'pages';
-import { setCards, setCardsParams } from 'store';
+import { getCardsThunk } from 'store';
 
 type PropsType = {
   sortPacks: string | null;
@@ -24,15 +24,14 @@ type PropsType = {
 
 export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
-  const cardsParams = useAppSelector(state => state.cardsParams);
-  const cards = useAppSelector(state => state.cards);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [sort, setSort] = useState<string | null>(sortPacks);
-  const handleOpenPack = (packId: string, packName: string): void => {
-    navigate(`${LINK.CARDS}/${packId}`);
-    dispatch(setCards({ ...cards, packName }));
-    dispatch(setCardsParams({ ...cardsParams, cardsPack_id: packId }));
+  const handleOpenPack = async (packId: string, packName: string): Promise<void> => {
+    const res = await dispatch(getCardsThunk({ packId, packName }));
+    if (res) {
+      navigate(`${LINK.CARDS}/${packId}`);
+    }
   };
   const handleSort = (): void => {
     if (sort === null) {
