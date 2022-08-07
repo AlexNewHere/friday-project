@@ -11,7 +11,7 @@ import style from './buttonCards.module.scss';
 
 import { CardCreateType } from 'api';
 import { ModalWindow } from 'components';
-import { useAppDispatch } from 'hooks/useTypeHooks';
+import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { createCardsThunk, getCardsThunk } from 'store';
 
 type PropsType = {
@@ -20,6 +20,7 @@ type PropsType = {
 };
 
 export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement => {
+  const { page, pageCount } = useAppSelector(state => state.cards);
   const [open, setOpen] = useState<boolean>(false);
   const [select, setSelect] = useState<string>('');
   const [params, setParams] = useState<CardCreateType>({
@@ -35,7 +36,12 @@ export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement =>
     const res = await dispatch(createCardsThunk({ ...params, packId }));
     if (res) {
       setOpen(false);
-      dispatch(getCardsThunk({ packId, packName }));
+      dispatch(
+        getCardsThunk({
+          params: { page, pageCount, cardsPack_id: packId },
+          packName,
+        }),
+      );
     }
   };
 

@@ -7,5 +7,6 @@ export type {
   CardType,
   CardsResponseType,
   CardCreateType,
+  GetCardType,
 } from './cardsAPI/cardsApiType';
 export type { CreatePackType, EditPackType } from './packsAPI/packsType';

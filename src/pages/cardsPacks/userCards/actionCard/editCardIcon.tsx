@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 
 import { CardCreateType } from 'api';
 import { ModalWindow } from 'components';
-import { useAppDispatch } from 'hooks/useTypeHooks';
+import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import style from 'pages/cardsPacks/userCards/cardsCompanent/buttonCards.module.scss';
 import { getCardsThunk, editCardsThunk } from 'store';
 
@@ -30,6 +30,7 @@ export const EditCardIcon = ({
   packName,
   packId,
 }: PropsType): ReactElement => {
+  const { page, pageCount } = useAppSelector(state => state.cards);
   const [open, setOpen] = useState<boolean>(false);
   const [select, setSelect] = useState<string>('');
   const [params, setParams] = useState<CardCreateType>({
@@ -45,7 +46,12 @@ export const EditCardIcon = ({
     const res = await dispatch(editCardsThunk({ ...params, cardId }));
     if (res) {
       setOpen(false);
-      dispatch(getCardsThunk({ packId, packName }));
+      dispatch(
+        getCardsThunk({
+          params: { page, pageCount, cardsPack_id: packId },
+          packName,
+        }),
+      );
     }
   };
 

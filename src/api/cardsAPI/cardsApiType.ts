@@ -24,3 +24,14 @@ export type CardCreateType = {
   question: string;
   answer: string;
 };
+
+export type GetCardType = {
+  cardAnswer?: string;
+  cardQuestion?: string;
+  min?: number;
+  max?: number;
+  sortCards?: string;
+  page: number;
+  pageCount: number;
+  cardsPack_id: string;
+};

@@ -1,18 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { cardsAPI } from 'api';
+import { cardsAPI, GetCardType } from 'api';
 import { AppDispatch, AppRootStateType, changeFetching, setCards } from 'store/index';
 import { handleError } from 'untils/handleError';
 
 export const getCardsThunk = createAsyncThunk<
   boolean | undefined,
-  { packId: string; packName: string },
+  { params: GetCardType; packName: string },
   { dispatch: AppDispatch; state: AppRootStateType }
->('cards/getCardsThunk', async ({ packId, packName }, { dispatch }) => {
+>('cards/getCardsThunk', async ({ params, packName }, { dispatch }) => {
   dispatch(changeFetching(true));
   try {
-    const res = await cardsAPI.getCards({ packId });
-    dispatch(setCards({ ...res.data, packName, packId }));
+    const res = await cardsAPI.getCards(params);
+    dispatch(setCards({ ...res.data, packName, packId: params.cardsPack_id }));
     dispatch(changeFetching(false));
     return true;
   } catch (e) {

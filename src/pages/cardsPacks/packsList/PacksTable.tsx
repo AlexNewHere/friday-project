@@ -24,11 +24,14 @@ type PropsType = {
 
 export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => {
   const packs = useAppSelector(state => state.packs.cardPacks);
+  const { page, pageCount } = useAppSelector(state => state.cards);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [sort, setSort] = useState<string | null>(sortPacks);
   const handleOpenPack = async (packId: string, packName: string): Promise<void> => {
-    const res = await dispatch(getCardsThunk({ packId, packName }));
+    const res = await dispatch(
+      getCardsThunk({ params: { page, pageCount, cardsPack_id: packId }, packName }),
+    );
     if (res) {
       navigate(`${LINK.CARDS}/${packId}`);
     }
