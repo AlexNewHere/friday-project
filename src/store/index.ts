@@ -55,4 +55,5 @@ export {
 export type { CardsParamsTypes } from './features/Cards/card/getCardsParams/cardsParamsTypes';
 
 export { paramsSlice, setParams } from './features/Cards/getParams/paramsSlice';
+
 export type { ParamsType } from './features/Cards/getParams/paramsTypes';
