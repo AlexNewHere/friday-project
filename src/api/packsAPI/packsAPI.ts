@@ -1,4 +1,4 @@
-import { instance } from 'api';
+import { CreatePackType, instance } from 'api';
 import { ENDPOINT } from 'enums';
 import { PacksType, ParamsType } from 'store';
 
@@ -7,6 +7,13 @@ export const packsAPI = {
     return instance.get<PacksType>(`${ENDPOINT.PACKS}/`, {
       params: {
         ...params,
+      },
+    });
+  },
+  createPacks(data: CreatePackType) {
+    return instance.post<{ error: string }>(`${ENDPOINT.PACKS}/`, {
+      cardsPack: {
+        ...data,
       },
     });
   },

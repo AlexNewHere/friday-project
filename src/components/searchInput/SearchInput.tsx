@@ -13,7 +13,7 @@ import { useDebounce } from 'hooks/useDebounce';
 
 type PropsType = {
   packName: string | null;
-  callback: (packName: string) => void;
+  callback: (packName: string | null) => void;
 };
 
 export const SearchInput = React.memo(
@@ -55,6 +55,7 @@ export const SearchInput = React.memo(
           >
             <InputBase
               size="small"
+              value={value !== null ? value : ''}
               sx={{ padding: '5px', width: '100%' }}
               startAdornment={
                 <InputAdornment position="start">

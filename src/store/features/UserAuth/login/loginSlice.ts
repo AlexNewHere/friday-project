@@ -1,12 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import {
-  LoginType,
-  AuthType,
-  loginUserThunk,
-  isInitializedAppThunk,
-  logOutUserThunk,
-} from 'store/index';
+import { LoginType, AuthType, isInitializedAppThunk, logOutUserThunk } from 'store/index';
 
 const initialState: LoginType = {
   _id: null,
@@ -23,30 +17,18 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action: PayloadAction<AuthType>): LoginType => ({
-      ...state,
       ...action.payload,
+      isInitialized: true,
+      isLoggedIn: true,
     }),
   },
   extraReducers: builder => {
     builder
-      .addCase(loginUserThunk.pending, (state, action) => {
-        console.log(action);
-      })
-      .addCase(loginUserThunk.fulfilled, (state, action) => {
-        console.log(action);
-      })
-      .addCase(loginUserThunk.rejected, (state, action) => {
-        console.log(action);
-      })
       .addCase(isInitializedAppThunk.fulfilled, state => {
         state.isInitialized = true;
-        state.isLoggedIn = true;
       })
       .addCase(isInitializedAppThunk.rejected, state => {
         state.isInitialized = true;
-      })
-      .addCase(logOutUserThunk.pending, (state, action) => {
-        console.log(action);
       })
       .addCase(logOutUserThunk.fulfilled, () => ({
         ...initialState,

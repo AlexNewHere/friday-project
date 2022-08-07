@@ -34,8 +34,8 @@ export const RecoveryPage = (): ReactElement => {
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <TextField
           {...formik.getFieldProps('email')}
-          error={!!formik.errors.email}
-          helperText={formik.errors.email}
+          error={formik.touched.email && !!formik.errors.email}
+          helperText={formik.touched.email && formik.errors.email}
           variant="standard"
           label="Email"
           type="email"

@@ -1,43 +1,23 @@
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EditIcon from '@mui/icons-material/Edit';
-// import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
+import { BackToNameArrow } from 'components';
 import { LINK } from 'enums';
 
 export const NewPackPage = (): ReactElement => {
   const navigate = useNavigate();
-  const toPacksListHandler = (): void => {
-    navigate(LINK.PACKS);
-  };
   const addNewCardHandle = (): void => {
     navigate(LINK.PACKS); // THIS HANDLER (to replace) TO ADD A CARD!!!
   };
   return (
     <Container sx={{ paddingTop: '120px' }}>
-      <Typography
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          cursor: 'pointer',
-          fontFamily: 'Montserrat',
-          fontStyle: 'normal',
-          fontWeight: 400,
-          fontSize: '14px',
-          lineHeight: '24px',
-        }}
-        onClick={toPacksListHandler}
-      >
-        <ArrowBackIcon style={{ marginRight: '12px' }} />
-        Back to Packs List
-      </Typography>
+      <BackToNameArrow name="Packs List" link={LINK.PACKS} />
       <Typography
         sx={{
           fontFamily: 'Montserrat',

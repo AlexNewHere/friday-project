@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { useAppSelector } from 'hooks/useTypeHooks';
 
 type PropsType = {
-  callback: (userId: string) => void;
+  callback: (userId: string | null) => void;
 };
 
 export const PacksFilter = ({ callback }: PropsType): ReactElement => {
@@ -17,7 +17,7 @@ export const PacksFilter = ({ callback }: PropsType): ReactElement => {
   const [check, setCheck] = useState<boolean>(false);
   const handleCheck = (set: boolean): void => {
     if (profileId != null) {
-      const userId: string = set ? profileId : '';
+      const userId: string | null = set ? profileId : null;
       callback(userId);
       setCheck(set);
     }

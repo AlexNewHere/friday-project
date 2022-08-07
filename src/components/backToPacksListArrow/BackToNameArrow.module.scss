@@ -1,0 +1,21 @@
+@import '../../common/sass/mixins';
+@import '../../common/sass/variables';
+
+.text {
+
+  position: fixed;
+  top: 10%;
+  left: 20%;
+
+  & p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    @include fontStyle(400, 14px, 24px, $colorDark);
+  }
+
+  & svg {
+    margin-right: 12px;
+  }
+}

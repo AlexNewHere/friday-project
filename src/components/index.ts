@@ -1,6 +1,4 @@
-export { LogInOutButton } from 'components/customs/Button/LogInOutButton';
-export { SuperCheckbox } from './customs/c3-SuperCheckbox/SuperCheckbox';
-export { SuperInputText } from './customs/c1-SuperInputText/SuperInputText';
+export { LogOutButton } from 'components/customs/logOutButton/LogOutButton';
 export { NavBar } from './navBar/NavBar';
 export { AuthPageWrapper } from './authPageWrapper/AuthPageWrapper';
 export { UnAuthorizedRedirect } from './unAuthorizedRedirect/UnAuthorizedRedirect';
@@ -16,3 +14,5 @@ export { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
 export { ErrorSnackbar } from 'components/errorSnackbar/ErrorSnackbar';
 export { SearchInput } from 'components/searchInput/SearchInput';
 export { ActionTable } from 'components/actionTable/ActionTable';
+export { BackToNameArrow } from 'components/backToPacksListArrow/BackToNameArrow';
+export { ModalWindow } from 'components/modalWindow/ModalWindow';

@@ -18,13 +18,28 @@ export const PacksListPage = (): ReactElement => {
 
   useEffect(() => {
     dispatch(getPacksThunk(allParams));
-  }, [allParams]);
+  }, [
+    allParams.page,
+    allParams.pageCount,
+    allParams.packName,
+    allParams.min,
+    allParams.max,
+    allParams.user_id,
+    allParams.sortPacks,
+  ]);
 
-  const handleSearch = (packName: string): void => {
-    setAllParams({ ...allParams, packName });
+  const handleSearch = (packName: string | null): void => {
+    setAllParams({
+      ...allParams,
+      packName: packName === '' ? null : packName,
+      page: 1,
+    });
+  };
+  const handleSort = (sortPacks: string | null): void => {
+    setAllParams({ ...allParams, sortPacks, page: 1 });
   };
 
-  const handleFilter = (userId: string): void => {
+  const handleFilter = (userId: string | null): void => {
     setAllParams({ ...allParams, user_id: userId });
   };
 
@@ -50,7 +65,7 @@ export const PacksListPage = (): ReactElement => {
           <PacksSlider callback={handleSlider} min={allParams.min} max={allParams.max} />
         </Grid>
       </Grid>
-      <PacksTable />
+      <PacksTable callback={handleSort} sortPacks={allParams.sortPacks} />
       <PaginationRow
         page={allParams.page}
         count={count}

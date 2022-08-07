@@ -7,8 +7,15 @@
   margin: 12px 0;
 }
 .form .textField input:-webkit-autofill,
+.form .textField input:-webkit-autofill:hover,
+.form .textField input:-webkit-autofill:focus,
+.form .textField input:-webkit-autofill,
 .form .textField textarea:-webkit-autofill,
-.form .textField select:-webkit-autofill {
+.form .textField textarea:-webkit-autofill:hover,
+.form .textField textarea:-webkit-autofill:focus,
+.form .textField select:-webkit-autofill,
+.form .textField select:-webkit-autofill:hover,
+.form .textField select:-webkit-autofill:focus {
   color: black;
   border: 0;
   -webkit-text-fill-color: black;
