@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
@@ -37,20 +36,16 @@ export const ProfilePage = (): ReactElement => {
           value={userName}
           onChange={updateUserName}
         />
-        <Box
+        <Typography
+          component="p"
           sx={{
             pt: '14px',
             pb: '29px',
-            fontFamily: 'Montserrat',
-            fontStyle: 'normal',
-            fontWeight: 400,
-            fontSize: '14px',
-            lineHeight: '24px',
             opacity: 0.5,
           }}
         >
           {`${userEmail}`}
-        </Box>
+        </Typography>
         <LogInOutButton />
       </AuthPageWrapper>
     </Container>
