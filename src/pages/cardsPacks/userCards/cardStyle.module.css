@@ -1,0 +1,60 @@
+.container .empty_box button, .container .pack button {
+  width: 175px;
+  height: 36px;
+  border-radius: 30px;
+  padding: 0 28px;
+  margin-top: 32px;
+  text-transform: none;
+}
+
+.container {
+  padding-top: 120px;
+}
+.container .pack {
+  display: flex;
+  justify-content: space-between;
+}
+.container .pack .name_pack {
+  margin-top: 27px;
+  margin-bottom: 86px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+  color: black;
+  text-align: start;
+}
+.container .pack button {
+  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+}
+.container .empty_name {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: black;
+  text-align: center;
+  opacity: 0.5;
+}
+.container .empty_box button {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+}
+
+/*# sourceMappingURL=cardStyle.module.css.map */

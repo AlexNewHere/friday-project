@@ -15,7 +15,7 @@
       text-align: start;
     }
     button {
-      @include buttonPage;
+      @extend %buttonPage;
       margin-top: 20px;
       @include fontStyle(500, 16px, 20px, $colorLight);
     }
@@ -30,7 +30,7 @@
 
   .empty_box {
     button {
-      @include buttonPage;
+      @extend %buttonPage;
       @include fontStyle(500, 16px, 20px, $colorLight);
     }
   }

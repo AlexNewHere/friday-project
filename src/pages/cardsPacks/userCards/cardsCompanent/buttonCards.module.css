@@ -1,0 +1,23 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 35px 24px 15px;
+  gap: 20px;
+}
+.body select {
+  padding: 0;
+}
+
+.row_action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.row_action div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*# sourceMappingURL=buttonCards.module.css.map */
