@@ -9,7 +9,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
-import { LogInOutButton } from 'components';
+import { SignInButton } from 'components/headBar/headProfile/SignInButton';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { logOutUserThunk } from 'store';
@@ -95,6 +95,6 @@ export const HeadProfile = (): ReactElement => {
       </Menu>
     </Box>
   ) : (
-    <LogInOutButton />
+    <SignInButton />
   );
 };

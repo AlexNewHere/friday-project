@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import {
   EditableSpan,
   AuthPageWrapper,
-  LogInOutButton,
+  LogOutButton,
   UpdateAvatar,
   BackToNameArrow,
 } from 'components';
@@ -46,7 +46,7 @@ export const ProfilePage = (): ReactElement => {
         >
           {`${userEmail}`}
         </Typography>
-        <LogInOutButton />
+        <LogOutButton />
       </AuthPageWrapper>
     </Container>
   );

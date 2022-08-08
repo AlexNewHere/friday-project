@@ -3,13 +3,11 @@ import React, { ReactElement } from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
-import { NavLink } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
+import { useAppDispatch } from 'hooks/useTypeHooks';
 import { logOutUserThunk } from 'store';
 
-export const LogInOutButton = (): ReactElement => {
-  const isLoggedIn = useAppSelector(state => state.login.isLoggedIn);
+export const LogOutButton = (): ReactElement => {
   const dispatch = useAppDispatch();
 
   const logOutHandle = (): void => {
@@ -31,20 +29,7 @@ export const LogInOutButton = (): ReactElement => {
     },
   });
 
-  const CustomLogInButton = styled(Button)({
-    px: '28px',
-    py: '8px',
-    borderRadius: '30px',
-    textTransform: 'none',
-    background: '#366EFF',
-    fontFamily: "'Montserrat', sans-serif",
-    fontStyle: 'normal',
-    fontWeight: 500,
-    fontSize: '16px',
-    lineHeight: '20px',
-  });
-
-  return isLoggedIn ? (
+  return (
     <CustomLogOutButton
       variant="outlined"
       startIcon={<LogoutIcon />}
@@ -52,9 +37,5 @@ export const LogInOutButton = (): ReactElement => {
     >
       Log out
     </CustomLogOutButton>
-  ) : (
-    <NavLink to="/login" style={{ textDecoration: 'none' }}>
-      <CustomLogInButton variant="contained">Sign in</CustomLogInButton>
-    </NavLink>
   );
 };

@@ -13,10 +13,10 @@ export { PacksListHeader } from 'pages/cardsPacks/packsList/packsListComponent/P
 export { PacksFilter } from 'pages/cardsPacks/packsList/packsListComponent/PacksFilter';
 export { PacksSlider } from 'pages/cardsPacks/packsList/packsListComponent/PacksSlider';
 export { CardsPage } from 'pages/cardsPacks/userCards/CardsPage';
-export { ButtonAddCards } from 'pages/cardsPacks/userCards/cardsCompanent/ButtonAddCards';
+export { ButtonAddCards } from 'pages/cardsPacks/userCards/cardsComponents/ButtonAddCards';
 export { RemoveCardIcon } from 'pages/cardsPacks/userCards/actionCard/removeCardIcon';
 export { EditCardIcon } from 'pages/cardsPacks/userCards/actionCard/editCardIcon';
-export { CardsTable } from 'pages/cardsPacks/userCards/cardsCompanent/CardsTable';
+export { CardsTable } from 'pages/cardsPacks/userCards/cardsComponents/CardsTable';
 export { NewPackPage } from 'pages/cardsPacks/newPack/NewPackPage';
 export { PacksTable } from 'pages/cardsPacks/packsList/PacksTable';
 export { RemoveIcon } from 'pages/cardsPacks/packsList/actionTableComponent/removeIcon';

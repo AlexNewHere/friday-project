@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField';
 import { CardCreateType } from 'api';
 import { ModalWindow } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
-import style from 'pages/cardsPacks/userCards/cardsCompanent/buttonCards.module.scss';
+import style from 'pages/cardsPacks/userCards/cardsComponents/buttonCards.module.scss';
 import { getCardsThunk, editCardsThunk } from 'store';
 
 type PropsType = {
