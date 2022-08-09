@@ -31,7 +31,7 @@ export const AppRoutes = (): ReactElement => (
       <Route element={<UnAuthorizedRedirect />}>
         <Route path={LINK.PROFILE} element={<ProfilePage />} />
         <Route path={LINK.PACKS} element={<PacksListPage />} />
-        <Route path={`${LINK.CARDS}/*`} element={<CardsPage />} />
+        <Route path={`${LINK.CARDS}/:packName/:packId`} element={<CardsPage />} />
         <Route path={LINK.NEWPACK} element={<NewPackPage />} />
       </Route>
       <Route path="*" element={<Navigate replace to={LINK.FOUND404} />} />

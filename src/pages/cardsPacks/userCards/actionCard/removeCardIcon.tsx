@@ -12,16 +12,10 @@ import { getCardsThunk, removeCardsThunk } from 'store';
 type PropsType = {
   cardId: string;
   cardName: string;
-  packName: string;
   packId: string;
 };
 
-export const RemoveCardIcon = ({
-  cardId,
-  cardName,
-  packName,
-  packId,
-}: PropsType): ReactElement => {
+export const RemoveCardIcon = ({ cardId, cardName, packId }: PropsType): ReactElement => {
   const { page, pageCount } = useAppSelector(state => state.cards);
   const [open, setOpen] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -37,7 +31,6 @@ export const RemoveCardIcon = ({
       dispatch(
         getCardsThunk({
           params: { page, pageCount, cardsPack_id: packId },
-          packName,
         }),
       );
     }

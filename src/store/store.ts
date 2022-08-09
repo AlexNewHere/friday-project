@@ -10,7 +10,6 @@ import {
   paramsSlice,
   cardsSlice,
 } from 'store';
-import { cardsParamsSlice } from 'store/features/Cards/card/getCardsParams/cardsParamsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -22,7 +21,6 @@ export const store = configureStore({
     packs: packsSlice.reducer,
     cards: cardsSlice.reducer,
     params: paramsSlice.reducer,
-    cardsParams: cardsParamsSlice.reducer,
   },
 });
 

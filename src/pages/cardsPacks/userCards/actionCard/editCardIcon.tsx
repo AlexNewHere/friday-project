@@ -19,7 +19,6 @@ type PropsType = {
   cardId: string;
   question: string;
   answer: string;
-  packName: string;
   packId: string;
 };
 
@@ -27,7 +26,6 @@ export const EditCardIcon = ({
   cardId,
   answer,
   question,
-  packName,
   packId,
 }: PropsType): ReactElement => {
   const { page, pageCount } = useAppSelector(state => state.cards);
@@ -49,7 +47,6 @@ export const EditCardIcon = ({
       dispatch(
         getCardsThunk({
           params: { page, pageCount, cardsPack_id: packId },
-          packName,
         }),
       );
     }
