@@ -5,16 +5,15 @@ import { AppDispatch, AppRootStateType, changeFetching, setCards } from 'store/i
 import { handleError } from 'untils/handleError';
 
 export const getCardsThunk = createAsyncThunk<
-  boolean | undefined,
-  { params: GetCardType; packName: string },
+  void,
+  { params: GetCardType },
   { dispatch: AppDispatch; state: AppRootStateType }
->('cards/getCardsThunk', async ({ params, packName }, { dispatch }) => {
+>('cards/getCardsThunk', async ({ params }, { dispatch }) => {
   dispatch(changeFetching(true));
   try {
     const res = await cardsAPI.getCards(params);
-    dispatch(setCards({ ...res.data, packName, packId: params.cardsPack_id }));
+    dispatch(setCards({ ...res.data }));
     dispatch(changeFetching(false));
-    return true;
   } catch (e) {
     dispatch(changeFetching(false));
     handleError(e, dispatch);

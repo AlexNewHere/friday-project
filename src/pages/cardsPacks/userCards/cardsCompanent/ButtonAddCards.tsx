@@ -15,11 +15,10 @@ import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { createCardsThunk, getCardsThunk } from 'store';
 
 type PropsType = {
-  packName: string;
   packId: string;
 };
 
-export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement => {
+export const ButtonAddCards = ({ packId }: PropsType): ReactElement => {
   const { page, pageCount } = useAppSelector(state => state.cards);
   const [open, setOpen] = useState<boolean>(false);
   const [select, setSelect] = useState<string>('');
@@ -39,7 +38,6 @@ export const ButtonAddCards = ({ packName, packId }: PropsType): ReactElement =>
       dispatch(
         getCardsThunk({
           params: { page, pageCount, cardsPack_id: packId },
-          packName,
         }),
       );
     }
