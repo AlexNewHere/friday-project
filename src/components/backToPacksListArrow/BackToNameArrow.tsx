@@ -21,7 +21,7 @@ export const BackToNameArrow = ({
     navigate(link);
   };
   return (
-    <Box className={style.text} sx={{ position: 'fixed', zIndex: 2000 }}>
+    <Box className={style.text}>
       <Typography component="p" onClick={onClickHandler}>
         <ArrowBackIcon />
         Back to {name}

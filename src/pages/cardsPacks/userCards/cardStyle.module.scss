@@ -3,17 +3,18 @@
 @import '../../../common/sass/templates';
 
 .container {
-  padding-top: 120px;
 
   .pack {
     display: flex;
     justify-content: space-between;
+
     .name_pack {
       margin-top: 27px;
       margin-bottom: 86px;
       @include fontStyle(600, 22px, 27px, $colorDark);
       text-align: start;
     }
+
     button {
       @extend %buttonPage;
       margin-top: 20px;

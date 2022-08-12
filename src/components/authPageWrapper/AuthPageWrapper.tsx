@@ -7,10 +7,7 @@ import { PaperProps } from '@mui/material/Paper/Paper';
 import style from './AuthPageWrapper.module.scss';
 
 export const AuthPageWrapper = (props: PaperProps): ReactElement => (
-  <Container
-    fixed
-    style={{ display: 'flex', justifyContent: 'center', paddingTop: '120px' }}
-  >
+  <Container fixed style={{ display: 'flex', justifyContent: 'center' }}>
     <Paper className={style.wrapper} elevation={2} {...props} />
   </Container>
 );

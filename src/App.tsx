@@ -27,7 +27,7 @@ const App = (): ReactElement => {
   }
 
   return (
-    <Container fixed disableGutters sx={{ paddingBottom: '100px' }}>
+    <Container fixed disableGutters sx={{ pb: '100px', pt: '120px' }}>
       <ErrorSnackbar />
       <HeadBar />
       <AppRoutes />

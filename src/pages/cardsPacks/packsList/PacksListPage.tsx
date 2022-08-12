@@ -52,7 +52,7 @@ export const PacksListPage = (): ReactElement => {
   };
 
   return (
-    <Container sx={{ paddingTop: '120px' }} disableGutters>
+    <Container disableGutters>
       <PacksListHeader />
       <Grid container spacing={2} sx={{ w: '100%', my: '24px' }} gap={3}>
         <Grid item xs>

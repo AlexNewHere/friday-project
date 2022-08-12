@@ -7,9 +7,6 @@
   text-transform: none;
 }
 
-.container {
-  padding-top: 120px;
-}
 .container .pack {
   display: flex;
   justify-content: space-between;
