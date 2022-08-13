@@ -5,6 +5,8 @@ export { UnAuthorizedRedirect } from 'components/unAuthorizedRedirect/UnAuthoriz
 export { EditableSpan } from 'components/editableSpan/EditableSpan';
 export { usePassVisible } from 'components/usePassVisible/UsePassVisible';
 export { HeadBar } from 'components/headBar/HeadBar';
+export { Developer } from 'components/headBar/headProfile/developers/Developer';
+export { Developers } from 'components/headBar/headProfile/developers/Developers';
 export { HeadProfile } from 'components/headBar/headProfile/HeadProfile';
 export { SignInButton } from 'components/headBar/headProfile/SignInButton';
 export { AppRoutes } from './routes/AppRoutes';

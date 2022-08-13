@@ -2,11 +2,11 @@ import React, { ReactElement, useEffect } from 'react';
 
 import Container from '@mui/material/Container';
 
-import s from './App.module.css';
+// import s from './App.module.css';
 
 import {
   HeadBar,
-  NavBar,
+  // NavBar,
   AppRoutes,
   CircularInitialized,
   ErrorSnackbar,
@@ -31,9 +31,9 @@ const App = (): ReactElement => {
       <ErrorSnackbar />
       <HeadBar />
       <AppRoutes />
-      <div className={s.App}>
-        <NavBar />
-      </div>
+      {/* <div className={s.App}> */}
+      {/*   <NavBar /> */}
+      {/* </div> */}
     </Container>
   );
 };
