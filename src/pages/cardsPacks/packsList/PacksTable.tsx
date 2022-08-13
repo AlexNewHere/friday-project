@@ -44,7 +44,7 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
           <TableHead sx={{ background: '#EFEFEF' }}>
             <TableRow>
               <TableCell sx={{ width: '40%' }}>Name</TableCell>
-              <TableCell sx={{ width: '15%' }} align="left">
+              <TableCell sx={{ width: '7%' }} align="left">
                 Cards
               </TableCell>
               <TableCell align="left">
@@ -72,6 +72,11 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
                     onClick={() => handleOpenPack(pack._id, pack.name)}
                     sx={{
                       cursor: 'pointer',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
                       width: 'fit-content',
                       '&:hover': { backgroundColor: '#e2f1ee' },
                     }}
@@ -89,6 +94,7 @@ export const PacksTable = ({ sortPacks, callback }: PropsType): ReactElement => 
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
+                      justifyContent: 'space-between',
                     }}
                   >
                     <RemoveIcon

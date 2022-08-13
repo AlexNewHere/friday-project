@@ -42,9 +42,31 @@ export const CardsTable = (): ReactElement => {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {card.question}
+                <Box
+                  sx={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {card.question}
+                </Box>
               </TableCell>
-              <TableCell align="left">{card.answer}</TableCell>
+              <TableCell align="left">
+                <Box
+                  sx={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {card.answer}
+                </Box>
+              </TableCell>
               <TableCell align="left">
                 {card.updated.split('T')[0].split('-').reverse().join('.')}
               </TableCell>
