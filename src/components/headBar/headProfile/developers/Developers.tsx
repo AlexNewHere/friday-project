@@ -14,7 +14,7 @@ export const Developers = (): ReactElement => (
       linkedin="https://www.linkedin.com/in/alexboiko/"
     />
     <Developer
-      name="Anton Rybakou"
+      name="Anton Rybakov"
       avatar="https://github.com/ToshaBY.png"
       github="https://github.com/ToshaBY"
       linkedin="https://www.linkedin.com/in/antonrybakov/"

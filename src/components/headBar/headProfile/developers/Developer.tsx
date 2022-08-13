@@ -70,7 +70,26 @@ export const Developer = React.memo(
           transformOrigin={{ horizontal: 'left', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
         >
-          <MenuItem sx={{ fontFamily: 'Montserrat, sans-serif' }}>{name}</MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose();
+            }}
+          >
+            <Link
+              href={linkedin}
+              target="_blank"
+              sx={{
+                fontFamily: 'Montserrat, sans-serif',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textDecoration: 'none',
+              }}
+            >
+              <LinkedInIcon sx={{ mr: '10px' }} />
+              {name}
+            </Link>
+          </MenuItem>
           <MenuItem
             onClick={() => {
               handleClose();
@@ -90,22 +109,6 @@ export const Developer = React.memo(
             >
               <GitHubIcon sx={{ mr: '10px' }} />
               GitHub
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              href={linkedin}
-              target="_blank"
-              sx={{
-                fontFamily: 'Montserrat, sans-serif',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                textDecoration: 'none',
-              }}
-            >
-              <LinkedInIcon sx={{ mr: '10px' }} />
-              LinkedIn
             </Link>
           </MenuItem>
         </Menu>
