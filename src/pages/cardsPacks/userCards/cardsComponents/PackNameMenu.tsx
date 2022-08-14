@@ -3,6 +3,7 @@ import React, { MouseEvent, ReactElement } from 'react';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -47,7 +48,7 @@ export const PackNameMenu = (): ReactElement => {
               display: 'block',
               position: 'absolute',
               top: 0,
-              right: 23,
+              right: 54,
               width: 10,
               height: 10,
               bgcolor: 'background.paper',
@@ -61,14 +62,44 @@ export const PackNameMenu = (): ReactElement => {
       >
         <MenuItem onClick={handleClose}>
           {/* editIcon.tsx */}
-          <DriveFileRenameOutlineIcon />
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              fontFamily: 'Montserrat, sans-serif',
+            }}
+          >
+            <DriveFileRenameOutlineIcon />
+            Edit
+          </Box>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           {/* removeIcon.tsx */}
-          <DeleteForeverOutlinedIcon />
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              fontFamily: 'Montserrat, sans-serif',
+            }}
+          >
+            <DeleteForeverOutlinedIcon />
+            Delete
+          </Box>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <SchoolOutlinedIcon />
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              fontFamily: 'Montserrat, sans-serif',
+            }}
+          >
+            <SchoolOutlinedIcon />
+            Learn
+          </Box>
         </MenuItem>
       </Menu>
     </>
