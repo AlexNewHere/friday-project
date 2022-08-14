@@ -1,20 +1,19 @@
 import { ReactElement, useEffect, useState } from 'react';
 import * as React from 'react';
 
-import { SvgIcon } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 
+import { PackNameMenu } from './cardsComponents/PackNameMenu';
+import style from './CardsPage.module.scss';
+
 import { GetCardType } from 'api';
-// import menuIcon from 'assets/images/menuIcon.svg';
-import { ReactComponent as MenuIcon } from 'assets/images/menuIcon.svg';
 import { BackToNameArrow, PaginationRow } from 'components';
 import { LINK } from 'enums';
 import { useAppDispatch, useAppSelector } from 'hooks/useTypeHooks';
 import { ButtonAddCards, CardsTable } from 'pages';
-import style from 'pages/cardsPacks/userCards/CardsPage.module.scss';
 import { getCardsThunk, setInitialCards } from 'store';
 
 export const CardsPage = (): ReactElement => {
@@ -50,9 +49,7 @@ export const CardsPage = (): ReactElement => {
       <Box className={style.pack}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography className={style.name_pack}>{packName}</Typography>
-          <SvgIcon>
-            <MenuIcon />
-          </SvgIcon>
+          <PackNameMenu />
         </Box>
         {packUserId !== userId ||
           (cardsTotalCount >= 1 && <ButtonAddCards packId={packIdCurrent} />)}

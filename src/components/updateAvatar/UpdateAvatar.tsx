@@ -41,6 +41,7 @@ export const UpdateAvatar = ({ avatar }: { avatar: string }): ReactElement => {
           aria-label="upload picture"
           component="label"
           onClick={handleUpload}
+          sx={{ ml: '40px' }}
         >
           <input
             disabled={!!upload}
