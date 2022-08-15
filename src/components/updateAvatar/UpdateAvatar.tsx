@@ -14,6 +14,7 @@ export const UpdateAvatar = ({ avatar }: { avatar: string }): ReactElement => {
   const name = useAppSelector(state => state.login.name);
   const dispatch = useAppDispatch();
   const [upload, setUpload] = useState<string | ArrayBuffer | null>(null);
+
   const photoUpload = (e: ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     const reader = new FileReader();
@@ -25,12 +26,14 @@ export const UpdateAvatar = ({ avatar }: { avatar: string }): ReactElement => {
       reader.readAsDataURL(file);
     }
   };
+
   const handleUpload = async (): Promise<void> => {
     if (upload !== null) {
       await dispatch(updateProfileThunk({ name, avatar: upload }));
     }
     setUpload(null);
   };
+
   return (
     <Badge
       overlap="circular"

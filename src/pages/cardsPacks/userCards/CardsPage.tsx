@@ -23,6 +23,8 @@ export const CardsPage = (): ReactElement => {
   const page = useAppSelector(state => state.cards.page);
   const pageCount = useAppSelector(state => state.cards.pageCount);
   const { packId, packName } = useParams();
+  const dispatch = useAppDispatch();
+
   const packIdCurrent = packId !== undefined ? packId : '';
 
   const [allParams, setAllParams] = useState<GetCardType>({
@@ -30,7 +32,6 @@ export const CardsPage = (): ReactElement => {
     pageCount,
     cardsPack_id: packIdCurrent,
   });
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getCardsThunk({ params: { ...allParams } }));
@@ -46,16 +47,16 @@ export const CardsPage = (): ReactElement => {
   return (
     <Container className={style.container}>
       <BackToNameArrow name="Packs List" link={LINK.PACKS} />
-      <Box className={style.pack}>
+      <div className={style.pack}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography className={style.name_pack}>{packName}</Typography>
           <PackNameMenu />
         </Box>
         {packUserId !== userId ||
           (cardsTotalCount >= 1 && <ButtonAddCards packId={packIdCurrent} />)}
-      </Box>
+      </div>
       {packUserId !== userId || cardsTotalCount >= 1 ? (
-        <Box>
+        <div>
           <CardsTable />
           <PaginationRow
             page={allParams.page}
@@ -63,16 +64,16 @@ export const CardsPage = (): ReactElement => {
             count={cardsTotalCount}
             callback={handlePagination}
           />
-        </Box>
+        </div>
       ) : (
-        <Box className={style.empty_box}>
+        <div className={style.empty_box}>
           <Typography className={style.empty_name}>
             This pack is empty. Click add new card to fill this pack
           </Typography>
           <Typography align="center">
             <ButtonAddCards packId={packIdCurrent} />
           </Typography>
-        </Box>
+        </div>
       )}
     </Container>
   );
