@@ -23,7 +23,7 @@ export const Developers = (): ReactElement => (
       name="Evgeny Sychev"
       avatar="https://github.com/EvgenySychev.png"
       github="https://github.com/EvgenySychev"
-      linkedin="https://www.linkedin.com/"
+      linkedin="https://www.linkedin.com/in/evgeny-sychev-699a86248/"
     />
   </Box>
 );

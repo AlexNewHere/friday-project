@@ -4,7 +4,7 @@
 
 - Alexei Boiko: [GitHub](https://github.com/AlexNewHere) [LinkedIn](https://www.linkedin.com/in/alexboiko/)
 - Anton Rybakou: [GitHub](https://github.com/ToshaBY) [LinkedIn](https://www.linkedin.com/in/antonrybakov/)
-- Evgeny Sychev: [GitHub](https://github.com/EvgenySychev) [LinkedIn](https://www.linkedin.com)
+- Evgeny Sychev: [GitHub](https://github.com/EvgenySychev) [LinkedIn](https://www.linkedin.com/in/evgeny-sychev-699a86248/)
 
 ### Project:
 
